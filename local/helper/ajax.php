@@ -13,7 +13,8 @@ if (!class_exists('ZtonepageHelperAjax'))
 
         public static function getCart()
         {
-            return 'xxx';
+            $ajax= ZtAjax::getInstance();
+            $ajax->add('xxx');          
         }
 
     }
