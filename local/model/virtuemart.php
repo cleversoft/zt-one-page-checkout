@@ -67,7 +67,7 @@ if (!class_exists('ZtonepageModelVirtuemart')) {
         /**
          * @return Array shipment objects
          */
-        public function getShipment()
+        public function getShipments()
         {
             $shipmentModel = VmModel::getModel('shipmentmethod');
             return $shipmentModel->getShipments();
@@ -77,18 +77,19 @@ if (!class_exists('ZtonepageModelVirtuemart')) {
         /**
          * @return Array payment objects
          */
-        public function getPayment()
+        public function getPayments()
         {
             $paymentModel = VmModel::getModel('paymentmethod');
             return $paymentModel->getPayments();
         }
 
         /**
-         * @return String Coupon
+         * @return Array Coupon objects
          */
-        public function getCoupon()
+        public function getCoupons()
         {
-            return $this->cart->couponCode;
+            $couponModel = VmModel::getModel('coupon');
+            return $couponModel->getCoupons();
         }
 
         public function getShoppingCart()
