@@ -18,11 +18,6 @@ if (!class_exists('ZtonepageModelVirtuemart')) {
             if (!class_exists('VirtueMartCart'))
                 require(VMPATH_SITE . '/helpers/cart.php');
 
-            if (!class_exists('CurrencyDisplay'))
-                require(VMPATH_ADMIN . '/helpers/currencydisplay.php');
-
-            VmConfig::loadConfig();
-            //$currencyDisplay = CurrencyDisplay::getInstance( );
             $this->cart = VirtueMartCart::getCart();
         }
 
@@ -40,20 +35,28 @@ if (!class_exists('ZtonepageModelVirtuemart')) {
             return $instance;
         }
 
+        /**
+         * @return Array of product in cart
+         */
         public function getCart()
         {
-
-            $data = $this->cart->prepareAjaxData();
-            return $data->products;
+            $this->cart->prepareAjaxData();
+            return $this->cart->products;
         }
 
+        /**
+         * @return Array of bill to address
+         */
         public function getBillTo()
         {
             $this->cart->_fromCart = true;
-            $this->cart->setCartIntoSession();
+            $this->cart->prepareAjaxData();
             return isset($this->cart->BTaddress) ? $this->cart->BTaddress : $this->_getBilltoAddressDefault();
         }
 
+        /**
+         * @return Array of ship to address
+         */
         public function getShipto()
         {
             $this->cart->_fromCart = true;
@@ -61,16 +64,28 @@ if (!class_exists('ZtonepageModelVirtuemart')) {
             return isset($this->cart->STaddress) ? $this->cart->STaddress : $this->_getShiptoAddressDefault();
         }
 
+        /**
+         * @return Array shipment objects
+         */
         public function getShipment()
         {
+            $shipmentModel = VmModel::getModel('shipmentmethod');
+            return $shipmentModel->getShipments();
 
         }
 
+        /**
+         * @return Array payment objects
+         */
         public function getPayment()
         {
-
+            $paymentModel = VmModel::getModel('paymentmethod');
+            return $paymentModel->getPayments();
         }
 
+        /**
+         * @return String Coupon
+         */
         public function getCoupon()
         {
             return $this->cart->couponCode;
