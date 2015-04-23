@@ -18,6 +18,7 @@ if (!class_exists('ZtonepageModelVirtuemart')) {
             if (!class_exists('VirtueMartCart'))
                 require(VMPATH_SITE . '/helpers/cart.php');
 
+            VmConfig::loadConfig();
             $this->cart = VirtueMartCart::getCart();
         }
 
