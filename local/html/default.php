@@ -52,6 +52,16 @@ $class = 'zt-opc-';
 <div id="<?php echo $class; ?>plugin">
     <div class="container">
         <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <?php require_once "guest.php"; ?>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <?php require_once "user.php"; ?>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
             <div class="col-sm-4 col-md-4">
                 <?php require_once "billto.php"; ?>
             </div>

@@ -17,7 +17,7 @@ $class = 'zt-opc-purchase';
         <form action="#" name="<?php echo $class; ?>-form" id="<?php echo $class; ?>-form" method="post">
             <div class="customer-comment-group">
                 <label class="comment" for="<?php echo $class; ?>-field">Notes and special requests</label>
-                <textarea class="customer-comment inputbox" rows="3" cols="60" name="customer_note" id="<?php echo $class; ?>-field"></textarea>
+                <textarea class="customer-comment inputbox" rows="3" cols="60" name="customer_note" id="<?php echo $class; ?>-field"></textarea>				
             </div>
             <div class="cart-tos-group">
                 <label class="checkbox <?php echo $class; ?>-tos-label <?php echo $class; ?>-row" for="tos">
