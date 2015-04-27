@@ -26,13 +26,13 @@ $class = 'zt-opc-cart';
                         <a href="#">Lorem ipsum dolor sit amet</a>
                         <div class="<?php echo $class; ?>-p-price">
                             <span>Price: </span>
-                            <span class="PricediscountedPriceWithoutTax nowrap">250,00 €</span>
+                            <span class="price-discounted price-without-tax nowrap">250,00 €</span>
                         </div>
                         <div class="<?php echo $class; ?>-p-sku">SKU: 001</div>
                     </td>
                     <td align="center" class="col-qty">1</td>
                     <td align="right" colspan="1" class="col-total nowrap">
-                        <div class="PricesalesPrice vm-display vm-price-value"><span class="vm-price-desc"></span><span class="PricesalesPrice">250,00 €</span></div>
+                        <div class="price-sales vm-display vm-price-value"><span class="vm-price-desc"></span><span>250,00 €</span></div>
                     </td>
                 </tr>
                 <tr class="<?php echo $class; ?>-product-hover soft-hide" id="<?php echo $class; ?>-product-details1"  style="opacity: 0; top: 0px; display: none;">
@@ -68,14 +68,14 @@ $class = 'zt-opc-cart';
                                 <tr class="add-padding add-padding-top">
                                     <td width="35%">Price</td>
                                     <td width="65%" align="right" class="col-price nowrap">
-                                        <span class="PricediscountedPriceWithoutTax">250,00 €</span>
+                                        <span class="price-discounted price-without-tax">250,00 €</span>
                                     </td>
                                 </tr>
                                 <tr class="add-padding add-padding-bottom">
                                     <td width="35%">Total</td>
                                     <td width="65%" align="right" class="col-total-price nowrap">
-                                        <div class="PricesalesPrice vm-display vm-price-value"><span
-                                                class="vm-price-desc"></span><span class="PricesalesPrice">250,00 €</span>
+                                        <div class="price-sales vm-display vm-price-value"><span
+                                                class="vm-price-desc"></span><span>250,00 €</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -92,7 +92,7 @@ $class = 'zt-opc-cart';
                 <tr class="<?php echo $class; ?>-cart-sub-total">
                     <td align="left" colspan="2" class="sub-headings">Product prices result</td>
                     <td align="right" class="col-total">
-                        <div class="PricesalesPrice vm-display vm-price-value"><span class="vm-price-desc"></span><span class="PricesalesPrice">500,00 €</span></div>
+                        <div class="price-sales vm-display vm-price-value"><span class="vm-price-desc"></span><span>500,00 €</span></div>
                     </td>
                 </tr>
             </tbody>
@@ -121,7 +121,7 @@ $class = 'zt-opc-cart';
                 <tr class="grand-total">
                     <td align="left" colspan="2" class="sub-headings">Total</td>
                     <td align="right" class="col-total nowrap">
-                        <div class="PricebillTotal vm-display vm-price-value"><span class="vm-price-desc"></span><span class="PricebillTotal">500,00 €</span></div>
+                        <div class="price-bill-total vm-display vm-price-value"><span class="vm-price-desc"></span><span>500,00 €</span></div>
                     </td>
                 </tr>
             </tbody>

@@ -27,7 +27,7 @@ $class = 'zt-opc-guest';
                         </div>
                         <div class="<?php echo $class; ?>-input <?php echo $class; ?>-input-append">
                             <input type="text" maxlength="100" class="required" value="" size="30" name="email"
-                                   id="<?php echo $class; ?>-email" style="width: 279px;"> <i class="status hover-tootip"></i>
+                                   id="<?php echo $class; ?>-email" style="width: 279px;">
                         </div>
                     </div>
                     <div class="<?php echo $class; ?>-login-inputs">

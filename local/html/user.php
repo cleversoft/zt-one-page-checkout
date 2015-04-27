@@ -10,7 +10,7 @@ $class = 'zt-opc-user';
     <h3 class="<?php echo $class; ?>-title zt-opc-title">Login And Checkout</h3>
     <div class="inner-wrap">
         <h4 class="<?php echo $class; ?>-subtitle">Already registered? Then login here:</h4>
-        <form autocomplete="off" id="UserLogin" name="<?php echo $class; ?>-login">
+        <form autocomplete="off" id="<?php echo $class; ?>-login" name="<?php echo $class; ?>-login">
             <div class="form-group">
                 <div class="<?php echo $class; ?>-input-group-level">
                     <label for="<?php echo $class; ?>-username" class="full-input">Username / Email</label>
