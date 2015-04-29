@@ -1,11 +1,42 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Apr 20, 2015, 2:08:41 PM
-    Author     : Viet
-*/
-
-
+.zt-opc-element {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+.zt-opc-element .inner-wrap{
+    padding: 10px;
+}
+.zt-opc-title{
+    background-color: #fafafa;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 15px;
+    margin-bottom: 0;
+}
+.zt-opc-step{
+    background-color: #000;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 7px;
+    text-align: center;
+    vertical-align: 1px;
+    width: 18px;
+}
+.zt-opc-element .form-group{
+    margin-bottom: 5px;
+}
+.zt-opc-element .form-group label{
+    display: block;
+}
+.zt-opc-element .form-group input[type="text"],
+.zt-opc-element .form-group input[type="tel"],
+.zt-opc-element .form-group input[type="password"],
+.zt-opc-element .form-group input[type="email"],
+.zt-opc-element .form-group select{
+    width: 100%;
+}

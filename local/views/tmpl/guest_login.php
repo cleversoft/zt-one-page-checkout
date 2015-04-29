@@ -1,11 +1,6 @@
 <?php
-/**
- *
- */
-
-$class = 'zt-opc-user';
+$class = 'zt-opc-';
 ?>
-
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
     <h3 class="<?php echo $class; ?>-title zt-opc-title">Login And Checkout</h3>
     <div class="inner-wrap">
@@ -30,7 +25,7 @@ $class = 'zt-opc-user';
             <div class="form-group">
                 <div class="<?php echo $class; ?>-input <?php echo $class; ?>-input-append">
                     <label class="<?php echo $class; ?>-checkbox inline" for="<?php echo $class; ?>-remember">
-                    <input type="checkbox" alt="Remember me" value="yes" class="inputbox" name="remember" id="<?php echo $class; ?>-remember">Remember me</label>
+                        <input type="checkbox" alt="Remember me" value="yes" class="inputbox" name="remember" id="<?php echo $class; ?>-remember">Remember me</label>
                 </div>
             </div>
             <div class="<?php echo $class; ?>-login-inputs">

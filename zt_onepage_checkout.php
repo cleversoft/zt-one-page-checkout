@@ -17,24 +17,15 @@ if (!class_exists('plgSystemZt_onepage_checkout'))
     class plgSystemZt_onepage_checkout extends JPlugin
     {
 
-        public function onAfterDispatch()
+        public function onAfterRoute()
         {
             require_once JPATH_ROOT . '/plugins/system/zt/framework/bootstrap.php';
             ZtFramework::registerExtension('plugin.system.zt_onepage_checkout', 'Ztonepage');
-            ZtonepageFactory::isLogged();
-            if (JFactory::getApplication()->input->get('zt_debug'))
+            if (ZtonepageHelperVirtuemart::isCartpage())
             {
-                $this->_debugMode();
+                ZtonepageHelperVirtuemart::initVirtueMart();
+                ZtonepageHelperVirtuemart::overrideView();
             }
-        }
-
-        private function _debugMode()
-        {
-            $html = new ZtHtml();
-            $input = JFactory::getApplication()->input;
-            $assets = ZtAssets::getInstance();
-            $assets->addStyleSheet('Ztonepage://assets/css/style.css');
-            echo $html->fetch('Ztonepage://html/' . $input->get('layout', 'default') . '.php');
         }
 
     }

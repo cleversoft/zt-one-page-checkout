@@ -1,16 +1,13 @@
 <?php
-/**
- *
- */
-
-$class = 'zt-opc-guest';
+$class = 'zt-opc-';
 ?>
-
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
+    <!-- Title -->
     <h3 class="<?php echo $class; ?>-title zt-opc-title">
         Checkout as Guest or Register
     </h3>
     <div class="inner-wrap">
+        <!-- Guest checkout -->
         <h4 class="<?php echo $class; ?>-subtitle">Register with us for future convenience:</h4>
         <label class="<?php echo $class; ?>-switch">
             <input type="radio" autocomplete="off" checked="checked" value="guest" name="<?php echo $class; ?>-method">
@@ -40,6 +37,7 @@ $class = 'zt-opc-guest';
                 </form>
             </div>
         </div>
+        <!-- Register form -->
         <label class="<?php echo $class; ?>-switch">
             <input type="radio" autocomplete="off" value="register" name="<?php echo $class; ?>-method">
             Register
