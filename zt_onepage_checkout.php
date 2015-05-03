@@ -20,7 +20,7 @@ if (!class_exists('plgSystemZt_onepage_checkout'))
         public function onAfterRoute()
         {
             require_once JPATH_ROOT . '/plugins/system/zt/framework/bootstrap.php';
-            ZtFramework::registerExtension('plugin.system.zt_onepage_checkout', 'Ztonepage');
+            ZtFramework::registerExtension('plugins.system.zt_onepage_checkout', 'Ztonepage');
             if (ZtonepageHelperVirtuemart::isCartpage())
             {
                 ZtonepageHelperVirtuemart::initVirtueMart();
