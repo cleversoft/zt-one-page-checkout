@@ -5,16 +5,20 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-if (!class_exists('ZtonepageHelperAjax'))
-{
+if (!class_exists('ZtonepageHelperAjax')) {
 
-    class ZtonepageHelperAjax
-    {
+    class ZtonepageHelperAjax {
 
-        public static function getCart()
-        {
-            $ajax= ZtAjax::getInstance();
-            $ajax->add('xxx');          
+        public static function userLogin() {
+            $input = JFactory::getApplication()->input;
+            $username = $input->get('username');
+            $password = $input->get('password');
+            if (ZtHelperJoomlaUser::login($username, $password)) {
+                $ajax = ZtAjax::getInstance();
+                $ajax->addExecute('alert("x")');
+            } else {
+                
+            }
         }
 
     }
