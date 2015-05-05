@@ -21,7 +21,7 @@
     var _onepagecheckout = {
         /* Local settings */
         _settings: {},
-        _init: {},
+        _init: function(){},
         login: function(username,password) {
             z.ajax.request({
                 data: {
@@ -36,8 +36,8 @@
     };
 
     /* Append to Zt JS Framework */
-    z.ajax = _ajax;
-    z.ajax._init();
+    z.onepagecheckout = _onepagecheckout;
+    z.onepagecheckout._init();
     
 })(window, zt, zt.$);
 
