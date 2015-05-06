@@ -15,9 +15,9 @@ if (!class_exists('ZtonepageHelperAjax')) {
             $password = $input->get('password');
             if (ZtHelperJoomlaUser::login($username, $password)) {
                 $ajax = ZtAjax::getInstance();
-                $ajax->addExecute('alert("x")');
+                $ajax->addExecute('alert("Login successful !.");');
             } else {
-                
+                $ajax->addExecute('alert("Login fail !.");');
             }
         }
 

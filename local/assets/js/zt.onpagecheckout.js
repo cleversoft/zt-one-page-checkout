@@ -20,18 +20,21 @@
     /* Local onpagecheckout class */
     var _onepagecheckout = {
         /* Local settings */
-        _settings: {},
+        _settings: {
+            namespace: 'Ztonepage'
+        },
         _init: function(){},
         login: function(username,password) {
+            var self = this;
             z.ajax.request({
                 data: {
                     zt_cmd: 'ajax.execute',
-                    zt_namespace: 'Ztonepage',
+                    zt_namespace: self._settings.namespace,
                     zt_task: 'userLogin',
-                    username: 'admin',
-                    password: 'admin'
+                    username: username,
+                    password: password
                 }
-            })
+            });
         }
     };
 
@@ -40,15 +43,3 @@
     z.onepagecheckout._init();
     
 })(window, zt, zt.$);
-
-function login (username,password) {
-            zt.ajax.request({
-                data: {
-                    zt_cmd: 'ajax.execute',
-                    zt_namespace: 'Ztonepage',
-                    zt_task: 'userLogin',
-                    username: 'admin',
-                    password: 'admin'
-                }
-            })
-        }
