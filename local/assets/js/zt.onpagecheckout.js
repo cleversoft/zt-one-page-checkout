@@ -21,7 +21,8 @@
     var _onepagecheckout = {
         /* Local settings */
         _settings: {
-            namespace: 'Ztonepage'
+            namespace: 'Ztonepage',
+            option: "com_virtuemart"
         },
         _init: function(){
             var self = this;
@@ -29,9 +30,11 @@
             $(w.document).ready(function(){
                 z.ajax.formHook('#zt-opc-login', {
                     data: {
-                        zt_cmd: 'ajax.execute',
+                        zt_cmd: "ajax",
                         zt_namespace: self._settings.namespace,
-                        zt_task: 'userLogin'
+                        option: self._settings.option,
+                        zt_task: "userLogin",
+                        view: "cart"
                     }
                 }); 
             });
