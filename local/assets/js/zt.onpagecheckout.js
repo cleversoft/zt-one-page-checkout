@@ -23,15 +23,17 @@
         _settings: {
             namespace: 'Ztonepage'
         },
-        _init: function(){},
-        login: function() {
+        _init: function(){
             var self = this;
-            z.ajax.formRequest('#zt-opc-login', {
-                data: {
-                    zt_cmd: 'ajax.execute',
-                    zt_namespace: self._settings.namespace,
-                    zt_task: 'userLogin'
-                }
+            /* Hook login form */
+            $(w.document).ready(function(){
+                z.ajax.formHook('#zt-opc-login', {
+                    data: {
+                        zt_cmd: 'ajax.execute',
+                        zt_namespace: self._settings.namespace,
+                        zt_task: 'userLogin'
+                    }
+                }); 
             });
         }
     };
