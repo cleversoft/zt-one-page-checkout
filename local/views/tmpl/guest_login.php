@@ -1,5 +1,5 @@
 <?php
-$class = 'zt-opc-';
+$class = 'zt-opc';
 ?>
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
     <h3 class="<?php echo $class; ?>-title zt-opc-title">Login And Checkout</h3>
