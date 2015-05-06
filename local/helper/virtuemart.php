@@ -107,7 +107,13 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
         {
             $input = JFactory::getApplication()->input;
             $view = $input->get('view');
-            ZtFramework::import('Ztonepage://views/' . $view . '.html.php');
+            if (ZtFramework::isAjax())
+            {
+                ZtFramework::import('Ztonepage://views/' . $view . '.json.php');
+            } else
+            {
+                ZtFramework::import('Ztonepage://views/' . $view . '.html.php');
+            }
         }
 
     }
