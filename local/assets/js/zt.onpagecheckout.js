@@ -24,15 +24,13 @@
             namespace: 'Ztonepage'
         },
         _init: function(){},
-        login: function(username,password) {
+        login: function() {
             var self = this;
-            z.ajax.request({
+            z.ajax.formRequest('#zt-opc-login', {
                 data: {
                     zt_cmd: 'ajax.execute',
                     zt_namespace: self._settings.namespace,
-                    zt_task: 'userLogin',
-                    username: username,
-                    password: password
+                    zt_task: 'userLogin'
                 }
             });
         }
