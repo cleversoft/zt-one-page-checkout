@@ -18,8 +18,7 @@ if (!class_exists('ZtonepageHelperAjax'))
             $password = $input->get('password');
             if (ZtHelperJoomlaUser::login($username, $password))
             {
-                $ajax = ZtAjax::getInstance();
-                $ajax->addExecute('alert("Login successful !.");');
+                self::display();
             } else
             {
                 $ajax->addExecute('alert("Login fail !.");');
@@ -28,10 +27,11 @@ if (!class_exists('ZtonepageHelperAjax'))
 
         public static function display()
         {
-            ZtonepageHelperVirtuemart::initVirtueMart();
-            ZtFramework::import('Ztonepage://views/cart.html.php');
             $view = new VirtueMartViewCart();
-            return $view->display();
+            $html = $view->display();
+            $ajax = ZtAjax::getInstance();
+            $ajax->addHtml($html, '#zt-opc-plugin');
+            $ajax->response();
         }
 
     }
