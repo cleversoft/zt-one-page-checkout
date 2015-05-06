@@ -5,24 +5,19 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
-if (!class_exists('ZtonepageHelperVirtuemart'))
-{
+if (!class_exists('ZtonepageHelperVirtuemart')) {
 
-    class ZtonepageHelperVirtuemart
-    {
+    class ZtonepageHelperVirtuemart {
 
-        public static function isCartpage()
-        {
+        public static function isCartpage() {
             $input = JFactory::getApplication()->input;
-            if ($input->get('option') == 'com_virtuemart' && $input->get('view') == 'cart')
-            {
+            if ($input->get('option') == 'com_virtuemart' && $input->get('view') == 'cart') {
                 return true;
             }
             return false;
         }
 
-        public static function initVirtueMart()
-        {
+        public static function initVirtueMart() {
             /* Require the config */
             defined('DS') or define('DS', DIRECTORY_SEPARATOR);
             if (!class_exists('VmConfig'))
@@ -52,16 +47,14 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
                 $session->set('manage', 0, 'vm');
 
             $feViews = array('askquestion', 'cart', 'invoice', 'pdf', 'pluginresponse', 'productdetails', 'recommend', 'vendor', 'vmplg');
-            if ($manage and ! in_array($_controller, $feViews))
-            {
+            if ($manage and ! in_array($_controller, $feViews)) {
 
                 $app = JFactory::getApplication();
 
                 $user = JFactory::getUser();
                 $vendorIdUser = VmConfig::isSuperVendor();
 
-                if ($vendorIdUser)
-                {
+                if ($vendorIdUser) {
                     VmConfig::loadJLang('com_virtuemart');
                     $jlang = JFactory::getLanguage();
                     $tag = $jlang->getTag();
@@ -81,18 +74,15 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
                     $app = JFactory::getApplication();
                     $router = $app->getRouter();
                     $router->setMode(0);
-                } else
-                {
+                } else {
                     $session->set('manage', 0, 'vm');
                     vRequest::setVar('manage', 0);
                     $basePath = VMPATH_SITE;
                     $app->redirect('index.php?option=com_virtuemart', vmText::_('COM_VIRTUEMART_RESTRICTED_ACCESS'));
                 }
                 vRequest::setVar('tmpl', 'component');
-            } elseif ($_controller)
-            {
-                if ($_controller != 'productdetails')
-                {
+            } elseif ($_controller) {
+                if ($_controller != 'productdetails') {
                     $session->set('manage', 0, 'vm');
                     vRequest::setVar('manage', '0');
                 }
@@ -103,11 +93,14 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
             }
         }
 
-        public static function overrideView()
-        {
+        public static function overrideView() {
             $input = JFactory::getApplication()->input;
             $view = $input->get('view');
-            ZtFramework::import('Ztonepage://views/' . $view . '.html.php');
+            if (ZtFramework::isAjax()) {
+                ZtFramework::import('Ztonepage://views/' . $view . '.json.php');
+            } else {
+                ZtFramework::import('Ztonepage://views/' . $view . '.html.php');
+            }
         }
 
     }
