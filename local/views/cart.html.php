@@ -52,6 +52,8 @@ class VirtueMartViewCart extends VmView
         $pathway = $app->getPathway();
         $document = JFactory::getDocument();
         $document->setMetaData('robots', 'NOINDEX, NOFOLLOW, NOARCHIVE, NOSNIPPET');
+        /* Add onpagecheckout javascript */
+        $document->addScript(ZtPath::getInstance()->getUrl('Ztonepage://assets/js/zt.onpagecheckout.js'));
 
         $this->layoutName = $this->getLayout();
         if (!$this->layoutName)
@@ -88,7 +90,7 @@ class VirtueMartViewCart extends VmView
             $this->cart->prepareCartData();
 
             $this->lSelectPayment();
-
+            
             $pathway->addItem(vmText::_('COM_VIRTUEMART_CART_OVERVIEW'), JRoute::_('index.php?option=com_virtuemart&view=cart', FALSE));
             $pathway->addItem(vmText::_('COM_VIRTUEMART_CART_SELECTPAYMENT'));
             $document->setTitle(vmText::_('COM_VIRTUEMART_CART_SELECTPAYMENT'));
