@@ -26,10 +26,10 @@ $class = 'zt-opc-billto';
                             <?php echo $bill['formcode']; ?>
                         </div>
                     </div>
-                <?php endforeach; ?>               
-            </form>            
-            <button type="button" class="btn btn-primary btn-small">Save</button>
-            <button type="button" class="btn btn-danger btn-small">Cancel</button>
+                <?php endforeach; ?>
+                <button type="submit" class="btn btn-primary btn-small">Save</button>
+                <button type="button" class="btn btn-danger btn-small">Cancel</button>
+            </form>
         </div>
     </div>
 </div>

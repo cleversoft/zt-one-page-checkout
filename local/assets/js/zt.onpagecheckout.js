@@ -28,6 +28,7 @@
             $(w.document).ready(function () {
                 self._rebind();
             });
+            self.ajax._parent = self;
         },
         /* Local ajax */
         ajax: {
@@ -40,13 +41,15 @@
                     format: "json"
                 }
             },
-            formHook: function (selector, data, callback) {
+            formHook: function (selector, data) {
                 var self = this;
                 var data = (typeof (data) === 'undefined') ? {} : data;
                 var buffer = {};
                 $.extend(true, buffer, self._settings);
                 $.extend(true, buffer, data);
-                z.ajax.formHook(selector, buffer, true, callback);
+                z.ajax.formHook(selector, buffer, true, function(){
+                    self._parent._rebind();
+                });
             }
         },
         /**
@@ -59,7 +62,7 @@
                 data: {
                     zt_task: "userLogin"
                 }
-            }, self._rebind);
+            });
         },
         /**
          * Request Joomla user register
@@ -71,7 +74,7 @@
                 data: {
                     zt_task: "userRegister"
                 }
-            }, self._rebind);
+            });
         },
         /**
          * Update bill to function
@@ -83,8 +86,12 @@
                 data: {
                     zt_task: "updateBillTo"
                 }
-            }, self._rebind);
+            });
         },
+        /**
+         * Rebind function
+         * @returns {undefined}
+         */
         _rebind: function () {
             var self = this;
             self.updateBillTo();
