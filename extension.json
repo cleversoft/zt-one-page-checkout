@@ -6,5 +6,6 @@
         "name": "zt_onepage_checkout"
     },
     "namespace": "Ztonepage",
-    "admin": 0
+    "admin": 0,
+    "text": "PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_"
 }

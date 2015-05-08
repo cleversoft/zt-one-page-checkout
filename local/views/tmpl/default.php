@@ -1,3 +1,9 @@
+<?php
+/**
+ * {$id}
+ */
+defined('_JEXEC') or die('Restricted access');
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 col-md-4 span12 billto">
