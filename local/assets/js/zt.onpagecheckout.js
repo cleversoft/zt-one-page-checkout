@@ -21,50 +21,75 @@
     var _onepagecheckout = {
         /* Local settings */
         _settings: {
-            namespace: 'Ztonepage',
-            option: "com_virtuemart"
         },
         _init: function () {
             var self = this;
             /* Hook login form */
             $(w.document).ready(function () {
-                // Joomla login form
-                self.ajax.login();
+                self._rebind();
             });
         },
+        /* Local ajax */
         ajax: {
-            /**
-             * Request Joomla user login
-             * @returns {undefined}
-             */
-            login: function () {
-                var self = z.onepagecheckout;
-                z.ajax.formHook('#zt-opc-login', {
-                    data: {
-                        zt_cmd: 'ajax',
-                        zt_namespace: self._settings.namespace,
-                        option: self._settings.option,
-                        zt_task: "userLogin",
-                        view: "cart",
-                        format: "json"
-                    }
-                });
+            _settings: {
+                data: {
+                    zt_cmd: "ajax",
+                    zt_namespace: "Ztonepage",
+                    option: "com_virtuemart",
+                    view: "cart",
+                    format: "json"
+                }
             },
-            /**
-             * Request Joomla user register
-             * @returns {undefined}
-             */
-            register: function () {
-                var self = z.onepagecheckout;
-                z.ajax.formHook('#zt-opc-register', {
-                    data: {
-                        zt_cmd: 'ajax',
-                        zt_namespace: self._settings.namespace,
-                        option: self._settings.option,
-                        zt_task: "userRegister"
-                    }
-                });
+            formHook: function (selector, data, callback) {
+                var self = this;
+                var data = (typeof (data) === 'undefined') ? {} : data;
+                var buffer = {};
+                $.extend(true, buffer, self._settings);
+                $.extend(true, buffer, data);
+                z.ajax.formHook(selector, buffer, true, callback);
             }
+        },
+        /**
+         * Request Joomla user login
+         * @returns {undefined}
+         */
+        login: function () {
+            var self = this;
+            self.ajax.formHook('#zt-opc-login', {
+                data: {
+                    zt_task: "userLogin"
+                }
+            }, self._rebind);
+        },
+        /**
+         * Request Joomla user register
+         * @returns {undefined}
+         */
+        register: function () {
+            var self = this;
+            self.ajax.formHook('#zt-opc-register', {
+                data: {
+                    zt_task: "userRegister"
+                }
+            }, self._rebind);
+        },
+        /**
+         * Update bill to function
+         * @returns {undefined}
+         */
+        updateBillTo: function () {
+            var self = this;
+            z.ajax.formHook('#zt-opc-billto-form', {
+                data: {
+                    zt_task: "updateBillTo"
+                }
+            }, self._rebind);
+        },
+        _rebind: function () {
+            var self = this;
+            self.updateBillTo();
+            self.login();
+            self.register();
         }
     };
 
