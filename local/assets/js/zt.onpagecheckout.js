@@ -60,8 +60,7 @@
          * @returns {undefined}
          */
         login: function () {
-            var self = this;
-            self.ajax.formHook('#zt-opc-login', {
+            this.ajax.formHook('#zt-opc-login', {
                 data: {
                     zt_task: "userLogin"
                 }
@@ -72,8 +71,7 @@
          * @returns {undefined}
          */
         register: function () {
-            var self = this;
-            self.ajax.formHook('#zt-opc-register', {
+            this.ajax.formHook('#zt-opc-register', {
                 data: {
                     zt_task: "userRegister"
                 }
@@ -84,8 +82,7 @@
          * @returns {undefined}
          */
         updateBillTo: function () {
-            var self = this;
-            z.ajax.formHook('#zt-opc-billto-form', {
+            this.ajax.formHook('#zt-opc-billto-form', {
                 data: {
                     zt_task: "updateBillTo"
                 }
