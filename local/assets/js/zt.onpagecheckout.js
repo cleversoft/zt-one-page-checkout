@@ -42,6 +42,9 @@
                 }
             },
             formHook: function (selector, data) {
+                if($(selector).length <= 0){
+                    return false;
+                }
                 var self = this;
                 var data = (typeof (data) === 'undefined') ? {} : data;
                 var buffer = {};
