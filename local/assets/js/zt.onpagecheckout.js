@@ -12,7 +12,7 @@
         return false;
     }
     /* Reject if ajax isn't loaded */
-    if (typeof(z.ajax) === 'undefined'){
+    if (typeof (z.ajax) === 'undefined') {
         console.log('Error: Zt ajax not available.');
         return false;
     }
@@ -24,25 +24,52 @@
             namespace: 'Ztonepage',
             option: "com_virtuemart"
         },
-        _init: function(){
+        _init: function () {
             var self = this;
             /* Hook login form */
-            $(w.document).ready(function(){
+            $(w.document).ready(function () {
+                // Joomla login form
+                self.ajax.login();
+            });
+        },
+        ajax: {
+            /**
+             * Request Joomla user login
+             * @returns {undefined}
+             */
+            login: function () {
+                var self = z.onepagecheckout;
                 z.ajax.formHook('#zt-opc-login', {
                     data: {
-                        zt_cmd: "ajax",
+                        zt_cmd: 'ajax',
                         zt_namespace: self._settings.namespace,
                         option: self._settings.option,
                         zt_task: "userLogin",
-                        view: "cart"
+                        view: "cart",
+                        format: "json"
                     }
-                }); 
-            });
+                });
+            },
+            /**
+             * Request Joomla user register
+             * @returns {undefined}
+             */
+            register: function () {
+                var self = z.onepagecheckout;
+                z.ajax.formHook('#zt-opc-register', {
+                    data: {
+                        zt_cmd: 'ajax',
+                        zt_namespace: self._settings.namespace,
+                        option: self._settings.option,
+                        zt_task: "userRegister"
+                    }
+                });
+            }
         }
     };
 
     /* Append to Zt JS Framework */
     z.onepagecheckout = _onepagecheckout;
     z.onepagecheckout._init();
-    
+
 })(window, zt, zt.$);

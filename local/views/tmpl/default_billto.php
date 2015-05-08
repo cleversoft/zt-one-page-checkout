@@ -4,9 +4,6 @@
  */
 $modelVM = ZtonepageModelVirtuemart::getInstance();
 $billModel = $modelVM->getBillTo();
-echo '<pre>';
-print_r ($billModel);
-echo '</pre>';
 $billTo = $billModel['fields'];
 $class = 'zt-opc-billto';
 ?>

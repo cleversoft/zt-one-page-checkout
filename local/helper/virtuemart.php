@@ -11,6 +11,10 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
     class ZtonepageHelperVirtuemart
     {
 
+        /**
+         * Verify we are landing on virtuemart cart page
+         * @return boolean
+         */
         public static function isCartpage()
         {
             $input = JFactory::getApplication()->input;
@@ -21,6 +25,9 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
             return false;
         }
 
+        /**
+         * 
+         */
         public static function initVirtueMart()
         {
             /* Require the config */
@@ -103,12 +110,19 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
             }
         }
 
+        /**
+         * 
+         */
         public static function overrideView()
         {
             $input = JFactory::getApplication()->input;
+            $input = JFactory::getApplication()->input;
+            $input->set('view', 'cart');
+            $input->set('option', 'com_virtuemart');
             $view = $input->get('view');
             if (ZtFramework::isAjax())
             {
+                $input->set('format', 'json');
                 ZtFramework::import('Ztonepage://views/' . $view . '.json.php');
             } else
             {

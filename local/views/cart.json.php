@@ -28,9 +28,11 @@ if (!class_exists('VmView'))
  * @package VirtueMart
  * @author Max Milbers
  */
-class VirtueMartViewCart extends VmView {
+class VirtueMartViewCart extends VmView
+{
 
-    public function display($tpl = null) {
+    public function display($tpl = null)
+    {
 
         $document = JFactory::getDocument();
 
@@ -53,7 +55,8 @@ class VirtueMartViewCart extends VmView {
 
         // Register ourself template path        
         $this->addTemplatePath(dirname(__FILE__) . '/tmpl/');
-        if (!ZtHelperJoomlaUser::isLogged()) {
+        if (!ZtHelperJoomlaUser::isLogged())
+        {
             $this->setLayout('guest');
         }
         parent::display($tpl);
