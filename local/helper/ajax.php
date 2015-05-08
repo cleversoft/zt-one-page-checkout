@@ -44,6 +44,17 @@ if (!class_exists('ZtonepageHelperAjax'))
             $ajax->response();
         }
 
+        public static function updateBillTo()
+        {
+            $model = ZtonepageModelVirtuemart::getInstance();
+            $model->updateAddress();
+            $ajax = ZtAjax::getInstance();
+            $layout = new ZtHtml();
+
+            $ajax->addHtml($layout->fetch('Ztonepage://views/tmpl/default_billto.php'), '.billto');
+            $ajax->response();
+        }
+
     }
 
 }
