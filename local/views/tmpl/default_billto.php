@@ -10,7 +10,7 @@ $class = 'zt-opc-billto';
 
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
     <h3 class="<?php echo $class; ?>-title zt-opc-title">
-        <div class="zt-opc-step <?php echo $class; ?>-step">1</div>Bill To
+        <div class="zt-opc-step <?php echo $class; ?>-step">1</div><?php echo ZtonepageHelperText::_('BILL_TO'); ?>
     </h3>
 
     <div class="inner-wrap">
