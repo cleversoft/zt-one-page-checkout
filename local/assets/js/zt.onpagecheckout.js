@@ -42,7 +42,7 @@
                 }
             },
             formHook: function (selector, data) {
-                if($(selector).length <= 0){
+                if ($(selector).length <= 0) {
                     return false;
                 }
                 var self = this;
@@ -50,7 +50,7 @@
                 var buffer = {};
                 $.extend(true, buffer, self._settings);
                 $.extend(true, buffer, data);
-                z.ajax.formHook(selector, buffer, true, function(){
+                z.ajax.formHook(selector, buffer, true, function () {
                     self._parent._rebind();
                 });
             }
@@ -63,6 +63,18 @@
             this.ajax.formHook('#zt-opc-login', {
                 data: {
                     zt_task: "userLogin"
+                }
+            });
+        },
+        display: function () {
+            z.ajax.request({
+                data: {
+                    zt_cmd: "ajax",
+                    zt_namespace: "Ztonepage",
+                    option: "com_virtuemart",
+                    view: "cart",
+                    format: "json",
+                    zt_task: 'display'
                 }
             });
         },

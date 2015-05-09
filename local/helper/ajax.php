@@ -16,12 +16,14 @@ if (!class_exists('ZtonepageHelperAjax'))
             $input = JFactory::getApplication()->input;
             $username = $input->get('username');
             $password = $input->get('password');
-            if (ZtHelperJoomlaUser::login($username, $password))
+            if (ZtHelperJoomlaUser::login($username, $password) || JFactory::getUser()->guest == false)
             {
-                self::display();
+                $ajax = ZtAjax::getInstance();
+                $ajax->addExecute('zt.onepagecheckout.display();');
+                $ajax->response();
             } else
             {
-                //$ajax->addExecute('alert("Login fail !.");');
+                self::display();
             }
         }
 
@@ -36,11 +38,11 @@ if (!class_exists('ZtonepageHelperAjax'))
              */
             ob_start();
             $html = $view->display();
-            echo $html;
             $html = ob_get_contents();
             ob_end_clean();
             $ajax = ZtAjax::getInstance();
             $ajax->addHtml($html, '#zt-opc-plugin');
+            $ajax->addExecute('zt.onepagecheckout._rebind();');
             $ajax->response();
         }
 
@@ -49,9 +51,7 @@ if (!class_exists('ZtonepageHelperAjax'))
             $model = ZtonepageModelVirtuemart::getInstance();
             $model->updateAddress();
             $ajax = ZtAjax::getInstance();
-            $layout = new ZtHtml();
-
-            $ajax->addHtml($layout->fetch('Ztonepage://views/tmpl/default_billto.php'), '.billto');
+            $ajax->addExecute('zt.onepagecheckout.display();');
             $ajax->response();
         }
 

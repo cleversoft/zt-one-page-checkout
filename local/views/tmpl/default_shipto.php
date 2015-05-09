@@ -4,6 +4,7 @@
  */
 $modelVM = ZtonepageModelVirtuemart::getInstance();
 $shipModel = $modelVM->getShipto();
+
 $shipTo = $shipModel['fields'];
 
 $class = 'zt-opc-shipto';
@@ -19,7 +20,7 @@ $class = 'zt-opc-shipto';
             Use for the shipto same as billto address</label>
         <div class="edit-address">
             <form autocomplete="off" id="<?php echo $class; ?>-form">
-                <?php foreach($shipTo as $ship) : ?>
+                <?php foreach ($shipTo as $ship) : ?>
                     <div id="<?php echo $ship['name']; ?>-group" class="form-group">
                         <div class="inner">
                             <label for="<?php echo $ship['name']; ?>_field" class="<?php echo $ship['name']; ?>"><?php echo $ship['title']; ?> <?php echo ($ship['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>

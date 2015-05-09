@@ -120,14 +120,7 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
             $input->set('view', 'cart');
             $input->set('option', 'com_virtuemart');
             $view = $input->get('view');
-            if (ZtFramework::isAjax())
-            {
-                $input->set('format', 'json');
-                ZtFramework::import('Ztonepage://views/' . $view . '.json.php');
-            } else
-            {
-                ZtFramework::import('Ztonepage://views/' . $view . '.html.php');
-            }
+            ZtFramework::import('Ztonepage://views/' . $view . '.html.php');
         }
 
     }

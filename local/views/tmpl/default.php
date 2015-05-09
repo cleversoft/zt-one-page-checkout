@@ -6,7 +6,7 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-4 col-md-4 span12 billto">
+        <div class="col-sm-4 col-md-4 span4 billto">
             <div id="zt-opc-billto">
                 <?php echo $this->loadTemplate("billto"); ?>
             </div>
