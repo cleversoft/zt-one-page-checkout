@@ -125,16 +125,52 @@
                 }
             });
         },
+        /*
+         * Update purchase form
+         * @returns {undefined}
+         */
+        updatePurchaseConfirm:function(){
+            this.ajax.formHook('#zt-opc-purchase-form', {
+                data: {
+                    zt_task: "updatePurchaseConfirm"
+                }
+            });
+        },
+        /**
+         * Update ship to
+         * @returns {undefined}
+         */
+        updateShipTo: function(){
+            this.ajax.formHook('#zt-opc-shipto-form', {
+                data: {
+                    zt_task: "updateShipTo"
+                }
+            });          
+        },
+        /**
+         * Update coupon code
+         * @returns {undefined}
+         */
+        updateCounponCode: function(){
+            this.ajax.formHook('#zt-opc-coupon-form', {
+                data: {
+                    zt_task: "updateCouponCode"
+                }
+            }); 
+        },
         /**
          * Rebind function
          * @returns {undefined}
          */
         _rebind: function () {
             var self = this;
-            self.updateBillTo();
             self.login();
             self.register();
             self.guestCheckout();
+            self.updateBillTo();
+            self.updatePurchaseConfirm();
+            self.updateShipTo();
+            self.updateCounponCode();
         }
     };
 
