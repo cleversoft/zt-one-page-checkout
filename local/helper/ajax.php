@@ -63,6 +63,12 @@ if (!class_exists('ZtonepageHelperAjax'))
             self::updateBillTo();
         }
 
+        public static function updateCouponCode()
+        {
+            $model = ZtonepageModelVirtuemart::getInstance();
+            $model->updateCoupon(JFactory::getApplication()->input->get('coupon_code'));
+        }
+
         /**
          * Register new user
          */
