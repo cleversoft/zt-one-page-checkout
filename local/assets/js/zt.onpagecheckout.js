@@ -32,6 +32,7 @@
         },
         /* Local ajax */
         ajax: {
+            /* Local ajax settings */
             _settings: {
                 data: {
                     zt_cmd: "ajax",
@@ -41,6 +42,12 @@
                     format: "json"
                 }
             },
+            /**
+             * Form hook
+             * @param {type} selector
+             * @param {type} data
+             * @returns {Boolean}
+             */
             formHook: function (selector, data) {
                 if ($(selector).length <= 0) {
                     return false;
@@ -53,6 +60,18 @@
                 z.ajax.formHook(selector, buffer, true, function () {
                     self._parent._rebind();
                 });
+            },
+            /**
+             * Ajax request
+             * @returns {undefined}
+             */
+            request: function(data){
+                var self = this;
+                var data = (typeof (data) === 'undefined') ? {} : data;
+                var buffer = {};
+                $.extend(true, buffer, self._settings);
+                $.extend(true, buffer, data);
+                z.ajax.request(buffer);
             }
         },
         /**
@@ -66,14 +85,13 @@
                 }
             });
         },
+        /**
+         * Display
+         * @returns {undefined}
+         */
         display: function () {
-            z.ajax.request({
+            this.ajax.request({
                 data: {
-                    zt_cmd: "ajax",
-                    zt_namespace: "Ztonepage",
-                    option: "com_virtuemart",
-                    view: "cart",
-                    format: "json",
                     zt_task: 'display'
                 }
             });
