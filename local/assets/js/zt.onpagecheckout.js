@@ -132,7 +132,7 @@
         updatePurchaseConfirm:function(){
             this.ajax.formHook('#zt-opc-purchase-form', {
                 data: {
-                    zt_task: "updatePurchase"
+                    zt_task: "updatePurchaseConfirm"
                 }
             });
         },
@@ -148,6 +148,17 @@
             });          
         },
         /**
+         * Update coupon code
+         * @returns {undefined}
+         */
+        updateCounponCode: function(){
+            this.ajax.formHook('#zt-opc-coupon-form', {
+                data: {
+                    zt_task: "updateCouponCode"
+                }
+            }); 
+        },
+        /**
          * Rebind function
          * @returns {undefined}
          */
@@ -159,6 +170,7 @@
             self.guestCheckout();
             self.updatePurchaseConfirm();
             self.updateShipTo();
+            self.updateCounponCode();
         }
     };
 
