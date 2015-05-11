@@ -96,18 +96,20 @@ if (!class_exists('ZtonepageModelVirtuemart'))
             return $couponModel->getCoupons();
         }
 
+        /**
+         * 
+         * @return type
+         */
         public function updateAddress()
         {
             if (!class_exists('VirtueMartCart'))
                 require(VMPATH_SITE . DS . 'helpers' . DS . 'cart.php');
             $cart = VirtueMartCart::getCart();
 
-
             if ($cart->_fromCart or $cart->getInCheckOut())
             {
                 vmdebug('saveUser _fromCart', (int) $cart->_fromCart);
                 $msg = $this->_saveData($cart);
-                return $msg;
                 $task = '';
                 if ($cart->getInCheckOut())
                 {

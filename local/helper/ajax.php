@@ -50,9 +50,17 @@ if (!class_exists('ZtonepageHelperAjax'))
         {
             $model = ZtonepageModelVirtuemart::getInstance();
             $model->updateAddress();
+            /**
+             * @todo Actually we no need to refresh page. Just show message as respond
+             */
             $ajax = ZtAjax::getInstance();
-            $ajax->addExecute('zt.onepagecheckout.display();');
+            //$ajax->addExecute('zt.onepagecheckout.display();');
             $ajax->response();
+        }
+
+        public static function updateShipTo()
+        {
+            self::updateBillTo();
         }
 
         /**

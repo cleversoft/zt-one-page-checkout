@@ -15,10 +15,10 @@ $class = 'zt-opc-billto';
 
     <div class="inner-wrap">
         <span class="label label-info"><?php echo JFactory::getUser()->email; ?></span>
-        <button type="button" class="btn btn-primary btn-small" onClick="jQuery('.edit-address').toggle();">Edit Bill to</button>
+        <button type="button" class="btn btn-primary btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();">Edit Bill to</button>
         <!-- @todo Show Edit button to expand below form -->
-        <div class="edit-address" style="display:none;">
-            <form autocomplete="off" id="<?php echo $class; ?>-form">
+        <div class="edit-address" >
+            <form autocomplete="off" id="<?php echo $class; ?>-form" style="display:none;">
                 <?php foreach ($billTo as $bill) : ?>
                     <div id="<?php echo $bill['name']; ?>-group" class="form-group">
                         <div class="inner">

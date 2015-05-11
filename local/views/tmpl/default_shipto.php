@@ -16,10 +16,11 @@ $class = 'zt-opc-shipto';
     </h3>
     <div class="inner-wrap">
         <label class="<?php echo $class; ?>-extend" for="<?php echo $class; ?>-extend-input">
-            <input type="checkbox" onclick="" checked="checked" id="<?php echo $class; ?>-extend-input" name="<?php echo $class; ?>-extend-input">
+            <input 
+                type="checkbox" checked="checked" id="<?php echo $class; ?>-extend-input" name="<?php echo $class; ?>-extend-input" onClick="jQuery('.edit-address #zt-opc-shipto-form').toggle();">
             Use for the shipto same as billto address</label>
         <div class="edit-address">
-            <form autocomplete="off" id="<?php echo $class; ?>-form">
+            <form autocomplete="off" id="<?php echo $class; ?>-form" style="display:none;">
                 <?php foreach ($shipTo as $ship) : ?>
                     <div id="<?php echo $ship['name']; ?>-group" class="form-group">
                         <div class="inner">
@@ -28,6 +29,7 @@ $class = 'zt-opc-shipto';
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <input type="hidden" name="address_type" value="ST">
                 <button type="type" class="btn btn-primary btn-small">Save</button>
                 <button type="button" class="btn btn-danger btn-small">Cancel</button>                
             </form>
