@@ -129,7 +129,7 @@
          * Update purchase form
          * @returns {undefined}
          */
-        updatePurchaseForm:function(){
+        updatePurchaseConfirm:function(){
             this.ajax.formHook('#zt-opc-purchase-form', {
                 data: {
                     zt_task: "updatePurchase"
@@ -146,7 +146,7 @@
             self.login();
             self.register();
             self.guestCheckout();
-            self.updatePurchaseForm();
+            self.updatePurchaseConfirm();
         }
     };
 
