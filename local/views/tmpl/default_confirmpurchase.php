@@ -29,7 +29,7 @@ $class = 'zt-opc-purchase';
             </div>
 
             <div class="<?php echo $class; ?>-row <?php echo $class; ?>-checkout-box">
-                <button id="<?php echo $class; ?>-order-submit" class="<?php echo $class; ?>-btn btn btn-info" type="button">Confirm Purchase</button>
+                <button id="<?php echo $class; ?>-order-submit" class="<?php echo $class; ?>-btn btn btn-info" type="submit">Confirm Purchase</button>
             </div>
         </form>
     </div>

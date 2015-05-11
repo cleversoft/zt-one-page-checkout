@@ -125,6 +125,17 @@
                 }
             });
         },
+        /*
+         * Update purchase form
+         * @returns {undefined}
+         */
+        updatePurchaseForm:function(){
+            this.ajax.formHook('#zt-opc-purchase-form', {
+                data: {
+                    zt_task: "updatePurchase"
+                }
+            });
+        },
         /**
          * Rebind function
          * @returns {undefined}
@@ -135,6 +146,7 @@
             self.login();
             self.register();
             self.guestCheckout();
+            self.updatePurchaseForm();
         }
     };
 
