@@ -164,10 +164,10 @@
          */
         _rebind: function () {
             var self = this;
-            self.updateBillTo();
             self.login();
             self.register();
             self.guestCheckout();
+            self.updateBillTo();
             self.updatePurchaseConfirm();
             self.updateShipTo();
             self.updateCounponCode();
