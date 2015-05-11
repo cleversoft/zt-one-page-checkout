@@ -110,7 +110,7 @@
         register: function () {
             this.ajax.formHook('#zt-opc-registration', {
                 data: {
-                    zt_task: "userRegister"
+                    zt_task: "registerUser"
                 }
             });
         },
