@@ -137,6 +137,17 @@
             });
         },
         /**
+         * Update ship to
+         * @returns {undefined}
+         */
+        updateShipTo: function(){
+            this.ajax.formHook('#zt-opc-shipto-form', {
+                data: {
+                    zt_task: "updateShipTo"
+                }
+            });          
+        },
+        /**
          * Rebind function
          * @returns {undefined}
          */
@@ -147,6 +158,7 @@
             self.register();
             self.guestCheckout();
             self.updatePurchaseConfirm();
+            self.updateShipTo();
         }
     };
 

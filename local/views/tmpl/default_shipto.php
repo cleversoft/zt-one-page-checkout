@@ -28,6 +28,8 @@ $class = 'zt-opc-shipto';
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <button type="type" class="btn btn-primary btn-small">Save</button>
+                <button type="button" class="btn btn-danger btn-small">Cancel</button>                
             </form>
         </div>
     </div>
