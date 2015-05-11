@@ -55,6 +55,35 @@ if (!class_exists('ZtonepageHelperAjax'))
             $ajax->response();
         }
 
+        /**
+         * Register new user
+         */
+        public static function registerUser()
+        {
+            $return = ZtHelperJoomlaUser::registerUser($_REQUEST);
+            if ($return === false)
+            {
+                
+            } else
+            {
+                switch ($return)
+                {
+                    case 'useractivate':
+                        /**
+                         * @todo Show notice message
+                         */
+                        break;
+                    case 'adminactivate':
+                        /**
+                         * @todo Show notice message
+                         */
+                        break;
+                    default:
+                    //self::display();
+                }
+            }
+        }
+
     }
 
 }

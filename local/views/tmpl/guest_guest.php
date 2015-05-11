@@ -53,7 +53,7 @@ $class = 'zt-opc';
                             </label>
                         </div>
                         <div class="<?php echo $class; ?>-input <?php echo $class; ?>-input-append">
-                            <input type="text" maxlength="100" class="required" value="" size="30" name="email" id="<?php echo $class; ?>-email-regis">
+                            <input type="text" maxlength="100" class="required" value="" size="30" name="email1" id="<?php echo $class; ?>-email-regis">
                         </div>
                     </div>
                     <div class="form-group">
@@ -83,7 +83,7 @@ $class = 'zt-opc';
                             </label>
                         </div>
                         <div class="<?php echo $class; ?>-input <?php echo $class; ?>-input-append">
-                            <input type="password" class="inputbox" size="30" name="password" id="<?php echo $class; ?>-password">
+                            <input type="password" class="inputbox" size="30" name="password1" id="<?php echo $class; ?>-password">
                             <div class="strength-meter">
                                 <div id="meter-status"></div>
                             </div>
