@@ -28,11 +28,9 @@ $class = 'zt-opc-billto';
                     </div>
                 <?php endforeach; ?>   
                 <input type="hidden" name="address_type" value="BT">
-                <input type="submit" />
-            </form>            
-
-            <button type="button" class="btn btn-primary btn-small">Save</button>
-            <button type="button" class="btn btn-danger btn-small">Cancel</button>
+                <button type="type" class="btn btn-primary btn-small">Save</button>
+                <button type="button" class="btn btn-danger btn-small">Cancel</button>
+            </form>
         </div>
     </div>
 </div>
