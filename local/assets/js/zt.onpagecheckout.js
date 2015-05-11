@@ -85,6 +85,13 @@
                 }
             });
         },
+        guestCheckout: function(){
+            this.ajax.formHook('#zt-opc-user', {
+                data: {
+                    zt_task: "guestCheckout"
+                }
+            });            
+        },
         /**
          * Display
          * @returns {undefined}
@@ -101,7 +108,7 @@
          * @returns {undefined}
          */
         register: function () {
-            this.ajax.formHook('#zt-opc-register', {
+            this.ajax.formHook('#zt-opc-registration', {
                 data: {
                     zt_task: "userRegister"
                 }
@@ -127,6 +134,7 @@
             self.updateBillTo();
             self.login();
             self.register();
+            self.guestCheckout();
         }
     };
 
