@@ -1,5 +1,5 @@
 <?php
-$class = 'zt-opc-';
+$class = 'zt-opc';
 ?>
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
     <!-- Title -->
