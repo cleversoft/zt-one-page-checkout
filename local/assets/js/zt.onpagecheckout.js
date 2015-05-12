@@ -159,13 +159,17 @@
             }); 
         },
         /**
-         * Update cart
+         * Update cart quality
+         * @param {type} thisPrt
+         * @param {type} itemId
          * @returns {undefined}
          */
-        updateCart: function(){
+        updateCartQuality: function(thisPrt, itemId){
             this.ajax.request({
                 data: {
-                    zt_task: "updateCart"
+                    zt_task: "updateCartQuality",
+                    itemId: itemId,
+                    quality: $(thisPrt).closet('td').find('input').val()
                 }
             }); 
         },
