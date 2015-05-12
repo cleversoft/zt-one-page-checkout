@@ -104,7 +104,13 @@ $class = 'zt-opc-cart';
                     onClick ="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);
                             return false;" 
                     />
-                <button type="submit" class="vmicon vm2-remove_from_cart" name="delete.<?php echo $pKey ?>" title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>" />
+                <button 
+                    type="submit" 
+                    class="vmicon vm2-remove_from_cart"                     
+                    title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>" 
+                    onClick ="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);
+                            return false;"
+                    />
             </td>
 
             <?php

@@ -65,14 +65,14 @@
              * Ajax request
              * @returns {undefined}
              */
-            request: function(data){
+            request: function (data) {
                 var self = this;
                 var data = (typeof (data) === 'undefined') ? {} : data;
                 var buffer = {};
                 $.extend(true, buffer, self._settings);
                 $.extend(true, buffer, data);
-                console.log (buffer);
-                console.log (data);
+                console.log(buffer);
+                console.log(data);
                 z.ajax.request(buffer);
             }
         },
@@ -87,12 +87,12 @@
                 }
             });
         },
-        guestCheckout: function(){
+        guestCheckout: function () {
             this.ajax.formHook('#zt-opc-user', {
                 data: {
                     zt_task: "guestCheckout"
                 }
-            });            
+            });
         },
         /**
          * Display
@@ -131,7 +131,7 @@
          * Update purchase form
          * @returns {undefined}
          */
-        updatePurchaseConfirm:function(){
+        updatePurchaseConfirm: function () {
             this.ajax.formHook('#zt-opc-purchase-form', {
                 data: {
                     zt_task: "updatePurchaseConfirm"
@@ -142,23 +142,23 @@
          * Update ship to
          * @returns {undefined}
          */
-        updateShipTo: function(){
+        updateShipTo: function () {
             this.ajax.formHook('#zt-opc-shipto-form', {
                 data: {
                     zt_task: "updateShipTo"
                 }
-            });          
+            });
         },
         /**
          * Update coupon code
          * @returns {undefined}
          */
-        updateCounponCode: function(){
+        updateCounponCode: function () {
             this.ajax.formHook('#zt-opc-coupon-form', {
                 data: {
                     zt_task: "updateCouponCode"
                 }
-            }); 
+            });
         },
         /**
          * Update cart quality
@@ -166,27 +166,23 @@
          * @param {type} itemId
          * @returns {undefined}
          */
-        updateCartQuantity: function(pKey){
+        updateCartQuantity: function (pKey) {
             this.ajax.request({
                 data: {
-                    zt_task: "updateCartQuantity",                 
+                    zt_task: "updateCartQuantity",
                     pKey: pKey,
                     quantity: $('#zt-opc-shoppingcart-pid-' + pKey).val()
                 }
-            }); 
+            });
         },
         /**
          * Remove cart item
          * @param {type} itemId
          * @returns {undefined}
          */
-        removeCartItem: function(itemId){
-            this.ajax.request({
-                data: {
-                    zt_task: "removeCartItem",
-                    remove_item: itemId
-                }
-            }); 
+        removeCartItem: function (pKey) {
+            $('#zt-opc-shoppingcart-pid-' + pKey).val(0);
+            this.updateCartQuantity(pKey);
         },
         /**
          * Rebind function
