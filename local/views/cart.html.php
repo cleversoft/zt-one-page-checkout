@@ -39,7 +39,6 @@ class VirtueMartViewCart extends VmView
     public function display($tpl = null)
     {
 
-
         $app = JFactory::getApplication();
 
         $this->prepareContinueLink();

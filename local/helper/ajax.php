@@ -81,6 +81,25 @@ if (!class_exists('ZtonepageHelperAjax'))
             $ajax->response();
         }
 
+        public static function updatePurchaseConfirm()
+        {
+            $model = ZtonepageModelVirtuemart::getInstance();
+            $model->confirm();
+            $view = new VirtueMartViewCart();
+            /**
+             * @todo What am i dong here ? !!!
+             */
+            ob_start();
+            $view->setLayout('order_done');
+            $html = $view->display();
+            $html = ob_get_contents();
+            ob_end_clean();
+            $ajax = ZtAjax::getInstance();
+            $ajax->addHtml($html, '#zt-opc-plugin');
+            $ajax->addExecute('zt.onepagecheckout._rebind();');
+            $ajax->response();
+        }
+
         /**
          * Register new user
          */
