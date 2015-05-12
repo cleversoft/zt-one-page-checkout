@@ -69,6 +69,18 @@ if (!class_exists('ZtonepageHelperAjax'))
             $model->updateCoupon(JFactory::getApplication()->input->get('coupon_code'));
         }
 
+        public static function updateCartQuantity()
+        {
+            $input = JFactory::getApplication()->input;
+            $quantity[$input->getInt('pKey')] = $input->get('quantity');
+            $input->set('quantity', $quantity);
+            $model = ZtonepageModelVirtuemart::getInstance();
+            $model->updateCart();
+            $ajax = ZtAjax::getInstance();
+            $ajax->addExecute('zt.onepagecheckout.display();');
+            $ajax->response();
+        }
+
         /**
          * Register new user
          */

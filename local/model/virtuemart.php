@@ -125,6 +125,12 @@ if (!class_exists('ZtonepageModelVirtuemart'))
             $cart->setCouponCode($coupon_code);
         }
 
+        public function updateCart()
+        {
+            $cart = VirtueMartCart::getCart();
+            return $cart->updateProductCart();
+        }
+
         private function _saveData($cartObj)
         {
             $mainframe = JFactory::getApplication();

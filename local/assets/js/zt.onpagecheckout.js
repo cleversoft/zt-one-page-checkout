@@ -71,6 +71,8 @@
                 var buffer = {};
                 $.extend(true, buffer, self._settings);
                 $.extend(true, buffer, data);
+                console.log (buffer);
+                console.log (data);
                 z.ajax.request(buffer);
             }
         },
@@ -164,12 +166,12 @@
          * @param {type} itemId
          * @returns {undefined}
          */
-        updateCartQuality: function(thisPrt, itemId){
+        updateCartQuantity: function(pKey){
             this.ajax.request({
                 data: {
-                    zt_task: "updateCartQuality",
-                    itemId: itemId,
-                    quality: $(thisPrt).closet('td').find('input').val()
+                    zt_task: "updateCartQuantity",                 
+                    pKey: pKey,
+                    quantity: $('#zt-opc-shoppingcart-pid-' + pKey).val()
                 }
             }); 
         },
