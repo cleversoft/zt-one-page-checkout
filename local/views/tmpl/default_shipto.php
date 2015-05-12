@@ -29,9 +29,11 @@ $class = 'zt-opc-shipto';
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <input type="hidden" name="address_type" value="ST">
+                <fieldset>
+                    <input type="hidden" name="address_type" value="ST">
+                </fieldset>                
                 <button type="type" class="btn btn-primary btn-small">Save</button>
-                <button type="button" class="btn btn-danger btn-small">Cancel</button>                
+                <button type="button" class="btn btn-danger btn-small" onClick="jQuery('.edit-address #zt-opc-shipto-form').toggle();">Cancel</button>                
             </form>
         </div>
     </div>

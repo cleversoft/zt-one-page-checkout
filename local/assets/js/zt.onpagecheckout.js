@@ -195,7 +195,7 @@
             self.register();
             self.guestCheckout();
             self.updateBillTo();
-            self.updatePurchaseConfirm();
+            //self.updatePurchaseConfirm();
             self.updateShipTo();
             self.updateCounponCode();
         }

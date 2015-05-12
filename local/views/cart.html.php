@@ -36,12 +36,18 @@ class VirtueMartViewCart extends VmView
 
     var $pointAddress = false;
 
+    /**
+     * Entry point to display cart
+     * @param type $tpl
+     */
     public function display($tpl = null)
     {
 
         $app = JFactory::getApplication();
 
-        $this->prepareContinueLink();
+        /**
+         * @todo Need to check in future
+         */
         if (VmConfig::get('use_as_catalog', 0))
         {
             vmInfo('This is a catalogue, you cannot access the cart');
@@ -51,6 +57,7 @@ class VirtueMartViewCart extends VmView
         $pathway = $app->getPathway();
         $document = JFactory::getDocument();
         $document->setMetaData('robots', 'NOINDEX, NOFOLLOW, NOARCHIVE, NOSNIPPET');
+
         /* Add onpagecheckout javascript */
         $document->addScript(ZtPath::getInstance()->getUrl('Ztonepage://assets/js/zt.onpagecheckout.js'));
 
@@ -60,10 +67,7 @@ class VirtueMartViewCart extends VmView
 
         $format = vRequest::getCmd('format');
 
-        if (!class_exists('VirtueMartCart'))
-            require(VMPATH_SITE . DS . 'helpers' . DS . 'cart.php');
         $this->cart = VirtueMartCart::getCart();
-
         $this->cart->prepareVendor();
 
         //Why is this here, when we have view.raw.php
@@ -74,6 +78,9 @@ class VirtueMartViewCart extends VmView
             $this->prepareContinueLink();
         }
 
+        /**
+         * @todo Remove these extra code in future
+         */
         if ($this->layoutName == 'select_shipment')
         {
 
@@ -219,8 +226,6 @@ class VirtueMartViewCart extends VmView
             $order_language = $lang->getTag();
             $this->assignRef('order_language', $order_language);
         }
-
-
 
         $this->useSSL = VmConfig::get('useSSL', 0);
         $this->useXHTML = false;

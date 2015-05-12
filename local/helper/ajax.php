@@ -8,9 +8,15 @@ defined('_JEXEC') or die('Restricted access');
 if (!class_exists('ZtonepageHelperAjax'))
 {
 
+    /**
+     * Ajax execute class
+     */
     class ZtonepageHelperAjax
     {
 
+        /**
+         * Execute Joomla login
+         */
         public static function userLogin()
         {
             $input = JFactory::getApplication()->input;
@@ -18,12 +24,15 @@ if (!class_exists('ZtonepageHelperAjax'))
             $password = $input->get('password');
             if (ZtHelperJoomlaUser::login($username, $password) || JFactory::getUser()->guest == false)
             {
+                // Login success than we need reload this html
                 $ajax = ZtAjax::getInstance();
                 $ajax->addExecute('zt.onepagecheckout.display();');
                 $ajax->response();
             } else
             {
-                self::display();
+                /**
+                 * @todo Show error message
+                 */
             }
         }
 
@@ -32,6 +41,7 @@ if (!class_exists('ZtonepageHelperAjax'))
          */
         public static function display()
         {
+            // Get view class
             $view = new VirtueMartViewCart();
             /**
              * @todo What am i dong here ? !!!
@@ -41,6 +51,9 @@ if (!class_exists('ZtonepageHelperAjax'))
             $html = ob_get_contents();
             ob_end_clean();
             $ajax = ZtAjax::getInstance();
+            /**
+             * @todo We need replaceHtml function
+             */
             $ajax->addHtml($html, '#zt-opc-plugin');
             $ajax->addExecute('zt.onepagecheckout._rebind();');
             $ajax->response();
@@ -54,7 +67,7 @@ if (!class_exists('ZtonepageHelperAjax'))
              * @todo Actually we no need to refresh page. Just show message as respond
              */
             $ajax = ZtAjax::getInstance();
-            //$ajax->addExecute('zt.onepagecheckout.display();');
+            $ajax->addMessage(ZtonepageHelperText::_('UPDATE_SUCCESSED'));
             $ajax->response();
         }
 

@@ -97,26 +97,13 @@ if (!class_exists('ZtonepageModelVirtuemart'))
         }
 
         /**
-         * 
-         * @return type
+         * Update address can use for both BT & ST
          */
         public function updateAddress()
         {
-            if (!class_exists('VirtueMartCart'))
-                require(VMPATH_SITE . DS . 'helpers' . DS . 'cart.php');
-            $cart = VirtueMartCart::getCart();
 
-            if ($cart->_fromCart or $cart->getInCheckOut())
-            {
-                vmdebug('saveUser _fromCart', (int) $cart->_fromCart);
-                $msg = $this->_saveData($cart);
-                $task = '';
-                if ($cart->getInCheckOut())
-                {
-                    $task = '&task=checkout';
-                    vmdebug('saveUser InCheckOut', (int) $cart->_fromCart);
-                }
-            }
+            $cart = VirtueMartCart::getCart();
+            $this->_updateAddress($cart);
         }
 
         public function updateCoupon($coupon_code)
@@ -131,7 +118,13 @@ if (!class_exists('ZtonepageModelVirtuemart'))
             return $cart->updateProductCart();
         }
 
-        private function _saveData($cartObj)
+        /**
+         * @todo Replace with Joomla! standard way
+         * @todo Code clean up
+         * @param type $cartObj
+         * @return type
+         */
+        private function _updateAddress($cartObj)
         {
             $mainframe = JFactory::getApplication();
 
@@ -151,8 +144,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
             {
                 if ($cartObj->_fromCart or $cartObj->getInCheckOut())
                 {
-                    if (!class_exists('VirtueMartCart'))
-                        require(VMPATH_SITE . DS . 'helpers' . DS . 'cart.php');
+
                     $cart = VirtueMartCart::getCart();
                     $prefix = '';
                     if ($data['address_type'] == 'STaddress' || $data['address_type'] == 'ST')

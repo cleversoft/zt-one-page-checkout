@@ -3,6 +3,9 @@
  * {$id}
  */
 defined('_JEXEC') or die('Restricted access');
+/**
+ * @todo All html must be wrapped under form
+ */
 ?>
 <div class="container-fluid" id="zt-opc-plugin">
     <div class="row">
