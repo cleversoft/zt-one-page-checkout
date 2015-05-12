@@ -159,6 +159,30 @@
             }); 
         },
         /**
+         * Update cart
+         * @returns {undefined}
+         */
+        updateCart: function(){
+            this.ajax.request({
+                data: {
+                    zt_task: "updateCart"
+                }
+            }); 
+        },
+        /**
+         * Remove cart item
+         * @param {type} itemId
+         * @returns {undefined}
+         */
+        removeCartItem: function(itemId){
+            this.ajax.request({
+                data: {
+                    zt_task: "removeCartItem",
+                    remove_item: itemId
+                }
+            }); 
+        },
+        /**
          * Rebind function
          * @returns {undefined}
          */
