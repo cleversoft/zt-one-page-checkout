@@ -55,7 +55,6 @@ if (!class_exists('ZtonepageHelperAjax'))
              * @todo We need replaceHtml function
              */
             $ajax->addHtml($html, '#zt-opc-plugin');
-            $ajax->addExecute('zt.onepagecheckout._rebind();');
             $ajax->response();
         }
 
