@@ -63,6 +63,7 @@
             },
             /**
              * Ajax request
+             * @param {type} data
              * @returns {undefined}
              */
             request: function (data) {
@@ -71,9 +72,9 @@
                 var buffer = {};
                 $.extend(true, buffer, self._settings);
                 $.extend(true, buffer, data);
-                console.log(buffer);
-                console.log(data);
-                z.ajax.request(buffer);
+                z.ajax.request(buffer).done(function(){
+                    self._parent._rebind();
+                });
             }
         },
         /**
@@ -162,9 +163,8 @@
             });
         },
         /**
-         * Update cart quality
-         * @param {type} thisPrt
-         * @param {type} itemId
+         * Update cart quantity
+         * @param {type} pKey
          * @returns {undefined}
          */
         updateCartQuantity: function (pKey) {
@@ -178,7 +178,7 @@
         },
         /**
          * Remove cart item
-         * @param {type} itemId
+         * @param {type} pKey
          * @returns {undefined}
          */
         removeCartItem: function (pKey) {
@@ -195,7 +195,7 @@
             self.register();
             self.guestCheckout();
             self.updateBillTo();
-            //self.updatePurchaseConfirm();
+            self.updatePurchaseConfirm();
             self.updateShipTo();
             self.updateCounponCode();
         }
