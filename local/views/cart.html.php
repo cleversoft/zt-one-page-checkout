@@ -54,7 +54,8 @@ class VirtueMartViewCart extends VmView
         $document->setMetaData('robots', 'NOINDEX, NOFOLLOW, NOARCHIVE, NOSNIPPET');
         /* Add onpagecheckout javascript */
         $document->addScript(ZtPath::getInstance()->getUrl('Ztonepage://assets/js/zt.onpagecheckout.js'));
-
+        $document->addStyleSheet(ZtPath::getInstance()->getUrl('Ztonepage://assets/css/style.css'));
+        
         $this->layoutName = $this->getLayout();
         if (!$this->layoutName)
             $this->layoutName = vRequest::getCmd('layout', 'default');
