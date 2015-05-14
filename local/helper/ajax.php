@@ -117,28 +117,21 @@ if (!class_exists('ZtonepageHelperAjax'))
          */
         public static function registerUser()
         {
+            /**
+             * @todo Use JInput instead
+             */
             $return = ZtHelperJoomlaUser::registerUser($_REQUEST);
+            $ajax = ZtAjax::getInstance();
+
             if ($return === false)
             {
-                
+                $ajax->addMessage('Failed');
             } else
             {
-                switch ($return)
-                {
-                    case 'useractivate':
-                        /**
-                         * @todo Show notice message
-                         */
-                        break;
-                    case 'adminactivate':
-                        /**
-                         * @todo Show notice message
-                         */
-                        break;
-                    default:
-                    //self::display();
-                }
+                $message = implode(PHP_EOL, $return['message']);
+                $ajax->addMessage($message);
             }
+            $ajax->response();
         }
 
     }
