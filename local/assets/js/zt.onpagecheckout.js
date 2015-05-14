@@ -133,7 +133,7 @@
          * @returns {undefined}
          */
         updatePurchaseConfirm: function () {
-            this.ajax.request({
+            this.ajax.formHook('#zt-opc-purchase-form', {
                 data: {
                     zt_task: "updatePurchaseConfirm",
                     confirm: 1
