@@ -16,6 +16,7 @@ if (!class_exists('ZtonepageHelperAjax'))
 
         /**
          * Execute Joomla login
+         * @todo Remember me
          */
         public static function userLogin()
         {
