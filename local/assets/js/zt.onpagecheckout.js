@@ -163,14 +163,14 @@
             });
         },
         /**
-         * Update cart quality
+         * Update cart quantity
          * @param {type} pKey
          * @returns {undefined}
          */
-        updateCartQuality: function (pKey) {
+        updateCartQuantity: function (pKey) {
             this.ajax.request({
                 data: {
-                    zt_task: "updateCartQuality",
+                    zt_task: "updateCartQuantity",
                     pKey: pKey,
                     quantity: $('#zt-opc-shoppingcart-pid-' + pKey).val()
                 }
