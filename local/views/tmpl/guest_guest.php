@@ -8,8 +8,7 @@ $class = 'zt-opc';
     </h3>
     <div class="inner-wrap">
         <!-- Guest checkout -->
-        <h4 class="<?php echo $class; ?>-subtitle">Register with us for future convenience:</h4>
-        <label class="<?php echo $class; ?>-switch">Checkout as Guest</label>
+        <h4 class="<?php echo $class; ?>-subtitle">Checkout as Guest</h4>
         <div class="<?php echo $class; ?>-guest-form">
             <div class="<?php echo $class; ?>-inner with-switch">
                 <form autocomplete="off" id="<?php echo $class; ?>-user" method="post">
@@ -35,7 +34,7 @@ $class = 'zt-opc';
             </div>
         </div>
         <!-- Register form -->
-        <label class="<?php echo $class; ?>-switch">Register</label>
+        <h4 class="<?php echo $class; ?>-subtitle">Register</h4>        
         <div class="<?php echo $class; ?>-reg-form soft-hide">
             <div class="<?php echo $class; ?>-inner with-switch">
                 <form autocomplete="off" name="userForm" id="<?php echo $class; ?>-registration">
