@@ -18,7 +18,7 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
         public static function isCartpage()
         {
             $input = JFactory::getApplication()->input;
-            return $input->get('option') == 'com_virtuemart' && $input->get('view') == 'cart';
+            return ($input->get('option') == 'com_virtuemart' && $input->get('view') == 'cart') && ($input->get('task') != 'addJS');
         }
 
         /**
