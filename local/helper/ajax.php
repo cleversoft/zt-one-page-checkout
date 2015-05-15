@@ -21,6 +21,7 @@ if (!class_exists('ZtonepageHelperAjax'))
         public static function userLogin()
         {
             $input = JFactory::getApplication()->input;
+            $ajax = ZtAjax::getInstance();
             $username = $input->get('username');
             $password = $input->get('password');
             $options = array();
@@ -28,18 +29,12 @@ if (!class_exists('ZtonepageHelperAjax'))
             if (ZtHelperJoomlaUser::login($username, $password, $options) || JFactory::getUser()->guest == false)
             {
                 // Login success than we need reload this html
-                $ajax = ZtAjax::getInstance();
                 $ajax->addExecute('zt.onepagecheckout.display();');
-                $ajax->response();
             } else
             {
-                /**
-                 * @todo Show error message
-                 */
-                $ajax = ZtAjax::getInstance();
-                $ajax->addExecute('zt.onepagecheckout.display();');
-                $ajax->response();
+                $ajax->addMessage('Wrong username / password');
             }
+            $ajax->response();
         }
 
         /**
