@@ -15,8 +15,10 @@
         <language tag="en-GB">language/en-GB/en-GB.plg_system_zt_onepage_checkout.sys.ini</language>
     </languages>
     <!-- Files & folder -->
-    <files>                              
+    <files>         
+        <folder>core</folder>                     
         <filename plugin="zt_onepage_checkout">zt_onepage_checkout.php</filename>
+        <filename>extension.json</filename>
     </files>
     <!-- Update -->
     <updateservers>		
