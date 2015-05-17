@@ -25,7 +25,7 @@ $class = 'zt-opc';
             <div class="form-group">
                 <div class="<?php echo $class; ?>-input <?php echo $class; ?>-input-append">
                     <label class="<?php echo $class; ?>-checkbox inline" for="<?php echo $class; ?>-remember">
-                        <input type="checkbox" alt="Remember me" value="yes" class="inputbox" name="remember" id="<?php echo $class; ?>-remember">Remember me</label>
+                        <input type="checkbox" alt="Remember me" value="1" class="inputbox" name="remember" id="<?php echo $class; ?>-remember">Remember me</label>
                 </div>
             </div>
             <div class="<?php echo $class; ?>-login-inputs">
