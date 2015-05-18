@@ -157,6 +157,15 @@
             });
         },
         /**
+         * Form validation
+         * @returns {undefined}
+         */
+        formValidation: function(){
+            $('.required').filter(':not("#email_field")').attr('data-validation', 'required');
+            $('#email_field').attr('data-validation', 'email');
+            $.validate();
+        },
+        /**
          * Update ship to
          * @returns {undefined}
          */
@@ -214,6 +223,7 @@
             self.updatePurchaseConfirm();
             self.updateShipTo();
             self.updateCounponCode();
+            self.formValidation();
         }
     };
 
