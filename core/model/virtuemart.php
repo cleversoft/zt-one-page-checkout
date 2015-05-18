@@ -294,6 +294,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
         public function confirm()
         {
             $cart = VirtueMartCart::getCart();
+            $cart->_dataValidated = true;
             $cart->confirmDone();
         }
 
