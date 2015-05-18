@@ -24,7 +24,7 @@ if (!class_exists('plgSystemZt_onepage_checkout'))
         public function onAfterRoute()
         {
             // Asked for Zt Framework
-            require_once JPATH_ROOT . '/plugins/system/zt/core/bootstrap.php';
+            require_once JPATH_ROOT . '/plugins/system/zooframework/core/bootstrap.php';
             // Register this plugin
             ZtFramework::registerExtension(__DIR__ . '/extension.json');
             // Check to hook into Virtuemart Cartpage
