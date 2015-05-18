@@ -29,6 +29,7 @@ if (!class_exists('ZtonepageHelperAjax'))
             if (ZtHelperJoomlaUser::login($username, $password, '', '', $options) || JFactory::getUser()->guest == false)
             {
                 // Login success than we need reload this html
+                $ajax->addExecute('zt.joomla.updateToken("' . JSession::getFormToken() . '")');
                 $ajax->addExecute('zt.onepagecheckout.display();');
             } else
             {
