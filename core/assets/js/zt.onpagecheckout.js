@@ -133,6 +133,22 @@
          * @returns {undefined}
          */
         updatePurchaseConfirm: function () {
+            var $form = $('#zt-opc-purchase-form');
+            if($form.length > 0){
+                var $tos = $form.find('[type="checkbox"]');
+                var $submit = $form.find('[type="submit"]');
+                if($tos.length > 0){
+                    $tos.off('click');
+                    $submit.prop('disabled', true);
+                    $tos.on('click', function(){
+                        if($(this).is(':checked')){
+                            $submit.removeAttr('disabled');
+                        }else{
+                            $submit.prop('disabled', true);
+                        }
+                    });
+                }
+            }
             this.ajax.formHook('#zt-opc-purchase-form', {
                 data: {
                     zt_task: "updatePurchaseConfirm",
