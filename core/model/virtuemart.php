@@ -293,6 +293,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
 
         public function confirm()
         {
+            JFactory::getApplication()->redirect($url);
             $cart = VirtueMartCart::getCart();
             $cart->_dataValidated = true;
             $cart->confirmDone();
