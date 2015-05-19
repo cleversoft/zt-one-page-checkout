@@ -113,19 +113,26 @@ if (!class_exists('ZtonepageHelperAjax'))
         public static function updatePurchaseConfirm()
         {
             $model = ZtonepageModelVirtuemart::getInstance();
-            $model->confirm();
-            $view = new VirtueMartViewCart();
-            /**
-             * @todo What am i dong here ? !!!
-             */
-            ob_start();
-            $view->setLayout('order_done');
-            $html = $view->display();
-            $html = ob_get_contents();
-            ob_end_clean();
             $ajax = ZtAjax::getInstance();
-            $ajax->addHtml($html, '#zt-opc-plugin');
-            $ajax->addExecute('zt.onepagecheckout._rebind();');
+            $confirmed = $model->confirm();
+            $view = new VirtueMartViewCart();
+            if ($confirmed)
+            {
+                /**
+                 * @todo What am i dong here ? !!!
+                 */
+                ob_start();
+                $view->setLayout('order_done');
+                $html = $view->display();
+                $html = ob_get_contents();
+                ob_end_clean();
+
+                $ajax->addHtml($html, '#zt-opc-plugin');
+                $ajax->addExecute('zt.onepagecheckout._rebind();');
+            } else
+            {                
+                $ajax->addMessage(ZtonepageHelperText::_('Invalid data'));
+            }
             $ajax->response();
         }
 
