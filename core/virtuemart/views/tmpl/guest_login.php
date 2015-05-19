@@ -25,13 +25,13 @@ $class = 'zt-opc';
             <div class="form-group">
                 <div class="<?php echo $class; ?>-input <?php echo $class; ?>-input-append">
                     <label class="<?php echo $class; ?>-checkbox inline" for="<?php echo $class; ?>-remember">
-                        <input type="checkbox" alt="Remember me" value="1" class="inputbox" name="remember" id="<?php echo $class; ?>-remember">Remember me</label>
+                        <input type="checkbox" alt="Remember me" value="1" class="inputbox" name="remember" id="<?php echo $class; ?>-remember"><?php echo ZtonepageHelperText::_('REMEMBER_ME'); ?></label>
                 </div>
             </div>
             <div class="<?php echo $class; ?>-login-inputs">
                 <div class="form-group">
                     <div class="<?php echo $class; ?>-input <?php echo $class; ?>-input-prepend">
-                        <button class="btn btn-info" type="submit">Login And Checkout</button>
+                        <button class="btn btn-info" type="submit"><?php echo ZtonepageHelperText::_('LOGIN_AND_CHECKOUT'); ?></button>
                     </div>
                 </div>
             </div>
@@ -39,8 +39,8 @@ $class = 'zt-opc';
                 <div class="form-group">
                     <div class="<?php echo $class; ?>-input">
                         <ul class="<?php echo $class; ?>-ul">
-                            <li><a href="#">Forgot your username?</a></li>
-                            <li><a href="#">Forgot your password?</a></li>
+                            <li><a href="#"><?php echo ZtonepageHelperText::_('FORGOT_YOUR_USERNAME'); ?></a></li>
+                            <li><a href="#"><?php echo ZtonepageHelperText::_('FORGOT_YOUR_PASSWORD'); ?></a></li>
                         </ul>
                     </div>
                 </div>
