@@ -21,6 +21,11 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
             return ($input->get('option') == 'com_virtuemart' && $input->get('view') == 'cart') && ($input->get('task') != 'addJS');
         }
 
+        public static function is3rdInstalled()
+        {
+            
+        }
+
         /**
          * Init Virtuemart
          * @todo Replace by Joomla! standard way
@@ -42,7 +47,7 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
             if (!class_exists('shopFunctionsF'))
                 require(VMPATH_SITE . DS . 'helpers' . DS . 'shopfunctionsf.php'); //dont remove that file it is actually in every view
             if (!class_exists('VirtueMartCart'))
-                require(VMPATH_SITE . DS . 'helpers' . DS . 'cart.php');
+                ZtFramework::import('Ztonepage://virtuemart/cart.php');
         }
 
         /**
@@ -55,7 +60,7 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
             $input->set('view', 'cart');
             $input->set('option', 'com_virtuemart');
             $view = $input->get('view');
-            ZtFramework::import('Ztonepage://views/' . $view . '.html.php');
+            ZtFramework::import('Ztonepage://virtuemart/views/' . $view . '.html.php');
         }
 
     }
