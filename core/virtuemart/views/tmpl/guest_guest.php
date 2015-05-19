@@ -4,11 +4,11 @@ $class = 'zt-opc';
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
     <!-- Title -->
     <h3 class="<?php echo $class; ?>-title zt-opc-title">
-        Checkout as Guest or Register
+        <?php echo ZtonepageHelperText::_('CHECKOUT_AS_GUEST_OR_REGISTER'); ?>
     </h3>
     <div class="inner-wrap">
         <!-- Guest checkout -->
-        <h4 class="<?php echo $class; ?>-subtitle">Checkout as Guest</h4>
+        <h4 class="<?php echo $class; ?>-subtitle"><?php echo ZtonepageHelperText::_('CHECKOUT_AS_GUEST'); ?></h4>
         <div class="<?php echo $class; ?>-guest-form">
             <div class="<?php echo $class; ?>-inner with-switch">
                 <form autocomplete="off" id="<?php echo $class; ?>-user" method="post">
@@ -26,7 +26,7 @@ $class = 'zt-opc';
                     <div class="<?php echo $class; ?>-login-inputs">
                         <div class="form-group">
                             <div class="<?php echo $class; ?>-input <?php echo $class; ?>-input-prepend">
-                                <button type="submit" class="btn btn-info">Checkout as Guest</button>
+                                <button type="submit" class="btn btn-info"><?php echo ZtonepageHelperText::_('CHECKOUT_AS_GUEST'); ?></button>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ $class = 'zt-opc';
             </div>
         </div>
         <!-- Register form -->
-        <h4 class="<?php echo $class; ?>-subtitle">Register</h4>        
+        <h4 class="<?php echo $class; ?>-subtitle"><?php echo ZtonepageHelperText::_('REGISTER'); ?></h4>        
         <div class="<?php echo $class; ?>-reg-form soft-hide">
             <div class="<?php echo $class; ?>-inner with-switch">
                 <form autocomplete="off" name="userForm" id="<?php echo $class; ?>-registration">
@@ -103,13 +103,7 @@ $class = 'zt-opc';
             </div>
         </div>
         <div class="<?php echo $class; ?>-reg-advantages">
-            <h4>Register and save time!</h4>
-
-            <p>Register with us for future convenience:</p>
-            <ul>
-                <li>Fast and easy checkout</li>
-                <li>Easy access to your order history and status</li>
-            </ul>
+           <?php echo ZtonepageHelperText::_('DESCRIPTION'); ?>
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@ $class = 'zt-opc-payment';
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
     <h3 class="<?php echo $class; ?>-title zt-opc-title">
         <div class="zt-opc-step <?php echo $class; ?>-step">4</div>
-        Payment
+        <?php echo ZtonepageHelperText::_('PAYMENT'); ?>
     </h3>
     <div class="inner-wrap">
         <fieldset>

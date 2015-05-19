@@ -18,7 +18,7 @@ $class = 'zt-opc-billto';
     <!-- BT address -->
     <div class="inner-wrap">
         <span class="label label-info"><?php echo JFactory::getUser()->email; ?></span>
-        <button type="button" class="btn btn-primary btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();">Edit Bill to</button>
+        <button type="button" class="btn btn-primary btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();"><?php echo ZtonepageHelperText::_('EDIT_BILL_TO'); ?></button>
         <!-- @todo Show Edit button to expand below form -->
         <div class="edit-address billto" >
             <form autocomplete="off" id="<?php echo $class; ?>-form" style="display:none;">
@@ -33,8 +33,8 @@ $class = 'zt-opc-billto';
                 <fieldset>
                     <input type="hidden" name="address_type" value="BT">
                 </fieldset>
-                <button type="type" class="btn btn-primary btn-small">Save</button>
-                <button type="button" class="btn btn-danger btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();">Cancel</button>
+                <button type="type" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
+                <button type="button" class="btn btn-danger btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();"><?php echo ZtonepageHelperText::_('CANCEL'); ?></button>
             </form>
         </div>
     </div>

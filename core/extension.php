@@ -14,6 +14,7 @@ if (!class_exists('ZtonepageExtension'))
             $language_tag = 'en-GB';
             $reload = true;
             $lang->load($extension, JPATH_ADMINISTRATOR);
+            $lang->load($extension, __DIR__.'/../');
         }
 
     }
