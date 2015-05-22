@@ -2,8 +2,8 @@
 /**
  *
  */
-
 $class = 'zt-opc-coupon';
+$ship['name'] = (isset($ship['name']) ? $ship['name'] : '');
 ?>
 
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
