@@ -1011,9 +1011,9 @@ class VirtueMartCart
             return true;
         } else
         {
-            return false;
             //$app = JFactory::getApplication();
             //$app->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart' . $this->getLayoutUrlString(), FALSE), vmText::_('COM_VIRTUEMART_CART_CHECKOUT_DATA_NOT_VALID'));
+            return true;
         }
     }
 
@@ -1070,7 +1070,7 @@ class VirtueMartCart
         if (count($this->cartProductsData) === 0 and $this->_redirect)
         {
             $this->_inCheckOut = false;
-            //return $this->redirecter('index.php?option=com_virtuemart', vmText::_('COM_VIRTUEMART_CART_NO_PRODUCT'));
+            return $this->redirecter('index.php?option=com_virtuemart', vmText::_('COM_VIRTUEMART_CART_NO_PRODUCT'));
         }
 
         // Check if a minimun purchase value is set
@@ -1162,7 +1162,7 @@ class VirtueMartCart
         //Test Shipment and show shipment plugin
         if (empty($this->virtuemart_shipmentmethod_id))
         {
-            //return $this->redirecter('index.php?option=com_virtuemart&view=cart&task=edit_shipment', $redirectMsg);
+            return $this->redirecter('index.php?option=com_virtuemart&view=cart&task=edit_shipment', $redirectMsg);
         } else
         {
             if (!class_exists('vmPSPlugin'))
@@ -1180,7 +1180,7 @@ class VirtueMartCart
                 } elseif ($retVal === false)
                 {
                     // Missing data, ask for it (again)
-                    // return $this->redirecter('index.php?option=com_virtuemart&view=cart&task=edit_shipment', $redirectMsg);
+                    return $this->redirecter('index.php?option=com_virtuemart&view=cart&task=edit_shipment', $redirectMsg);
                     // 	NOTE: inactive plugins will always return null, so that value cannot be used for anything else!
                 }
             }
@@ -1224,7 +1224,7 @@ class VirtueMartCart
             {
                 $this->_inCheckOut = false;
                 $redirectMsg = null;
-                //return $this->redirecter('index.php?option=com_virtuemart&view=cart' . $layoutName, $redirectMsg);
+                return $this->redirecter('index.php?option=com_virtuemart&view=cart' . $layoutName, $redirectMsg);
             }
             $this->_blockConfirm = true;
         } else
@@ -1245,20 +1245,19 @@ class VirtueMartCart
 
         if ($this->_blockConfirm)
         {
-            //$this->_dataValidated = false;
-            $this->_dataValidated = true;
-            //$this->_inCheckOut = false;
+            $this->_dataValidated = false;
+            $this->_inCheckOut = false;
             $this->setCartIntoSession(true);
-            //return $this->redirecter('index.php?option=com_virtuemart&view=cart' . $layoutName, '');            
-            return true;
+            return $this->redirecter('index.php?option=com_virtuemart&view=cart' . $layoutName, '');
         } else
-        {            
+        {
             $this->_dataValidated = true;
             $this->setCartIntoSession(true);
             if ($this->_redirect)
             {
-                $app = JFactory::getApplication();
-                $app->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart' . $layoutName, FALSE), vmText::_('COM_VIRTUEMART_CART_CHECKOUT_DONE_CONFIRM_ORDER'));
+                //$app = JFactory::getApplication();
+                //$app->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart' . $layoutName, FALSE), vmText::_('COM_VIRTUEMART_CART_CHECKOUT_DONE_CONFIRM_ORDER'));
+                return true;
             } else
             {
                 return true;

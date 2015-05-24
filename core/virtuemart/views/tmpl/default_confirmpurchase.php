@@ -10,7 +10,7 @@ $class = 'zt-opc-purchase';
 ?>
 
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
-    <form id="zt-opc-purchase-form">
+    
         <h3 class="<?php echo $class; ?>-title zt-opc-title">
             <div class="zt-opc-step <?php echo $class; ?>-step">7</div><?php echo ZtonepageHelperText::_('CONFIRM_PURCHASE'); ?>
         </h3>
@@ -21,7 +21,7 @@ $class = 'zt-opc-purchase';
             </div>
             <div class="cart-tos-group">
                 <label class="checkbox <?php echo $class; ?>-tos-label <?php echo $class; ?>-row" for="tos">
-                    <input type="hidden" value="0" name="tos"><input type="checkbox" value="1" name="tos" class="terms-of-service">
+                    <input type="checkbox" value="1" name="tos" class="terms-of-service">
                     <div class="terms-of-service-cont">
                         <a data-tos="fancybox" class="terms-of-service" href="#<?php echo $class; ?>-tos-fancy"><?php echo ZtonepageHelperText::_('CLICK_HERE_TO_READ_TOS'); ?></a>
                     </div>
@@ -36,5 +36,5 @@ $class = 'zt-opc-purchase';
                 </button>
             </div>
         </div>
-    </form>
+   
 </div>

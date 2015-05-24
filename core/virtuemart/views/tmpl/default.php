@@ -31,12 +31,17 @@ defined('_JEXEC') or die('Restricted access');
     </div>
     <div class="row">
         <div class="col-sm-4 col-md-4 span12">
-            <div id="zt-opc-shoppingcart">
-                <?php echo $this->loadTemplate("shoppingcart"); ?>
-            </div>
-            <div id="zt-opc-confirmpurchase">
-                <?php echo $this->loadTemplate("confirmpurchase"); ?>
-            </div>
+            <form id="zt-opc-purchase-form">
+                <div id="zt-opc-shoppingcart">
+                    <?php echo $this->loadTemplate("shoppingcart"); ?>
+                </div>
+                <div id="zt-opc-confirmpurchase">
+                    <?php echo $this->loadTemplate("confirmpurchase"); ?>
+                </div>
+                <input type="hidden" name="task" value="updatecart">
+                <input type="hidden" name="option" value="com_virtuemart">
+                <input type="hidden" name="view" value="cart">
+            </form>
         </div>
     </div>
 </div>
