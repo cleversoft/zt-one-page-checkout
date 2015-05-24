@@ -131,7 +131,7 @@ if (!class_exists('ZtonepageHelperAjax'))
                 $ajax->addExecute('zt.onepagecheckout._rebind();');
             } else
             {                
-                $ajax->addMessage(ZtonepageHelperText::_('Invalid data'));
+                $ajax->addMessage(ZtonepageHelperText::_('INVALID_DATA'));
             }
             $ajax->response();
         }
