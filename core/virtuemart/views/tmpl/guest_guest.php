@@ -11,7 +11,7 @@ $class = 'zt-opc';
         <h4 class="<?php echo $class; ?>-subtitle"><?php echo ZtonepageHelperText::_('CHECKOUT_AS_GUEST'); ?></h4>
         <div class="<?php echo $class; ?>-guest-form">
             <div class="<?php echo $class; ?>-inner with-switch">
-                <form autocomplete="off" id="<?php echo $class; ?>-user" method="post">
+                <form autocomplete="off" id="<?php echo $class; ?>-user" method="post" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
                     <div class="form-group">
                         <div class="<?php echo $class; ?>-input-group-level">
                             <label for="<?php echo $class; ?>-email" class="email full-input">
@@ -37,7 +37,7 @@ $class = 'zt-opc';
         <h4 class="<?php echo $class; ?>-subtitle"><?php echo ZtonepageHelperText::_('REGISTER'); ?></h4>        
         <div class="<?php echo $class; ?>-reg-form soft-hide">
             <div class="<?php echo $class; ?>-inner with-switch">
-                <form autocomplete="off" name="userForm" id="<?php echo $class; ?>-registration">
+                <form autocomplete="off" name="userForm" id="<?php echo $class; ?>-registration" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
                     <div class="form-group">
                         <div class="<?php echo $class; ?>-input-group-level">
                             <label for="<?php echo $class; ?>-email-regis" class="email full-input">

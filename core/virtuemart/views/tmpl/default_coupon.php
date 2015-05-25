@@ -12,7 +12,7 @@ $ship['name'] = (isset($ship['name']) ? $ship['name'] : '');
     </h3>
     <div class="inner-wrap">
         <div class="edit-address">
-            <form autocomplete="off" id="<?php echo $class; ?>-form" class="form-inline">
+            <form autocomplete="off" id="<?php echo $class; ?>-form" class="form-inline" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
                 <div id="<?php echo $ship['name']; ?>-group" class="form-group">
                     <div class="inner">
                         <input type="text" class="form-control" id="<?php echo $class; ?>-code">
