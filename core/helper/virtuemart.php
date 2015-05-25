@@ -11,6 +11,12 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
     class ZtonepageHelperVirtuemart
     {
 
+        public static function isVirtuemart()
+        {
+            $input = JFactory::getApplication()->input;
+            return ($input->get('option') == 'com_virtuemart' && $input->get('view') == 'cart') && ($input->get('task') != 'addJS');
+        }
+
         /**
          * Init Virtuemart
          * @todo Replace by Joomla! standard way
