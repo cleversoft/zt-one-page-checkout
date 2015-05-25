@@ -13,6 +13,12 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
 }
+.zt-opc-element tbody{
+    position: relative;
+}
+.zt-opc-element tbody:hover .product-hover{
+    opacity: 1;
+}
 .cart-summary .PricesalesPrice > span{
     color: red;
     font-size: 15px;
@@ -97,4 +103,41 @@ span.vm-price-desc{
 }
 .zt-opc-element textarea.customer-comment{
     width: 100%;
+}
+.zt-opc-cart-product-image{
+    width: 35%;
+    float: left;
+    margin-right: 10px;
+}
+.zt-opc-cart-p-info{
+    padding-bottom: 10px;
+}
+.product-hover{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 39px;
+    z-index: 9;
+}
+.zt-opc-cart-arrow-box{
+    padding: 10px;
+    position: relative;
+}
+.zt-opc-cart-arrow-box:before{
+    background-color: #fff;
+    border-color: #ddd;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+    content: "";
+    height: 20px;
+    position: absolute;
+    right: 33px;
+    top: -16px;
+    transform: rotate(135deg);
+    width: 20px;
+}
+.zt-opc-cart-btn{
+    margin-top: 4px;
 }
