@@ -27,6 +27,7 @@ $class = 'zt-opc-billto';
                         <div class="inner">
                             <label for="<?php echo $bill['name']; ?>_field" class="<?php echo $bill['name']; ?>"><?php echo $bill['title']; ?> <?php echo ($bill['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>
                             <?php echo $bill['formcode']; ?>
+                            <?php //echo ZtonepageHelperVirtuemart::formField($bill); ?>
                         </div>
                     </div>
                 <?php endforeach; ?>   

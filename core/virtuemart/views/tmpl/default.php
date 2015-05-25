@@ -7,14 +7,14 @@ defined('_JEXEC') or die('Restricted access');
  * @todo All html must be wrapped under form
  */
 ?>
-<div class="container-fluid" id="zt-opc-plugin">
+<div id="zt-opc-plugin">
     <div class="row">
-        <div class="col-sm-4 col-md-4 span6 billto">
+        <div class="col-sm-4 col-md-4 billto">
             <div id="zt-opc-billto">
                 <?php echo $this->loadTemplate("billto"); ?>
             </div>
         </div>
-        <div class="col-sm-4 col-md-4 span6">
+        <div class="col-sm-4 col-md-4">
             <div id="zt-opc-shipto">
                 <?php echo $this->loadTemplate("shipto"); ?>
             </div>
@@ -27,9 +27,7 @@ defined('_JEXEC') or die('Restricted access');
             <div id="zt-opc-coupon">
                 <?php echo $this->loadTemplate("coupon"); ?>
             </div>
-        </div>        
-    </div>
-    <div class="row">
+        </div>
         <div class="col-sm-4 col-md-4 span12">
             <form id="zt-opc-purchase-form">
                 <div id="zt-opc-shoppingcart">
