@@ -98,18 +98,16 @@ $class = 'zt-opc-cart';
                        size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]" value="<?php echo $prow->quantity ?>" />
 
                 <button 
-                    type="submit" 
+                    type="button" 
                     class="vmicon vm2-add_quantity_cart" 
                     title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
-                    onClick ="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);
-                            return false;" 
+                    onClick ="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);" 
                     />
                 <button 
-                    type="submit" 
+                    type="button" 
                     class="vmicon vm2-remove_from_cart"                     
                     title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>" 
-                    onClick ="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);
-                            return false;"
+                    onClick ="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);"
                     />
             </td>
 
