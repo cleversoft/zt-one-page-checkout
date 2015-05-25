@@ -12,21 +12,6 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
     {
 
         /**
-         * Verify we are landing on virtuemart cart page
-         * @return boolean
-         */
-        public static function isCartpage()
-        {
-            $input = JFactory::getApplication()->input;
-            return ($input->get('option') == 'com_virtuemart' && $input->get('view') == 'cart') && ($input->get('task') != 'addJS');
-        }
-
-        public static function is3rdInstalled()
-        {
-            
-        }
-
-        /**
          * Init Virtuemart
          * @todo Replace by Joomla! standard way
          */
@@ -56,10 +41,8 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
         public static function overrideView()
         {
             $input = JFactory::getApplication()->input;
-
-            $input->set('view', 'cart');
-            $input->set('option', 'com_virtuemart');
-            $view = $input->get('view');
+            $input->get('option', 'com_virtuemart');
+            $view = $input->get('view', 'cart');
             ZtFramework::import('Ztonepage://virtuemart/views/' . $view . '.html.php');
         }
 
