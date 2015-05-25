@@ -82,6 +82,7 @@
          * @returns {undefined}
          */
         login: function () {
+            z.ajax.unHook('#zt-opc-login');
             this.ajax.formHook('#zt-opc-login', {
                 data: {
                     zt_task: "userLogin"
@@ -89,6 +90,7 @@
             });
         },
         guestCheckout: function () {
+            z.ajax.unHook('#zt-opc-user');
             this.ajax.formHook('#zt-opc-user', {
                 data: {
                     zt_task: "guestCheckout"
@@ -111,6 +113,7 @@
          * @returns {undefined}
          */
         register: function () {
+            z.ajax.unHook('#zt-opc-registration');
             this.ajax.formHook('#zt-opc-registration', {
                 data: {
                     zt_task: "registerUser"
@@ -122,6 +125,7 @@
          * @returns {undefined}
          */
         updateBillTo: function () {
+            z.ajax.unHook('#zt-opc-billto-form');
             this.ajax.formHook('#zt-opc-billto-form', {
                 data: {
                     zt_task: "updateBillTo"
@@ -149,6 +153,14 @@
                     });
                 }
             }
+            z.ajax.unHook('#zt-opc-purchase-form');
+            $('#zt-opc-purchase-form').on('submit', function(){
+               if(z.ajax.formIsValid('#zt-opc-billto-form') && z.ajax.formIsValid('#zt-opc-shipto-form')){
+                   $('#zt-opc-purchase-form').data('nosubmit', false);
+               }else{
+                   $('#zt-opc-purchase-form').data('nosubmit', true);
+               }
+            });
             this.ajax.formHook('#zt-opc-purchase-form', {
                 data: {
                     zt_task: "updatePurchaseConfirm",
