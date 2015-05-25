@@ -29,7 +29,7 @@ defined('_JEXEC') or die('Restricted access');
             </div>
         </div>
         <div class="col-sm-4 col-md-4 span12">
-            <form id="zt-opc-purchase-form">
+            <form id="zt-opc-purchase-form" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
                 <div id="zt-opc-shoppingcart">
                     <?php echo $this->loadTemplate("shoppingcart"); ?>
                 </div>

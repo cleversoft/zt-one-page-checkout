@@ -21,7 +21,7 @@ $class = 'zt-opc-billto';
         <button type="button" class="btn btn-primary btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();"><?php echo ZtonepageHelperText::_('EDIT_BILL_TO'); ?></button>
         <!-- @todo Show Edit button to expand below form -->
         <div class="edit-address billto" >
-            <form autocomplete="off" id="<?php echo $class; ?>-form" style="display:none;">
+            <form autocomplete="off" id="<?php echo $class; ?>-form" style="display:none;" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
                 <?php foreach ($billTo as $bill) : ?>
                     <div id="<?php echo $bill['name']; ?>-group" class="form-group">
                         <div class="inner">
