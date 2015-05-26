@@ -6,9 +6,6 @@
     margin-bottom: 15px;
     font-size: 14px;
 }
-.zt-opc-element h3{
-    font-size: 22px;
-}
 .zt-opc-element *{
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
@@ -38,7 +35,7 @@
     font-size: 16px;
     font-weight: 400;
     padding: 10px 15px;
-    margin-bottom: 0;
+    margin: 0;
 }
 .zt-opc-step{
     background-color: #000;

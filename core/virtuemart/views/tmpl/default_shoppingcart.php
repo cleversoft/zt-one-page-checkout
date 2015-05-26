@@ -339,7 +339,7 @@ $class = 'zt-opc-cart';
                             if (!$this->cart->automaticSelectedShipment)
                             {
                                 ?>
-                                <td colspan="1">
+                                <td colspan="4">
                                     <?php
                                     echo '<h3>' . vmText::_('COM_VIRTUEMART_CART_SELECTED_SHIPMENT') . '</h3>';
                                     echo $this->cart->cartData['shipmentName'] . '<br/>';
@@ -363,7 +363,7 @@ $class = 'zt-opc-cart';
                                 } else
                                 {
                                     ?>
-                                <td>
+                                <td colspan="4">
                                     <?php echo '<h4>' . vmText::_('COM_VIRTUEMART_CART_SELECTED_SHIPMENT') . '</h4>'; ?>
                                     <?php echo $this->cart->cartData['shipmentName']; ?>
                                 </td>
@@ -392,7 +392,7 @@ $class = 'zt-opc-cart';
                             if (!$this->cart->automaticSelectedPayment)
                             {
                                 ?>
-                                <td colspan="1">
+                                <td colspan="4">
                                     <?php
                                     echo '<h3>' . vmText::_('COM_VIRTUEMART_CART_SELECTED_PAYMENT') . '</h3>';
                                     echo $this->cart->cartData['paymentName'] . '<br/>';
@@ -418,7 +418,7 @@ $class = 'zt-opc-cart';
                             } else
                             {
                                 ?>
-                                <td>
+                                <td colspan="4">
                                     <?php echo '<h4>' . vmText::_('COM_VIRTUEMART_CART_SELECTED_PAYMENT') . '</h4>'; ?>
                                     <?php echo $this->cart->cartData['paymentName']; ?> </td>
                             <?php } ?>
