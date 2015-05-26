@@ -10,6 +10,9 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
 }
+.zt-opc-element .cart-summary{
+    position: relative;
+}
 .zt-opc-element fieldset{
     padding: 0;
     border: none;
@@ -116,10 +119,10 @@ span.vm-price-desc{
     border: 1px solid #ddd;
     padding: 10px;
     position: absolute;
-    top: 52px;
+    top: 80px;
     width: 100%;
     z-index: 99;
-    opacity: 1;
+    opacity: 0;
 }
 .zt-opc-cart-arrow-box:before{
     background-color: #fff;
