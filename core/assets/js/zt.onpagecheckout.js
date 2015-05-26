@@ -205,11 +205,12 @@
          * @returns {undefined}
          */
         updateCartQuantity: function (pKey) {
+            var value = $('tr.product-hover').find('#zt-opc-shoppingcart-pid-' + pKey).val();
             this.ajax.request({
                 data: {
                     zt_task: "updateCartQuantity",
                     pKey: pKey,
-                    quantity: $('#zt-opc-shoppingcart-pid-' + pKey).val()
+                    quantity: value
                 }
             });
         },
