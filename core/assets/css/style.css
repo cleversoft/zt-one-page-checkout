@@ -114,12 +114,15 @@ span.vm-price-desc{
 .zt-opc-cart-p-info{
     padding-bottom: 10px;
 }
+.zt-opc-cart-arrow{
+    position: relative;
+}
 .zt-opc-cart-arrow-box{
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 10px;
     position: absolute;
-    top: 80px;
+    top: -55px;
     width: 100%;
     z-index: 99;
     opacity: 0;

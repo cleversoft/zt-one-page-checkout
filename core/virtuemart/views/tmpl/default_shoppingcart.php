@@ -6,59 +6,59 @@ $class = 'zt-opc-cart';
 ?>
 
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
-    <h3 class="<?php echo $class; ?>-title zt-opc-title">
-        <div class="zt-opc-step <?php echo $class; ?>-step">6</div><?php echo ZtonepageHelperText::_('CART'); ?>
-    </h3>
+<h3 class="<?php echo $class; ?>-title zt-opc-title">
+    <div class="zt-opc-step <?php echo $class; ?>-step">6</div><?php echo ZtonepageHelperText::_('CART'); ?>
+</h3>
 
-    <!-- @todo Show sort information here -->
+<!-- @todo Show sort information here -->
 
-    <!-- BT address -->
-    <div class="inner-wrap">
-        <fieldset class="vm-fieldset-pricelist">
-            <table class="cart-summary">
-                <!-- Begin Heading -->
-                <thead>
-                <tr>
-                    <th align="left" class="col-name"><?php echo vmText::_('COM_VIRTUEMART_CART_NAME') ?></th>
-                    <th align="center" class="col-qty"><?php echo vmText::_('COM_VIRTUEMART_CART_QUANTITY') ?></th>
-                    <th align="right" class="col-total" colspan="4"
-                        style="text-align: right"><?php echo vmText::_('COM_VIRTUEMART_CART_TOTAL') ?></th>
-                </tr>
-                </thead>
-                <!-- End heading -->
-                <?php
-                $i = 1;
+<!-- BT address -->
+<div class="inner-wrap">
+<fieldset class="vm-fieldset-pricelist">
+<table class="cart-summary">
+<!-- Begin Heading -->
+<thead>
+<tr>
+    <th align="left" class="col-name"><?php echo vmText::_('COM_VIRTUEMART_CART_NAME') ?></th>
+    <th align="center" class="col-qty"><?php echo vmText::_('COM_VIRTUEMART_CART_QUANTITY') ?></th>
+    <th align="right" class="col-total" colspan="4"
+        style="text-align: right"><?php echo vmText::_('COM_VIRTUEMART_CART_TOTAL') ?></th>
+</tr>
+</thead>
+<!-- End heading -->
+<?php
+$i = 1;
 
-                foreach ($this->cart->products as $pKey => $prow)
-                {
+foreach ($this->cart->products as $pKey => $prow)
+{
+    ?>
+    <?php
+    $model = ZtonepageModelVirtuemart::getInstance();
+    $media = $model->getMedia($prow->virtuemart_product_id);
+    ?>
+    <tbody>
+    <tr valign="top" class="sectiontableentry<?php echo $i ?>">
+        <input type="hidden" name="cartpos[]" value="<?php echo $pKey ?>">
+        <!-- Name -->
+        <td class="col-name">
+            <?php
+            if ($prow->virtuemart_media_id) {
                 ?>
-                <?php
-                $model = ZtonepageModelVirtuemart::getInstance();
-                $media = $model->getMedia($prow->virtuemart_product_id);
-                ?>
-                <tbody>
-                <tr valign="top" class="sectiontableentry<?php echo $i ?>">
-                    <input type="hidden" name="cartpos[]" value="<?php echo $pKey ?>">
-                    <!-- Name -->
-                    <td class="col-name">
-                        <?php
-                        if ($prow->virtuemart_media_id) {
-                            ?>
 
-                            <span class="cart-images">
+                <span class="cart-images">
                                 <?php
                                 if (!empty($prow->images[0])) {
                                     echo $prow->images[0]->displayMediaThumb('', FALSE);
                                 }
                                 ?>
                             </span>
-                        <?php } ?>
-                        <?php
-                        echo JHtml::link($prow->url, $prow->product_name);
-                        echo $this->customfieldsModel->CustomsFieldCartDisplay($prow);
-                        ?>
-                        <span><?php echo vmText::_('COM_VIRTUEMART_CART_SKU') ?>
-                            : <?php echo $prow->product_sku ?></span><br/>
+            <?php } ?>
+            <?php
+            echo JHtml::link($prow->url, $prow->product_name);
+            echo $this->customfieldsModel->CustomsFieldCartDisplay($prow);
+            ?>
+            <span><?php echo vmText::_('COM_VIRTUEMART_CART_SKU') ?>
+                : <?php echo $prow->product_sku ?></span><br/>
                         <span><span class="pull-left"><?php echo vmText::_('COM_VIRTUEMART_CART_PRICE') ?>: </span>
                             <?php
                             if (VmConfig::get('checkout_show_origprice', 1) && $prow->prices['discountedPriceWithoutTax'] != $prow->prices['priceWithoutTax']) {
@@ -72,95 +72,101 @@ $class = 'zt-opc-cart';
                             }
                             ?>
                         </span>
-                    </td>
-                    <!-- Quantity -->
-                    <td align="center" class="col-qty"><?php
-                        if ($prow->step_order_level)
-                            $step = $prow->step_order_level;
-                        else
-                            $step = 1;
-                        if ($step == 0)
-                            $step = 1;
-                        ?>
-                        <input type="text"
-                               title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
-                               class="quantity-input js-recalculate"
-                               id="zt-opc-shoppingcart-pid-<?php echo $pKey; ?>"
-                               size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]"
-                               value="<?php echo $prow->quantity ?>"/>
-                    </td>
+        </td>
+        <!-- Quantity -->
+        <td align="center" class="col-qty"><?php
+            if ($prow->step_order_level)
+                $step = $prow->step_order_level;
+            else
+                $step = 1;
+            if ($step == 0)
+                $step = 1;
+            ?>
+            <input type="text"
+                   title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
+                   class="quantity-input js-recalculate"
+                   id="zt-opc-shoppingcart-pid-<?php echo $pKey; ?>"
+                   size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]"
+                   value="<?php echo $prow->quantity ?>"/>
+        </td>
 
-                    <td class="col-total nowrap" align="right" colspan="2">
-                        <?php
-                        if (VmConfig::get('checkout_show_origprice', 1) && !empty($prow->prices['basePriceWithTax']) && $prow->prices['basePriceWithTax'] != $prow->prices['salesPrice']) {
-                            echo '<span class="line-through">' . $this->currencyDisplay->createPriceDiv('basePriceWithTax', '', $prow->prices, TRUE, FALSE, $prow->quantity) . '</span><br />';
-                        } elseif (VmConfig::get('checkout_show_origprice', 1) && empty($prow->prices['basePriceWithTax']) && $prow->prices['basePriceVariant'] != $prow->prices['salesPrice']) {
-                            echo '<span class="line-through">' . $this->currencyDisplay->createPriceDiv('basePriceVariant', '', $prow->prices, TRUE, FALSE, $prow->quantity) . '</span><br />';
-                        }
-                        echo $this->currencyDisplay->createPriceDiv('salesPrice', '', $prow->prices, FALSE, FALSE, $prow->quantity)
-                        ?></td>
-                </tr>
-                <tr class="product-hover soft-hide">
-                    <td colspan="4">
-                        <div class="<?php echo $class; ?>-arrow-box">
-                            <div class="<?php echo $class; ?>-p-info-table">
-                                <div class="row">
-                                    <?php if ($media) : ?>
-                                        <div class="<?php echo $class; ?>-product-image col-sm-6 col-md-6">
-                                            <div class="p-info-inner">
-                                                <img class="img-reponsive" alt="image1xxl83"
-                                                     src="<?php echo $media->imageUrl; ?>">
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <div class="<?php echo $class; ?>-p-info col-sm-6 col-md-6">
-                                        <div class="p-info-inner">
-                                            <div class="<?php echo $class; ?>-product-name">
-                                                <?php echo JHtml::link($prow->url, $prow->product_name); ?>
-                                            </div>
-                                        </div>
-                                        <div class="add-padding">
-                                            <?php
-                                            if ($prow->step_order_level)
-                                                $step = $prow->step_order_level;
-                                            else
-                                                $step = 1;
-                                            if ($step == 0)
-                                                $step = 1;
-                                            ?>
-                                            <input type="text"
-                                                   title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
-                                                   class="quantity-input js-recalculate"
-                                                   id="zt-opc-shoppingcart-pid-<?php echo $pKey; ?>"
-                                                   size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]"
-                                                   value="<?php echo $prow->quantity ?>"/>
-
-                                            <button
-                                                type="button"
-                                                class="vmicon vm2-add_quantity_cart"
-                                                title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
-                                                onClick="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);"
-                                                />
-                                            <button
-                                                type="button"
-                                                class="vmicon vm2-remove_from_cart"
-                                                title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>"
-                                                onClick="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);"
-                                                />
-                                        </div>
+        <td class="col-total nowrap" align="right" colspan="2">
+            <?php
+            if (VmConfig::get('checkout_show_origprice', 1) && !empty($prow->prices['basePriceWithTax']) && $prow->prices['basePriceWithTax'] != $prow->prices['salesPrice']) {
+                echo '<span class="line-through">' . $this->currencyDisplay->createPriceDiv('basePriceWithTax', '', $prow->prices, TRUE, FALSE, $prow->quantity) . '</span><br />';
+            } elseif (VmConfig::get('checkout_show_origprice', 1) && empty($prow->prices['basePriceWithTax']) && $prow->prices['basePriceVariant'] != $prow->prices['salesPrice']) {
+                echo '<span class="line-through">' . $this->currencyDisplay->createPriceDiv('basePriceVariant', '', $prow->prices, TRUE, FALSE, $prow->quantity) . '</span><br />';
+            }
+            echo $this->currencyDisplay->createPriceDiv('salesPrice', '', $prow->prices, FALSE, FALSE, $prow->quantity)
+            ?></td>
+    </tr>
+    <tr class="product-hover soft-hide">
+        <td colspan="4">
+            <div class="<?php echo $class; ?>-arrow">
+                <div class="<?php echo $class; ?>-arrow-box">
+                    <div class="<?php echo $class; ?>-p-info-table">
+                        <div class="row">
+                            <?php if ($media) : ?>
+                                <div class="<?php echo $class; ?>-product-image col-sm-6 col-md-6">
+                                    <div class="p-info-inner">
+                                        <img class="img-reponsive" alt="image1xxl83"
+                                             src="<?php echo $media->imageUrl; ?>">
                                     </div>
                                 </div>
-                                <p><span class="pull-left">Price</span><span class="pull-right PricediscountedPriceWithoutTax">$202.70</span></p>
-                                <div class="clearfix"></div>
-                                <p><span class="pull-left">Total</span><span class="pull-right PricesalesPrice">$810.82</span></p>
-                    </td>
-    </div>
-</div>
-    </td>
+                            <?php endif; ?>
+                            <div class="<?php echo $class; ?>-p-info col-sm-6 col-md-6">
+                                <div class="p-info-inner">
+                                    <div class="<?php echo $class; ?>-product-name">
+                                        <?php echo JHtml::link($prow->url, $prow->product_name); ?>
+                                    </div>
+                                </div>
+                                <div class="add-padding">
+                                    <?php
+                                    if ($prow->step_order_level)
+                                        $step = $prow->step_order_level;
+                                    else
+                                        $step = 1;
+                                    if ($step == 0)
+                                        $step = 1;
+                                    ?>
+                                    <input type="text"
+                                           title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
+                                           class="quantity-input js-recalculate"
+                                           id="zt-opc-shoppingcart-pid-<?php echo $pKey; ?>"
+                                           size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]"
+                                           value="<?php echo $prow->quantity ?>"/>
+
+                                    <button
+                                        type="button"
+                                        class="vmicon vm2-add_quantity_cart"
+                                        title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
+                                        onClick="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);"
+                                        />
+                                    <button
+                                        type="button"
+                                        class="vmicon vm2-remove_from_cart"
+                                        title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>"
+                                        onClick="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);"
+                                        />
+                                </div>
+                            </div>
+                        </div>
+                        <p><span class="pull-left">Price</span><span
+                                class="pull-right PricediscountedPriceWithoutTax">$202.70</span></p>
+
+                        <div class="clearfix"></div>
+                        <p><span class="pull-left">Total</span><span
+                                class="pull-right PricesalesPrice">$810.82</span></p>
+                    </div>
+                </div>
+            </div>
+        </td>
     </tr>
     </tbody>
-<?php
-$i = ($i == 1) ? 2 : 1;
+
+
+    <?php
+    $i = ($i == 1) ? 2 : 1;
 }
 ?>
 <!--Begin of SubTotal, Tax, Shipment, Coupon Discount and Total listing -->
