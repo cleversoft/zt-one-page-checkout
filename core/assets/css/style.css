@@ -117,6 +117,10 @@ span.vm-price-desc{
 .zt-opc-cart-arrow{
     position: relative;
 }
+.quanlity-nomal{
+    margin: 10px 0;
+    display: block;
+}
 .zt-opc-cart-arrow-box{
     background-color: #fff;
     border: 1px solid #ddd;

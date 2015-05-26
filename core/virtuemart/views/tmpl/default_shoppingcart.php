@@ -82,12 +82,7 @@ foreach ($this->cart->products as $pKey => $prow)
             if ($step == 0)
                 $step = 1;
             ?>
-            <input type="text"
-                   title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
-                   class="quantity-input js-recalculate"
-                   id="zt-opc-shoppingcart-pid-<?php echo $pKey; ?>"
-                   size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]"
-                   value="<?php echo $prow->quantity ?>"/>
+            <span class="quanlity-nomal"><?php echo $prow->quantity ?> </span>
         </td>
 
         <td class="col-total nowrap" align="right" colspan="2">
