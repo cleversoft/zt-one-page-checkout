@@ -294,8 +294,30 @@ if (!class_exists('ZtonepageModelVirtuemart'))
         public function confirm()
         {
 
-            $cart = VirtueMartCart::getCart();            
+            $cart = VirtueMartCart::getCart();
             return $cart->confirmDone();
+        }
+
+        public function getMedia($pid)
+        {
+            $db = JFactory::getDbo();
+            $query = ' SELECT pm.virtuemart_media_id FROM #__virtuemart_product_medias AS pm '
+                    . ' WHERE pm.virtuemart_product_id = ' . $pid;
+            $db->setQuery($query);
+            $mid = $db->loadResult();
+            if ($mid)
+            {
+                $query = ' SELECT * FROM #__virtuemart_medias WHERE virtuemart_media_id = ' . $mid;
+                $db->setQuery($query);
+                $media = $db->loadObject();
+                if ($media)
+                {
+                    $media->imageUrl = rtrim(JUri::root(), '/') . '/' . $media->file_url;
+                    $media->thumbUrl = rtrim(JUri::root(), '/') . '/' . $media->file_url_thumb;
+                    return $media;
+                }
+            }
+            return false;
         }
 
     }
