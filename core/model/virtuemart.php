@@ -317,6 +317,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
                     return $media;
                 }
             }
+            return false;
         }
 
     }

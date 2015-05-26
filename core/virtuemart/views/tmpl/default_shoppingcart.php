@@ -111,10 +111,13 @@ $class = 'zt-opc-cart';
                                     <tbody>
                                         <tr>
                                             <td colspan="2">
-                                                <div class="<?php echo $class; ?>-product-image">
-                                                    <div class="p-info-inner">
-                                                        <img class="img-reponsive" alt="image1xxl83" src="<?php echo $media->imageUrl; ?>">										</div>
-                                                </div>
+                                                <?php if ($media) : ?>
+                                                    <div class="<?php echo $class; ?>-product-image">
+                                                        <div class="p-info-inner">
+                                                            <img class="img-reponsive" alt="image1xxl83" src="<?php echo $media->imageUrl; ?>">
+                                                        </div>
+                                                    </div>
+                                                <?php endif; ?>
                                                 <div class="<?php echo $class; ?>-p-info">
                                                     <div class="p-info-inner">
                                                         <div class="<?php echo $class; ?>-product-name">
