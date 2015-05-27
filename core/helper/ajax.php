@@ -110,6 +110,15 @@ if (!class_exists('ZtonepageHelperAjax'))
             $ajax->response();
         }
 
+        public static function updateShipment()
+        {
+            $model = ZtonepageModelVirtuemart::getInstance();
+            $model->updateShipment();
+            $ajax = ZtAjax::getInstance();
+            $ajax->addExecute('zt.onepagecheckout.display();');
+            $ajax->response();
+        }
+
         public static function updatePurchaseConfirm()
         {
             $model = ZtonepageModelVirtuemart::getInstance();
@@ -130,7 +139,7 @@ if (!class_exists('ZtonepageHelperAjax'))
                 $ajax->addHtml($html, '#zt-opc-plugin');
                 $ajax->addExecute('zt.onepagecheckout._rebind();');
             } else
-            {                
+            {
                 $ajax->addMessage(ZtonepageHelperText::_('INVALID_DATA'));
             }
             $ajax->response();
