@@ -256,10 +256,5 @@
     /* Append to Zt JS Framework */
     z.onepagecheckout = _onepagecheckout;
     z.onepagecheckout._init();
-    
-    $(w.document).ready(function(){
-        $('.vm2-add_quantity_cart').unbind('onclick');
-        $('.vm2-remove_quantity_cart').unbind('onclick');
-    });
 
 })(window, zt, zt.$);

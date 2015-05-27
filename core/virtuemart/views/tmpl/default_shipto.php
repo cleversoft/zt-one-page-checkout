@@ -15,7 +15,7 @@ $class = 'zt-opc-shipto';
         <div class="zt-opc-step <?php echo $class; ?>-step">2</div><?php echo ZtonepageHelperText::_('SHIP_TO'); ?>
     </h3>
     <div class="inner-wrap">
-        <label class="<?php echo $class; ?>-extend" for="<?php echo $class; ?>-extend-input">
+        <label class="<?php echo $class; ?>-extend" id="<?php echo $class; ?>-extend-toogle" for="<?php echo $class; ?>-extend-input">
             <input 
                 type="checkbox" checked="checked" id="<?php echo $class; ?>-extend-input" name="<?php echo $class; ?>-extend-input" onClick="jQuery('.edit-address #zt-opc-shipto-form').toggle();">
             Use for the shipto same as billto address</label>
