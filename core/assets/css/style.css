@@ -17,12 +17,6 @@
     padding: 0;
     border: none;
 }
-.zt-opc-element tbody{
-    position: relative;
-}
-.zt-opc-element tbody:hover .zt-opc-cart-arrow-box{
-    opacity: 1;
-}
 .cart-summary .PricesalesPrice > span{
     color: red;
     font-size: 15px;
@@ -70,6 +64,7 @@
 .zt-opc-element .form-group input[type="email"],
 .zt-opc-element .form-group select{
     width: 100%;
+    margin: 0;
 }
 input.quantity-input{
     background: transparent;
@@ -115,7 +110,15 @@ span.vm-price-desc{
     padding-bottom: 10px;
 }
 .zt-opc-cart-arrow{
+    height: 95px;
+    margin-top: -104px;
     position: relative;
+    width: 100%;
+    z-index: 1;
+}
+.zt-opc-cart-arrow:hover .zt-opc-cart-arrow-box{
+    opacity: 1;
+    visibility: visible;
 }
 .quanlity-nomal{
     margin: 10px 0;
@@ -126,10 +129,12 @@ span.vm-price-desc{
     border: 1px solid #ddd;
     padding: 10px;
     position: absolute;
-    top: -55px;
+    top: 100%;
     width: 100%;
     z-index: 99;
     opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
 }
 .zt-opc-cart-arrow-box:before{
     background-color: #fff;
@@ -139,7 +144,8 @@ span.vm-price-desc{
     content: "";
     height: 20px;
     position: absolute;
-    right: 33px;
+    right: 50%;
+    margin-right: -14px;
     top: -11px;
     transform: rotate(135deg);
     width: 20px;
@@ -149,4 +155,11 @@ span.vm-price-desc{
 }
 [id*="zt-opc-shoppingcart-"]{
     margin: 0 !important;
+}
+.dotted-line{
+    display: block;
+    height: 1px;
+    margin: 10px 0 9px;
+    width: 100%;
+    border: 1px dotted #ddd;
 }

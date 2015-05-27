@@ -52,6 +52,21 @@ if (!class_exists('ZtonepageHelperVirtuemart'))
             ZtFramework::import('Ztonepage://virtuemart/views/' . $view . '.html.php');
         }
 
+        public static function is3rdAround()
+        {
+            // Check view class
+            $view = new ReflectionClass('VirtueMartViewCart');
+            $cart = new ReflectionClass('VirtueMartCart');
+
+            $_viewFilePath = ZtPath::getInstance()->getPath('Ztonepage://virtuemart/views/cart.html.php');
+            $_cartFilePath = ZtPath::getInstance()->getPath('Ztonepage://virtuemart/cart.php');
+
+            if ($view->getFileName() != $_viewFilePath || $cart->getFileName() != $_cartFilePath)
+            {
+                JError::raiseNotice( 100, 'You are overrided our OPC' );
+            }
+        }
+
     }
 
 }
