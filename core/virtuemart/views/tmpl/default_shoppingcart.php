@@ -309,7 +309,7 @@ if (VmConfig::get('oncheckout_opc', true) or !VmConfig::get('oncheckout_show_ste
             ?>
             <td colspan="4">
             <?php
-            echo '<h3>' . vmText::_('COM_VIRTUEMART_CART_SELECTED_SHIPMENT') . '</h3>';
+            echo '<h3>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_SHIPIMENT_LABEL') . '</h3>';
             echo $this->cart->cartData['shipmentName'] . '<br/>';
 
             if (!empty($this->layoutName) and $this->layoutName == 'default') {
@@ -327,7 +327,7 @@ if (VmConfig::get('oncheckout_opc', true) or !VmConfig::get('oncheckout_show_ste
         } else {
             ?>
             <td colspan="4">
-                <?php echo '<h4>' . vmText::_('COM_VIRTUEMART_CART_SELECTED_SHIPMENT') . '</h4>'; ?>
+                <?php echo '<h4>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_SHIPIMENT_LABEL') . '</h4>'; ?>
                 <?php echo $this->cart->cartData['shipmentName']; ?>
             </td>
         <?php } ?>
@@ -354,7 +354,7 @@ if ($this->cart->pricesUnformatted['salesPrice'] > 0.0 and (VmConfig::get('onche
             ?>
             <td colspan="4">
                 <?php
-                echo '<h3>' . vmText::_('COM_VIRTUEMART_CART_SELECTED_PAYMENT') . '</h3>';
+                echo '<h3>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_PAYMENT') . '</h3>';
                 echo $this->cart->cartData['paymentName'] . '<br/>';
 
                 if (!empty($this->layoutName) && $this->layoutName == 'default') {
@@ -374,7 +374,7 @@ if ($this->cart->pricesUnformatted['salesPrice'] > 0.0 and (VmConfig::get('onche
         } else {
             ?>
             <td colspan="4">
-                <?php echo '<h4>' . vmText::_('COM_VIRTUEMART_CART_SELECTED_PAYMENT') . '</h4>'; ?>
+                <?php echo '<h4>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_PAYMENT') . '</h4>'; ?>
                 <?php echo $this->cart->cartData['paymentName']; ?> </td>
         <?php } ?>
         <?php
