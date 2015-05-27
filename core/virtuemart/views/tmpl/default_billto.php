@@ -27,15 +27,12 @@ $class = 'zt-opc-billto';
                         <div class="inner">
                             <label for="<?php echo $bill['name']; ?>_field" class="<?php echo $bill['name']; ?>"><?php echo $bill['title']; ?> <?php echo ($bill['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>
                             <?php echo $bill['formcode']; ?>
-                            <?php //echo ZtonepageHelperVirtuemart::formField($bill); ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
                 <fieldset>
                     <input type="hidden" name="address_type" value="BT">
                 </fieldset>
-                <button type="submit" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
-                <button type="button" class="btn btn-danger btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();"><?php echo ZtonepageHelperText::_('CANCEL'); ?></button>
             </form>
         </div>
     </div>
