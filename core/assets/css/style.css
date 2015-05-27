@@ -114,7 +114,6 @@ span.vm-price-desc{
     margin-top: -104px;
     position: relative;
     width: 100%;
-    z-index: 1;
 }
 .zt-opc-cart-arrow:hover .zt-opc-cart-arrow-box{
     opacity: 1;
