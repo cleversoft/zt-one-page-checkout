@@ -118,6 +118,12 @@ if (!class_exists('ZtonepageModelVirtuemart'))
             return $cart->updateProductCart();
         }
 
+        public function updateShipment()
+        {
+            $cart = VirtueMartCart::getCart();
+            return $cart->setShipmentMethod();
+        }
+
         /**
          * @todo Replace with Joomla! standard way
          * @todo Code clean up
