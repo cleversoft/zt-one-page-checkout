@@ -119,18 +119,8 @@ foreach ($this->cart->products as $pKey => $prow)
                                            size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]"
                                            value="<?php echo $prow->quantity ?>"/>
 
-                                    <button
-                                        type="button"
-                                        class="vmicon vm2-add_quantity_cart"
-                                        title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
-                                        onClick="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);"
-                                        />
-                                    <button
-                                        type="button"
-                                        class="vmicon vm2-remove_from_cart"
-                                        title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>"
-                                        onClick="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);"
-                                        />
+                                    <button type="button" class="vm2-add_quantity_cart" title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>" onClick="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);"><i class="fa fa-refresh"></i></button>
+                                    <button type="button" class="vm2-remove_from_cart" title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>" onClick="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);"><i class="fa fa-close"></i></button>
                                 </div>
                             </div>
                         </div>

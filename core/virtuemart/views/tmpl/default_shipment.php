@@ -34,7 +34,6 @@ $class = 'zt-opc-shipment';
                 }
                 ?>
                 <button type="submit" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
-                <button type="button" class="btn btn-danger btn-small"><?php echo ZtonepageHelperText::_('CANCEL'); ?></button>                
             </fieldset>
         </form>
     </div>
