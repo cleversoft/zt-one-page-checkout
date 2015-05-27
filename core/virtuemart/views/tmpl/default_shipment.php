@@ -14,7 +14,7 @@ $class = 'zt-opc-shipment';
         <?php echo ZtonepageHelperText::_('SHIPIMENT'); ?>
     </h3>
     <div class="inner-wrap">
-        <form id="<?php echo $class; ?>-shipment">
+        <form id="<?php echo $class; ?>-form">
             <fieldset>
                 <?php $i = 0; foreach($shipMentModel as $shipMent) : ?>
                 <input type="radio" checked="checked" value="<?php echo $i; ?>" id="shipment_id_<?php echo $i; ?>"
