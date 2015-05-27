@@ -34,7 +34,7 @@ $class = 'zt-opc-billto';
                 <fieldset>
                     <input type="hidden" name="address_type" value="BT">
                 </fieldset>
-                <button type="type" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
+                <button type="submit" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
                 <button type="button" class="btn btn-danger btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();"><?php echo ZtonepageHelperText::_('CANCEL'); ?></button>
             </form>
         </div>
