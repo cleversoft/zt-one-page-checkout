@@ -18,8 +18,6 @@ $class = 'zt-opc-shipment';
                 <?php
                 if ($this->found_shipment_method)
                 {
-
-
                     // if only one Shipment , should be checked by default
                     foreach ($this->shipments_shipment_rates as $shipment_shipment_rates)
                     {
@@ -33,7 +31,6 @@ $class = 'zt-opc-shipment';
                     }
                 }
                 ?>
-                <button type="submit" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
             </fieldset>
         </form>
     </div>

@@ -15,7 +15,7 @@ $class = 'zt-opc-shipto';
         <div class="zt-opc-step <?php echo $class; ?>-step">2</div><?php echo ZtonepageHelperText::_('SHIP_TO'); ?>
     </h3>
     <div class="inner-wrap">
-        <label class="<?php echo $class; ?>-extend" for="<?php echo $class; ?>-extend-input">
+        <label class="<?php echo $class; ?>-extend" id="<?php echo $class; ?>-extend-toogle" for="<?php echo $class; ?>-extend-input">
             <input 
                 type="checkbox" checked="checked" id="<?php echo $class; ?>-extend-input" name="<?php echo $class; ?>-extend-input" onClick="jQuery('.edit-address #zt-opc-shipto-form').toggle();">
             Use for the shipto same as billto address</label>
@@ -31,9 +31,7 @@ $class = 'zt-opc-shipto';
                 <?php endforeach; ?>
                 <fieldset>
                     <input type="hidden" name="address_type" value="ST">
-                </fieldset>                
-                <button type="submit" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
-                <button type="button" class="btn btn-danger btn-small" onClick="jQuery('.edit-address #zt-opc-shipto-form').toggle();"><?php echo ZtonepageHelperText::_('CANCEL'); ?></button>                
+                </fieldset>
             </form>
         </div>
     </div>

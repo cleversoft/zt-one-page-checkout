@@ -359,13 +359,14 @@ if ($this->cart->pricesUnformatted['salesPrice'] > 0.0 and (VmConfig::get('onche
             ?>
             <td colspan="5">
                 <span class="dotted-line"></span>
-                <?php echo $this->cart->cartData['paymentName']; ?> <span class="dotted-line"></span>
+                <?php echo $this->cart->cartData['paymentName']; ?>
                 <?php
                 if (VmConfig::get('show_tax')) {
                     ?>
                     <?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('paymentTax', '', $this->cart->cartPrices['paymentTax'], FALSE) . "</span>"; ?>
                 <?php } ?>
-                <?php echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?>
+                <span class="pull-right"><?php echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?></span>
+                <span class="dotted-line"></span>
             </td>
             <?php if ($this->cart->cartPrices['salesPricePayment'] > 0) echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?>
         <?php } ?>

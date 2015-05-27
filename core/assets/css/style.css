@@ -12,6 +12,7 @@
 }
 .zt-opc-element .cart-summary{
     position: relative;
+    width: 100%;
 }
 .zt-opc-element fieldset{
     padding: 0;
@@ -161,4 +162,12 @@ span.vm-price-desc{
     margin: 10px 0 9px;
     width: 100%;
     border: 1px dotted #ddd;
+}
+.vmCartPaymentLogo, .vmCartPaymentLogo img,
+#zt-opc-billto-form #agreed-group,
+.zt-opc-element .form-group#delimiter_billto-group{
+    display: none;
+}
+.checkbox input.terms-of-service{
+    margin-top: 4px !important;
 }
