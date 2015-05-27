@@ -5,7 +5,6 @@
 $modelVM = ZtonepageModelVirtuemart::getInstance();
 $shipMentModel = $modelVM->getShipments();
 $class = 'zt-opc-shipment';
-
 ?>
 
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
@@ -16,13 +15,24 @@ $class = 'zt-opc-shipment';
     <div class="inner-wrap">
         <form id="<?php echo $class; ?>-form">
             <fieldset>
-                <?php $i = 0; foreach($shipMentModel as $shipMent) : ?>
-                <input type="radio" checked="checked" value="<?php echo $i; ?>" id="shipment_id_<?php echo $i; ?>"
-                       onclick="" name="virtuemart_shipmentmethod_id">
-                <label for="shipment_id_<?php echo $i; ?>"><span class="vmshipment"><span class="vmshipment_name"><?php echo $shipMent->shipment_name; ?></span></span></label>
+                <?php
+                if ($this->found_shipment_method)
+                {
 
-                <div class="clear"></div>
-                <?php $i++; endforeach; ?>
+
+                    // if only one Shipment , should be checked by default
+                    foreach ($this->shipments_shipment_rates as $shipment_shipment_rates)
+                    {
+                        if (is_array($shipment_shipment_rates))
+                        {
+                            foreach ($shipment_shipment_rates as $shipment_shipment_rate)
+                            {
+                                echo '<div class="vm-shipment-plugin-single">' . $shipment_shipment_rate . '</div>';
+                            }
+                        }
+                    }
+                }
+                ?>
                 <button type="submit" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
                 <button type="button" class="btn btn-danger btn-small"><?php echo ZtonepageHelperText::_('CANCEL'); ?></button>                
             </fieldset>

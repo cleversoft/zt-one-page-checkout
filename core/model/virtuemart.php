@@ -121,7 +121,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
         public function updateShipment()
         {
             $cart = VirtueMartCart::getCart();
-            return $cart->setShipmentMethod();
+            return $cart->setShipmentMethod(true);
         }
 
         /**
