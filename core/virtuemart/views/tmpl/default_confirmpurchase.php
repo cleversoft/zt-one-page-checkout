@@ -21,7 +21,7 @@ $class = 'zt-opc-purchase';
             </div>
             <div class="cart-tos-group">
                 <label class="checkbox <?php echo $class; ?>-tos-label <?php echo $class; ?>-row" for="tos">
-                    <input type="checkbox" value="1" name="tos" class="terms-of-service"><?php echo ZtonepageHelperText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_AGREE'); ?>
+                    <input type="checkbox" value="1" name="tos" class="terms-of-service"><?php echo ZtonepageHelperText::_('AGREE'); ?>
                     <div class="terms-of-service-cont">
                         <a data-tos="fancybox" class="terms-of-service" href="#<?php echo $class; ?>-tos-fancy"><?php echo ZtonepageHelperText::_('CLICK_HERE_TO_READ_TOS'); ?></a>
                     </div>
