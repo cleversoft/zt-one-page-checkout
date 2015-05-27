@@ -18,10 +18,10 @@ $class = 'zt-opc-billto';
     <!-- BT address -->
     <div class="inner-wrap">
         <span class="label label-info"><?php echo JFactory::getUser()->email; ?></span>
-        <button type="button" class="btn btn-primary btn-small" onClick="jQuery('.edit-address #zt-opc-billto-form').toggle();"><?php echo ZtonepageHelperText::_('EDIT_BILL_TO'); ?></button>
+        <p></p>
         <!-- @todo Show Edit button to expand below form -->
         <div class="edit-address billto" >
-            <form autocomplete="off" id="<?php echo $class; ?>-form" style="display:none;" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
+            <form autocomplete="off" id="<?php echo $class; ?>-form" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
                 <?php foreach ($billTo as $bill) : ?>
                     <div id="<?php echo $bill['name']; ?>-group" class="form-group">
                         <div class="inner">
@@ -30,7 +30,7 @@ $class = 'zt-opc-billto';
                             <?php //echo ZtonepageHelperVirtuemart::formField($bill); ?>
                         </div>
                     </div>
-                <?php endforeach; ?>   
+                <?php endforeach; ?>
                 <fieldset>
                     <input type="hidden" name="address_type" value="BT">
                 </fieldset>

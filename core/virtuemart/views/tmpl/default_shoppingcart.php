@@ -42,18 +42,6 @@ foreach ($this->cart->products as $pKey => $prow)
         <!-- Name -->
         <td class="col-name" colspan="2">
             <?php
-            if ($prow->virtuemart_media_id) {
-                ?>
-
-                <span class="cart-images">
-                                <?php
-                                if (!empty($prow->images[0])) {
-                                    echo $prow->images[0]->displayMediaThumb('', FALSE);
-                                }
-                                ?>
-                            </span>
-            <?php } ?>
-            <?php
             echo JHtml::link($prow->url, $prow->product_name);
             echo $this->customfieldsModel->CustomsFieldCartDisplay($prow);
             ?>
@@ -96,7 +84,7 @@ foreach ($this->cart->products as $pKey => $prow)
             ?></td>
     </tr>
     <tr class="product-hover soft-hide">
-        <td colspan="4">
+        <td colspan="5">
             <div class="<?php echo $class; ?>-arrow">
                 <div class="<?php echo $class; ?>-arrow-box">
                     <div class="<?php echo $class; ?>-p-info-table">
@@ -308,9 +296,11 @@ if (VmConfig::get('oncheckout_opc', true) or !VmConfig::get('oncheckout_show_ste
         if (!$this->cart->automaticSelectedShipment) {
             ?>
             <td colspan="5">
+            <span class="dotted-line"></span>
             <?php
-            echo '<h3>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_SHIPIMENT_LABEL') . '</h3>';
-            echo $this->cart->cartData['shipmentName'] . '<br/>';
+            echo '<span class="pull-left">' . $this->cart->cartData['shipmentName'] . '</span>';
+
+            echo '<span class="pull-right"><div class="PricesalesPriceShipment vm-display vm-price-value"><span class="vm-price-desc"></span><span class="PricesalesPriceShipment">$1,000.00</span></div></span>';
 
             if (!empty($this->layoutName) and $this->layoutName == 'default') {
                 if (VmConfig::get('oncheckout_opc', 0)) {
@@ -328,7 +318,6 @@ if (VmConfig::get('oncheckout_opc', true) or !VmConfig::get('oncheckout_show_ste
             ?>
             <td colspan="5">
                 <span class="dotted-line"></span>
-                <?php echo '<h4>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_SHIPIMENT_LABEL') . '</h4>'; ?>
                 <?php echo $this->cart->cartData['shipmentName']; ?>
                 <?php
                 if (VmConfig::get('show_tax')) {
@@ -357,7 +346,6 @@ if ($this->cart->pricesUnformatted['salesPrice'] > 0.0 and (VmConfig::get('onche
             ?>
             <td colspan="5">
                 <?php
-                echo '<h3>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_PAYMENT_LABEL') . '</h3>';
                 echo $this->cart->cartData['paymentName'] . '<br/>';
 
                 if (!empty($this->layoutName) && $this->layoutName == 'default') {
@@ -372,22 +360,24 @@ if ($this->cart->pricesUnformatted['salesPrice'] > 0.0 and (VmConfig::get('onche
                     echo vmText::_('COM_VIRTUEMART_CART_PAYMENT');
                 }
                 ?> </td>
+            <td>
+                <div class="PricesalesPriceShipment vm-display vm-price-value"><span class="vm-price-desc"></span><span class="PricesalesPriceShipment">$1,000.00</span></div>
+            </td>
 
         <?php
         } else {
             ?>
             <td colspan="5">
                 <span class="dotted-line"></span>
-                <?php echo '<h4>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_PAYMENT_LABEL') . '</h4>'; ?>
                 <?php echo $this->cart->cartData['paymentName']; ?> <span class="dotted-line"></span>
                 <?php
                 if (VmConfig::get('show_tax')) {
                     ?>
                     <?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('paymentTax', '', $this->cart->cartPrices['paymentTax'], FALSE) . "</span>"; ?>
                 <?php } ?>
-                <?php if ($this->cart->cartPrices['salesPricePayment'] < 0) echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?>
                 <?php echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?>
             </td>
+            <?php if ($this->cart->cartPrices['salesPricePayment'] > 0) echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?>
         <?php } ?>
     </tr>
     </tbody>
