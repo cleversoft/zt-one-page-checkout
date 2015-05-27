@@ -162,3 +162,6 @@ span.vm-price-desc{
     width: 100%;
     border: 1px dotted #ddd;
 }
+.vmCartPaymentLogo, .vmCartPaymentLogo img{
+    display: none;
+}
