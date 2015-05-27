@@ -14,14 +14,18 @@ $class = 'zt-opc-shipment';
         <?php echo ZtonepageHelperText::_('SHIPIMENT'); ?>
     </h3>
     <div class="inner-wrap">
-        <fieldset>
-            <?php $i = 0; foreach($shipMentModel as $shipMent) : ?>
-            <input type="radio" checked="checked" value="<?php echo $i; ?>" id="shipment_id_<?php echo $i; ?>"
-                   onclick="" name="virtuemart_shipmentmethod_id">
-            <label for="shipment_id_<?php echo $i; ?>"><span class="vmshipment"><span class="vmshipment_name"><?php echo $shipMent->shipment_name; ?></span></span></label>
+        <form id="<?php echo $class; ?>-form">
+            <fieldset>
+                <?php $i = 0; foreach($shipMentModel as $shipMent) : ?>
+                <input type="radio" checked="checked" value="<?php echo $i; ?>" id="shipment_id_<?php echo $i; ?>"
+                       onclick="" name="virtuemart_shipmentmethod_id">
+                <label for="shipment_id_<?php echo $i; ?>"><span class="vmshipment"><span class="vmshipment_name"><?php echo $shipMent->shipment_name; ?></span></span></label>
 
-            <div class="clear"></div>
-            <?php $i++; endforeach; ?>
-        </fieldset>
+                <div class="clear"></div>
+                <?php $i++; endforeach; ?>
+                <button type="submit" class="btn btn-primary btn-small"><?php echo ZtonepageHelperText::_('SAVE'); ?></button>
+                <button type="button" class="btn btn-danger btn-small"><?php echo ZtonepageHelperText::_('CANCEL'); ?></button>                
+            </fieldset>
+        </form>
     </div>
 </div>

@@ -169,6 +169,18 @@
             });
         },
         /**
+         * Update shipment
+         * @returns {undefined}
+         */
+        updateShipment: function(){
+            z.ajax.unHook('#zt-opc-shipment-form');
+            this.ajax.formHook('#zt-opc-shipment-form', {
+                data: {
+                    zt_task: "updateShipment"
+                }
+            });
+        },
+        /**
          * Form validation
          * @returns {undefined}
          */
@@ -237,6 +249,7 @@
             self.updateShipTo();
             self.updateCounponCode();
             self.formValidation();
+            self.updateShipment();
         }
     };
 
