@@ -19,9 +19,9 @@ $class = 'zt-opc-cart';
 <!-- Begin Heading -->
 <thead>
 <tr>
-    <th align="left" class="col-name"><?php echo vmText::_('COM_VIRTUEMART_CART_NAME') ?></th>
+    <th align="left" class="col-name" colspan="2"><?php echo vmText::_('COM_VIRTUEMART_CART_NAME') ?></th>
     <th align="center" class="col-qty"><?php echo vmText::_('COM_VIRTUEMART_CART_QUANTITY') ?></th>
-    <th align="right" class="col-total" colspan="4"
+    <th align="right" class="col-total" colspan="2"
         style="text-align: right"><?php echo vmText::_('COM_VIRTUEMART_CART_TOTAL') ?></th>
 </tr>
 </thead>
@@ -40,7 +40,7 @@ foreach ($this->cart->products as $pKey => $prow)
     <tr valign="top" class="sectiontableentry<?php echo $i ?>">
         <input type="hidden" name="cartpos[]" value="<?php echo $pKey ?>">
         <!-- Name -->
-        <td class="col-name">
+        <td class="col-name" colspan="2">
             <?php
             if ($prow->virtuemart_media_id) {
                 ?>
@@ -174,7 +174,7 @@ if (VmConfig::get('show_tax')) {
 ?>
 <tbody>
 <tr class="sectiontableentry1 price-nomal">
-    <td colspan="1"><?php echo vmText::_('COM_VIRTUEMART_ORDER_PRINT_PRODUCT_PRICES_TOTAL'); ?></td>
+    <td colspan="2"><?php echo vmText::_('COM_VIRTUEMART_ORDER_PRINT_PRODUCT_PRICES_TOTAL'); ?></td>
 
     <?php
     if (VmConfig::get('show_tax')) {
@@ -182,7 +182,7 @@ if (VmConfig::get('show_tax')) {
         <td><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('taxAmount', '', $this->cart->cartPrices, FALSE) . "</span>" ?></td>
     <?php } ?>
     <td><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('discountAmount', '', $this->cart->cartPrices, FALSE) . "</span>" ?></td>
-    <td><?php echo $this->currencyDisplay->createPriceDiv('salesPrice', '', $this->cart->cartPrices, FALSE) ?></td>
+    <td style="text-align: right"><?php echo $this->currencyDisplay->createPriceDiv('salesPrice', '', $this->cart->cartPrices, FALSE) ?></td>
 </tr>
 </tbody>
 
@@ -307,7 +307,7 @@ if (VmConfig::get('oncheckout_opc', true) or !VmConfig::get('oncheckout_show_ste
         <?php
         if (!$this->cart->automaticSelectedShipment) {
             ?>
-            <td colspan="4">
+            <td colspan="5">
             <?php
             echo '<h3>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_SHIPIMENT_LABEL') . '</h3>';
             echo $this->cart->cartData['shipmentName'] . '<br/>';
@@ -326,19 +326,22 @@ if (VmConfig::get('oncheckout_opc', true) or !VmConfig::get('oncheckout_show_ste
             echo '</td>';
         } else {
             ?>
-            <td colspan="4">
+            <td colspan="5">
+                <span class="dotted-line"></span>
                 <?php echo '<h4>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_SHIPIMENT_LABEL') . '</h4>'; ?>
                 <?php echo $this->cart->cartData['shipmentName']; ?>
+                <?php
+                if (VmConfig::get('show_tax')) {
+                    ?>
+                    <?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('shipmentTax', '', $this->cart->cartPrices['shipmentTax'], FALSE) . "</span>"; ?>
+                <?php } ?>
+                <?php if ($this->cart->cartPrices['salesPriceShipment'] < 0) echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?>
+                <?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?>
             </td>
         <?php } ?>
 
-        <?php
-        if (VmConfig::get('show_tax')) {
-            ?>
-            <td><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('shipmentTax', '', $this->cart->cartPrices['shipmentTax'], FALSE) . "</span>"; ?> </td>
-        <?php } ?>
-        <td><?php if ($this->cart->cartPrices['salesPriceShipment'] < 0) echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?></td>
-        <td><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
+
+
     </tr>
     </tbody>
 <?php } ?>
@@ -352,9 +355,9 @@ if ($this->cart->pricesUnformatted['salesPrice'] > 0.0 and (VmConfig::get('onche
         <?php
         if (!$this->cart->automaticSelectedPayment) {
             ?>
-            <td colspan="4">
+            <td colspan="5">
                 <?php
-                echo '<h3>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_PAYMENT') . '</h3>';
+                echo '<h3>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_PAYMENT_LABEL') . '</h3>';
                 echo $this->cart->cartData['paymentName'] . '<br/>';
 
                 if (!empty($this->layoutName) && $this->layoutName == 'default') {
@@ -373,32 +376,27 @@ if ($this->cart->pricesUnformatted['salesPrice'] > 0.0 and (VmConfig::get('onche
         <?php
         } else {
             ?>
-            <td colspan="4">
-                <?php echo '<h4>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_PAYMENT') . '</h4>'; ?>
-                <?php echo $this->cart->cartData['paymentName']; ?> </td>
+            <td colspan="5">
+                <span class="dotted-line"></span>
+                <?php echo '<h4>' . vmText::_('PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_PAYMENT_LABEL') . '</h4>'; ?>
+                <?php echo $this->cart->cartData['paymentName']; ?> <span class="dotted-line"></span>
+                <?php
+                if (VmConfig::get('show_tax')) {
+                    ?>
+                    <?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('paymentTax', '', $this->cart->cartPrices['paymentTax'], FALSE) . "</span>"; ?>
+                <?php } ?>
+                <?php if ($this->cart->cartPrices['salesPricePayment'] < 0) echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?>
+                <?php echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?>
+            </td>
         <?php } ?>
-        <?php
-        if (VmConfig::get('show_tax')) {
-            ?>
-            <td><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('paymentTax', '', $this->cart->cartPrices['paymentTax'], FALSE) . "</span>"; ?> </td>
-        <?php } ?>
-        <td><?php if ($this->cart->cartPrices['salesPricePayment'] < 0) echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?></td>
-        <td><?php echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?> </td>
     </tr>
     </tbody>
 <?php } ?>
 <tbody>
 <tr class="sectiontableentry2">
-    <td colspan="1"><?php echo vmText::_('COM_VIRTUEMART_CART_TOTAL') ?>:</td>
-
-    <?php
-    if (VmConfig::get('show_tax')) {
-        ?>
-        <td> <?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('billTaxAmount', '', $this->cart->cartPrices['billTaxAmount'], FALSE) . "</span>" ?> </td>
-    <?php } ?>
-    <td> <?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('billDiscountAmount', '', $this->cart->cartPrices['billDiscountAmount'], FALSE) . "</span>" ?> </td>
+    <td colspan="4"><?php echo vmText::_('COM_VIRTUEMART_CART_TOTAL') ?>:</td>
     <td>
-        <strong><?php echo $this->currencyDisplay->createPriceDiv('billTotal', '', $this->cart->cartPrices['billTotal'], FALSE); ?></strong>
+        <strong style="text-align: right" class="PricesalesPrice"><span class="PricesalesPrice"><?php echo $this->currencyDisplay->createPriceDiv('billTotal', '', $this->cart->cartPrices['billTotal'], FALSE); ?></span></strong>
     </td>
 </tr>
 </tbody>

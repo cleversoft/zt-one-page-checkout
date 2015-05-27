@@ -150,3 +150,10 @@ span.vm-price-desc{
 [id*="zt-opc-shoppingcart-"]{
     margin: 0 !important;
 }
+.dotted-line{
+    display: block;
+    height: 1px;
+    margin: 10px 0 9px;
+    width: 100%;
+    border: 1px dotted #ddd;
+}
