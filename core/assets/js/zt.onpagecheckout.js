@@ -153,21 +153,6 @@
             });
         },
         /**
-         * Auto update bill to
-         * @returns {undefined}
-         */
-        autoUpdate: function () {
-            var self = this;
-            /* Auto update bill to */
-            $('#zt-opc-billto-wrap').on('blur', 'input', function () {
-                if ($('#zt-opc-billto-wrap').isValid()) {
-                    self.ajax.request({data: {
-                            zt_task: "updateBillTo"
-                        }});
-                }
-            });
-        },
-        /**
          * Form validation
          * @returns {undefined}
          */
@@ -211,7 +196,6 @@
             self.guestCheckout();
             self.formValidation();
             self.updateCartForm();
-            self.autoUpdate();
         }
     };
 
