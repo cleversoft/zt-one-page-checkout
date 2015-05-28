@@ -927,6 +927,7 @@ class VirtueMartCart
             $this->_dataValidated = false;
             //Now set the shipment ID into the cart
             $this->virtuemart_shipmentmethod_id = $virtuemart_shipmentmethod_id;
+
             if (!class_exists('vmPSPlugin'))
                 require(JPATH_VM_PLUGINS . DS . 'vmpsplugin.php');
             JPluginHelper::importPlugin('vmshipment');
