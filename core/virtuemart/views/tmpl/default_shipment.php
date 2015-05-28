@@ -13,7 +13,7 @@ $class = 'zt-opc-shipment';
         <?php echo ZtonepageHelperText::_('SHIPIMENT'); ?>
     </h3>
     <div class="inner-wrap">
-        <form id="<?php echo $class; ?>-form">
+        
             <fieldset>
                 <?php
                 if ($this->found_shipment_method)
@@ -32,6 +32,6 @@ $class = 'zt-opc-shipment';
                 }
                 ?>
             </fieldset>
-        </form>
+        
     </div>
 </div>
