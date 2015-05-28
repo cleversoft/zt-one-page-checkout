@@ -141,8 +141,8 @@
                     });
                 }
             }
-            z.ajax.unHook('zt-opc-cart-form');
-            this.ajax.formHook('zt-opc-cart-form', {
+            z.ajax.unHook('#zt-opc-cart-form');
+            this.ajax.formHook('#zt-opc-cart-form', {
                 data: {
                     zt_task: "updateCartForm",
                     confirm: 1
