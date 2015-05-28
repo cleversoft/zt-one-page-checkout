@@ -167,6 +167,121 @@ if (!class_exists('ZtonepageHelperAjax'))
             $ajax->response();
         }
 
+        public static function updateCartForm()
+        {
+            $ajax = ZtAjax::getInstance();
+            $cart = VirtueMartCart::getCart();
+            $cart->_fromCart = true;
+            $cart->_redirected = false;
+            if (vRequest::get('cancel', 0))
+            {
+                $cart->_inConfirm = false;
+            }
+            if ($cart->getInCheckOut())
+            {
+                vRequest::setVar('checkout', true);
+            }
+            $cart->saveCartFieldsInCart();
+
+            if ($cart->updateProductCart())
+            {
+                vmInfo('COM_VIRTUEMART_PRODUCT_UPDATED_SUCCESSFULLY');
+            }
+
+            $STsameAsBT = vRequest::getInt('STsameAsBT', vRequest::getInt('STsameAsBTjs', false));
+            if ($STsameAsBT)
+            {
+                $cart->STsameAsBT = $STsameAsBT;
+            }
+
+            $currentUser = JFactory::getUser();
+            if (!$currentUser->guest)
+            {
+                $cart->selected_shipto = vRequest::getVar('shipto', $cart->selected_shipto);
+                if (!empty($cart->selected_shipto))
+                {
+                    $userModel = VmModel::getModel('user');
+                    $stData = $userModel->getUserAddressList($currentUser->id, 'ST', $cart->selected_shipto);
+
+                    if (isset($stData[0]) and is_object($stData[0]))
+                    {
+                        $stData = get_object_vars($stData[0]);
+                        $cart->ST = $stData;
+                        $cart->STsameAsBT = 0;
+                    } else
+                    {
+                        $cart->selected_shipto = 0;
+                    }
+                }
+                if (empty($cart->selected_shipto))
+                {
+                    $cart->STsameAsBT = 1;
+                    $cart->selected_shipto = 0;
+                    //$cart->ST = $cart->BT;
+                }
+            } else
+            {
+                $cart->selected_shipto = 0;
+                if (!empty($cart->STsameAsBT))
+                {
+                    //$cart->ST = $cart->BT;
+                }
+            }
+
+            if (!isset($force))
+                $force = VmConfig::get('oncheckout_opc', true);
+            $cart->setShipmentMethod($force, !$html);
+            $cart->setPaymentMethod($force, !$html);
+
+            $cart->prepareCartData();
+
+            $coupon_code = trim(vRequest::getString('coupon_code', ''));
+            if (!empty($coupon_code))
+            {
+                $msg = $cart->setCouponCode($coupon_code);
+                if ($msg)
+                    vmInfo($msg);
+            }
+
+            $request = vRequest::getRequest();
+            $task = vRequest::getCmd('task');
+            if (($task == 'confirm' or isset($request['confirm'])) and ! $cart->getInCheckOut())
+            {
+
+                $cart->confirmDone();
+
+                $cart->_fromCart = false;
+            } else
+            {
+                //$cart->_inCheckOut = false;
+                $redirect = (isset($request['checkout']) or $task == 'checkout');
+                $cart->_inConfirm = false;
+                $cart->checkoutData($redirect);
+            }
+
+            
+
+            if (!$cart->_fromCart)
+            {
+                $view = new VirtueMartViewCart();
+                /**
+                 * @todo What am i dong here ? !!!
+                 */
+                ob_start();
+                $view->setLayout('order_done');
+                $html = $view->display();
+                $html = ob_get_contents();
+                ob_end_clean();
+
+                $ajax->addHtml($html, '#zt-opc-plugin');
+                $ajax->addExecute('zt.onepagecheckout._rebind();');
+            } else
+            {
+                $ajax->addMessage(ZtonepageHelperText::_('INVALID_DATA'));
+            }
+            $ajax->response();
+        }
+
     }
 
 }

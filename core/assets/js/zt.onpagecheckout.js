@@ -147,7 +147,8 @@
             this.ajax.formHook('#zt-opc-cart-form', {
                 data: {
                     zt_task: "updateCartForm",
-                    confirm: 1
+                    confirm: 1,
+                    checkout: 1
                 }
             });
         },
