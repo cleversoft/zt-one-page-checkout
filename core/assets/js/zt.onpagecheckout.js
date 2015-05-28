@@ -120,24 +120,12 @@
                 }
             });
         },
-        /**
-         * Update bill to function
-         * @returns {undefined}
-         */
-        updateBillTo: function () {
-            z.ajax.unHook('#zt-opc-billto-form');
-            this.ajax.formHook('#zt-opc-billto-form', {
-                data: {
-                    zt_task: "updateBillTo"
-                }
-            });
-        },
         /*
          * Update purchase form
          * @returns {undefined}
          */
-        updatePurchaseConfirm: function () {
-            var $form = $('#zt-opc-purchase-form');
+        updateCartForm: function () {
+            var $form = $('#zt-opc-cart-form');
             if($form.length > 0){
                 var $tos = $form.find('[type="checkbox"]');
                 var $submit = $form.find('[type="submit"]');
@@ -153,30 +141,11 @@
                     });
                 }
             }
-            z.ajax.unHook('#zt-opc-purchase-form');
-            $('#zt-opc-purchase-form').on('submit', function(){
-               if(z.ajax.formIsValid('#zt-opc-billto-form') && z.ajax.formIsValid('#zt-opc-shipto-form')){
-                   $('#zt-opc-purchase-form').data('nosubmit', false);
-               }else{
-                   $('#zt-opc-purchase-form').data('nosubmit', true);
-               }
-            });
-            this.ajax.formHook('#zt-opc-purchase-form', {
+            z.ajax.unHook('zt-opc-cart-form');
+            this.ajax.formHook('zt-opc-cart-form', {
                 data: {
-                    zt_task: "updatePurchaseConfirm",
+                    zt_task: "updateCartForm",
                     confirm: 1
-                }
-            });
-        },
-        /**
-         * Update shipment
-         * @returns {undefined}
-         */
-        updateShipment: function(){
-            z.ajax.unHook('#zt-opc-shipment-form');
-            this.ajax.formHook('#zt-opc-shipment-form', {
-                data: {
-                    zt_task: "updateShipment"
                 }
             });
         },
@@ -188,28 +157,6 @@
             $('.required').filter(':not("#email_field")').attr('data-validation', 'required');
             $('#email_field').attr('data-validation', 'email');
             $.validate();
-        },
-        /**
-         * Update ship to
-         * @returns {undefined}
-         */
-        updateShipTo: function () {
-            this.ajax.formHook('#zt-opc-shipto-form', {
-                data: {
-                    zt_task: "updateShipTo"
-                }
-            });
-        },
-        /**
-         * Update coupon code
-         * @returns {undefined}
-         */
-        updateCounponCode: function () {
-            this.ajax.formHook('#zt-opc-coupon-form', {
-                data: {
-                    zt_task: "updateCouponCode"
-                }
-            });
         },
         /**
          * Update cart quantity
@@ -244,12 +191,8 @@
             self.login();
             self.register();
             self.guestCheckout();
-            self.updateBillTo();
-            self.updatePurchaseConfirm();
-            self.updateShipTo();
-            self.updateCounponCode();
             self.formValidation();
-            self.updateShipment();
+            self.updateCartForm();
         }
     };
 
