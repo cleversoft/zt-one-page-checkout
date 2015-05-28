@@ -124,7 +124,7 @@
          * Update purchase form
          * @returns {undefined}
          */
-        updateCartForm: function () {
+        updateCheckout: function () {
             /* Term of service check */
             var $form = $('#zt-opc-cart-form');
             if ($form.length > 0) {
@@ -146,10 +146,40 @@
             z.ajax.unHook('#zt-opc-cart-form');
             this.ajax.formHook('#zt-opc-cart-form', {
                 data: {
-                    zt_task: "updateCartForm",
+                    zt_task: "updateCheckout",
                     confirm: 1,
                     checkout: 1
                 }
+            });
+        },
+        /**
+         * Update cart
+         * @returns {undefined}
+         */
+        updateCart: function(){
+            /* Update shipment */
+            $('#zt-opc-shipment').on('click', 'input[type="radio"]', function(){
+                z.ajax.formRequest('#zt-opc-cart-form', {
+                    data:{
+                        zt_task: "updateCart"
+                    }
+                });
+            });
+            /* Upadte payment */
+            $('#zt-opc-payment-wrap').on('click', 'input[type="radio"]', function(){
+                z.ajax.formRequest('#zt-opc-cart-form', {
+                    data:{
+                        zt_task: "updateCart"
+                    }
+                });
+            });
+            /* Apply coupon */
+            $('#zt-opc-coupon-wrap').on('click', 'button[type="button"]', function(){
+                z.ajax.formRequest('#zt-opc-cart-form', {
+                    data:{
+                        zt_task: "updateCart"
+                    }
+                });
             });
         },
         /**
@@ -195,7 +225,8 @@
             self.register();
             self.guestCheckout();
             self.formValidation();
-            self.updateCartForm();
+            self.updateCheckout();
+            self.updateCart();
         }
     };
 

@@ -18,8 +18,7 @@ $ship['name'] = (isset($ship['name']) ? $ship['name'] : '');
                     <input type="text" class="form-control" id="<?php echo $class; ?>-code">
                 </div>
             </div>
-            <button type="submit" class="btn btn-default"><?php echo ZtonepageHelperText::_('APPLY'); ?></button>
-
+            <button type="button" class="btn btn-default"><?php echo ZtonepageHelperText::_('APPLY'); ?></button>
         </div>
     </div>
 </div>
