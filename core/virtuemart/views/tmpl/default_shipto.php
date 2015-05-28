@@ -20,19 +20,19 @@ $class = 'zt-opc-shipto';
                 type="checkbox" checked="checked" id="<?php echo $class; ?>-extend-input" name="<?php echo $class; ?>-extend-input" onClick="jQuery('.edit-address #zt-opc-shipto-form').toggle();">
             Use for the shipto same as billto address</label>
         <div class="edit-address">
-            <form autocomplete="off" id="<?php echo $class; ?>-form" style="display:none;" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
-                <?php foreach ($shipTo as $ship) : ?>
-                    <div id="<?php echo $ship['name']; ?>-group" class="form-group">
-                        <div class="inner">
-                            <label for="<?php echo $ship['name']; ?>_field" class="<?php echo $ship['name']; ?>"><?php echo $ship['title']; ?> <?php echo ($ship['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>
-                            <?php echo $ship['formcode']; ?>
-                        </div>
+
+            <?php foreach ($shipTo as $ship) : ?>
+                <div id="<?php echo $ship['name']; ?>-group" class="form-group">
+                    <div class="inner">
+                        <label for="<?php echo $ship['name']; ?>_field" class="<?php echo $ship['name']; ?>"><?php echo $ship['title']; ?> <?php echo ($ship['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>
+                        <?php echo $ship['formcode']; ?>
                     </div>
-                <?php endforeach; ?>
-                <fieldset>
-                    <input type="hidden" name="address_type" value="ST">
-                </fieldset>
-            </form>
+                </div>
+            <?php endforeach; ?>
+            <fieldset>
+                <input type="hidden" name="address_type" value="ST">
+            </fieldset>
+
         </div>
     </div>
 </div>

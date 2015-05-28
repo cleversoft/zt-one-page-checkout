@@ -21,19 +21,19 @@ $class = 'zt-opc-billto';
         <p></p>
         <!-- @todo Show Edit button to expand below form -->
         <div class="edit-address billto" >
-            <form autocomplete="off" id="<?php echo $class; ?>-form" data-validation-error="<?php echo ZtonepageHelperText::_('FORM_VALIDATION_ERROR'); ?>">
-                <?php foreach ($billTo as $bill) : ?>
-                    <div id="<?php echo $bill['name']; ?>-group" class="form-group">
-                        <div class="inner">
-                            <label for="<?php echo $bill['name']; ?>_field" class="<?php echo $bill['name']; ?>"><?php echo $bill['title']; ?> <?php echo ($bill['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>
-                            <?php echo $bill['formcode']; ?>
-                        </div>
+
+            <?php foreach ($billTo as $bill) : ?>
+                <div id="<?php echo $bill['name']; ?>-group" class="form-group">
+                    <div class="inner">
+                        <label for="<?php echo $bill['name']; ?>_field" class="<?php echo $bill['name']; ?>"><?php echo $bill['title']; ?> <?php echo ($bill['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>
+                        <?php echo $bill['formcode']; ?>
                     </div>
-                <?php endforeach; ?>
-                <fieldset>
-                    <input type="hidden" name="address_type" value="BT">
-                </fieldset>
-            </form>
+                </div>
+            <?php endforeach; ?>
+            <fieldset>
+                <input type="hidden" name="address_type" value="BT">
+            </fieldset>
+
         </div>
     </div>
 </div>
