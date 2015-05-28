@@ -380,9 +380,7 @@ $class = 'zt-opc-cart';
                                         echo vmText::_('COM_VIRTUEMART_CART_PAYMENT');
                                     }
                                     ?> </td>
-                                <td>
-                                    <div class="PricesalesPriceShipment vm-display vm-price-value"><span class="vm-price-desc"></span><span class="PricesalesPriceShipment">$1,000.00</span></div>
-                                </td>
+                                
 
                                 <?php
                             } else
