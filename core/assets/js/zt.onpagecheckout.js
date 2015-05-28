@@ -82,7 +82,7 @@
              * @param {type} data
              * @returns {Boolean}
              */
-            formRequest: function(selector, data){
+            formRequest: function (selector, data) {
                 if ($(selector).length <= 0) {
                     return false;
                 }
@@ -173,28 +173,28 @@
          * Update cart
          * @returns {undefined}
          */
-        updateCart: function(){
+        updateCart: function () {
             var self = this;
             /* Update shipment */
-            $('#zt-opc-shipment').on('click', 'input[type="radio"]', function(){
+            $('#zt-opc-shipment').on('click', 'input[type="radio"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
-                    data:{
+                    data: {
                         zt_task: "updateCart"
                     }
                 });
             });
             /* Upadte payment */
-            $('#zt-opc-payment-wrap').on('click', 'input[type="radio"]', function(){
+            $('#zt-opc-payment-wrap').on('click', 'input[type="radio"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
-                    data:{
+                    data: {
                         zt_task: "updateCart"
                     }
                 });
             });
             /* Apply coupon */
-            $('#zt-opc-coupon-wrap').on('click', 'button[type="button"]', function(){
+            $('#zt-opc-coupon-wrap').on('click', 'button[type="button"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
-                    data:{
+                    data: {
                         zt_task: "updateCart"
                     }
                 });
@@ -205,8 +205,8 @@
          * @returns {undefined}
          */
         formValidation: function () {
-            $('.required').filter(':not("#email_field")').attr('data-validation', 'required');
-            $('#email_field').attr('data-validation', 'email');
+            $('#zt-opc-cart-form input.required').filter(':not("#email_field")').attr('data-validation', 'required');
+            $('#zt-opc-cart-form input#email_field').attr('data-validation', 'email');
             $.validate();
         },
         /**
