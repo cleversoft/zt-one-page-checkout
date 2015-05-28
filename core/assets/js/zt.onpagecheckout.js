@@ -75,6 +75,23 @@
                 z.ajax.request(buffer).done(function () {
                     self._parent._rebind();
                 });
+            },
+            /**
+             * Local form request
+             * @param {type} selector
+             * @param {type} data
+             * @returns {Boolean}
+             */
+            formRequest: function(selector, data){
+                if ($(selector).length <= 0) {
+                    return false;
+                }
+                var self = this;
+                var data = (typeof (data) === 'undefined') ? {} : data;
+                var buffer = {};
+                $.extend(true, buffer, self._settings);
+                $.extend(true, buffer, data);
+                z.ajax.formRequest(selector, buffer);
             }
         },
         /**
