@@ -948,7 +948,7 @@ class VirtueMartCart
                     if ($redirect)
                     {
                         $mainframe = JFactory::getApplication();
-                        $mainframe->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart&task=edit_shipment', $this->useXHTML, $this->useSSL), $_retVal);
+                        //$mainframe->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart&task=edit_shipment', $this->useXHTML, $this->useSSL), $_retVal);
                         break;
                     } else
                     {
@@ -990,7 +990,7 @@ class VirtueMartCart
                     if ($redirect)
                     {
                         $app = JFactory::getApplication();
-                        $app->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart&task=editpayment', $this->useXHTML, $this->useSSL), $msg);
+                        //$app->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart&task=editpayment', $this->useXHTML, $this->useSSL), $msg);
                         break;
                     } else
                     {
@@ -1027,7 +1027,7 @@ class VirtueMartCart
         {
             $this->_redirected = true;
             $this->setCartIntoSession(true);
-            $app->redirect(JRoute::_($relUrl, $this->useXHTML, $this->useSSL), $redirectMsg);
+            //$app->redirect(JRoute::_($relUrl, $this->useXHTML, $this->useSSL), $redirectMsg);
             return true;
         } else
         {
@@ -1225,7 +1225,7 @@ class VirtueMartCart
             {
                 $this->_inCheckOut = false;
                 $redirectMsg = null;
-                return $this->redirecter('index.php?option=com_virtuemart&view=cart' . $layoutName, $redirectMsg);
+                //return $this->redirecter('index.php?option=com_virtuemart&view=cart' . $layoutName, $redirectMsg);
             }
             $this->_blockConfirm = true;
         } else
@@ -1338,7 +1338,7 @@ class VirtueMartCart
                 {
                     $mainframe = JFactory::getApplication();
                     vmError('No order created ' . $orderModel->getError());
-                    $mainframe->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart', FALSE));
+                   // $mainframe->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart', FALSE));
                 }
             }
 
