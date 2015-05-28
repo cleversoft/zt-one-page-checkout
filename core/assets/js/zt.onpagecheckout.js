@@ -72,7 +72,7 @@
                 var buffer = {};
                 $.extend(true, buffer, self._settings);
                 $.extend(true, buffer, data);
-                z.ajax.request(buffer).done(function(){
+                z.ajax.request(buffer).done(function () {
                     self._parent._rebind();
                 });
             }
@@ -125,22 +125,24 @@
          * @returns {undefined}
          */
         updateCartForm: function () {
+            /* Term of service check */
             var $form = $('#zt-opc-cart-form');
-            if($form.length > 0){
+            if ($form.length > 0) {
                 var $tos = $form.find('[type="checkbox"]');
                 var $submit = $form.find('[type="submit"]');
-                if($tos.length > 0){
+                if ($tos.length > 0) {
                     $tos.off('click');
                     $submit.prop('disabled', true);
-                    $tos.on('click', function(){
-                        if($(this).is(':checked')){
+                    $tos.on('click', function () {
+                        if ($(this).is(':checked')) {
                             $submit.removeAttr('disabled');
-                        }else{
+                        } else {
                             $submit.prop('disabled', true);
                         }
                     });
                 }
             }
+            /* Even hook for form submit */
             z.ajax.unHook('#zt-opc-cart-form');
             this.ajax.formHook('#zt-opc-cart-form', {
                 data: {
@@ -151,10 +153,25 @@
             });
         },
         /**
+         * Auto update bill to
+         * @returns {undefined}
+         */
+        autoUpdate: function () {
+            var self = this;
+            /* Auto update bill to */
+            $('#zt-opc-billto-wrap').on('blur', 'input', function () {
+                if ($('#zt-opc-billto-wrap').isValid()) {
+                    self.ajax.request({data: {
+                            zt_task: "updateBillTo"
+                        }});
+                }
+            });
+        },
+        /**
          * Form validation
          * @returns {undefined}
          */
-        formValidation: function(){
+        formValidation: function () {
             $('.required').filter(':not("#email_field")').attr('data-validation', 'required');
             $('#email_field').attr('data-validation', 'email');
             $.validate();
@@ -194,6 +211,7 @@
             self.guestCheckout();
             self.formValidation();
             self.updateCartForm();
+            self.autoUpdate();
         }
     };
 
