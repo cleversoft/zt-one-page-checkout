@@ -308,27 +308,14 @@ $class = 'zt-opc-cart';
                                 <td colspan="5">
                                     <span class="dotted-line"></span>
                                     <?php
-                                    echo '<span class="pull-left">' . $this->cart->cartData['shipmentName'] . '</span>';                                    
+                                    echo '<span class="pull-left">' . $this->cart->cartData['shipmentName'] . '</span>';
 
-                                    if (!empty($this->layoutName) and $this->layoutName == 'default')
-                                    {
-                                        if (VmConfig::get('oncheckout_opc', 0))
-                                        {
-                                            $previouslayout = $this->setLayout('select');
-                                            //echo $this->loadTemplate('shipment');
-                                            $this->setLayout($previouslayout);
-                                        } else
-                                        {
-                                            echo JHtml::_('link', JRoute::_('index.php?option=com_virtuemart&view=cart&task=edit_shipment', $this->useXHTML, $this->useSSL), $this->select_shipment_text, 'class=""');
-                                        }
-                                    } else
-                                    {
-                                        echo vmText::_('COM_VIRTUEMART_CART_SHIPPING');
-                                    }
-                                    echo '</td>';
-                                } else
-                                {
                                     ?>
+                                
+                                <td align="right"><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
+                                <?php } else
+                                {
+                                ?>
                                 <td colspan="5">
                                     <span class="dotted-line"></span>
                                     <?php echo $this->cart->cartData['shipmentName']; ?>
@@ -341,6 +328,14 @@ $class = 'zt-opc-cart';
                                     <?php if ($this->cart->cartPrices['salesPriceShipment'] < 0) echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?>
                                     <?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?>
                                 </td>
+                                <?php
+                                if (VmConfig::get('show_tax'))
+                                {
+                                    ?>
+                                    <td align="right"><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('shipmentTax', '', $this->cart->cartPrices['shipmentTax'], FALSE) . "</span>"; ?> </td>
+                                <?php } ?>
+                                <td align="right"><?php if ($this->cart->cartPrices['salesPriceShipment'] < 0) echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?></td>
+                                <td align="right"><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
                             <?php } ?>
 
 
@@ -363,24 +358,12 @@ $class = 'zt-opc-cart';
                                 <td colspan="5">
                                     <?php
                                     echo $this->cart->cartData['paymentName'] . '<br/>';
+                                    ?>
 
-                                    if (!empty($this->layoutName) && $this->layoutName == 'default')
-                                    {
-                                        if (VmConfig::get('oncheckout_opc', 0))
-                                        {
-                                            $previouslayout = $this->setLayout('select');
-                                            //echo $this->loadTemplate('payment');
-                                            $this->setLayout($previouslayout);
-                                        } else
-                                        {
-                                            echo JHtml::_('link', JRoute::_('index.php?option=com_virtuemart&view=cart&task=editpayment', $this->useXHTML, $this->useSSL), $this->select_payment_text, 'class=""');
-                                        }
-                                    } else
-                                    {
-                                        echo vmText::_('COM_VIRTUEMART_CART_PAYMENT');
-                                    }
-                                    ?> </td>
-                                
+
+                                <td align="right" ><?php echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?> </td>
+                                </td>
+
 
                                 <?php
                             } else
