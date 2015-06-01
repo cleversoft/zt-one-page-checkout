@@ -272,10 +272,7 @@ class VirtueMartViewCart extends VmView
 
         // Register ourself template path        
         $this->addTemplatePath(dirname(__FILE__) . '/tmpl/');
-        if (!ZtHelperJoomlaUser::isLogged())
-        {
-            $this->setLayout('guest');
-        }
+       
         parent::display($tpl);
     }
 
