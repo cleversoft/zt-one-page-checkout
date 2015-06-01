@@ -30,6 +30,13 @@
             });
             self.ajax._parent = self;
         },
+        /**
+         * Showing login form
+         * @returns {undefined}
+         */
+        showLoginForm: function(){
+            $('#zt-opc-login-container').slideDown();
+        },
         /* Local ajax */
         ajax: {
             /* Local ajax settings */

@@ -171,3 +171,7 @@ span.vm-price-desc{
 .checkbox input.terms-of-service{
     margin-top: 4px !important;
 }
+
+.zt-opc-hidden{
+    display: none;
+}
