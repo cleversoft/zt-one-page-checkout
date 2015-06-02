@@ -249,9 +249,18 @@ if (!class_exists('ZtonepageHelperAjax'))
                 if ($msg)
                     vmInfo($msg);
             }
-
             $ajax = ZtAjax::getInstance();
-            $ajax->addExecute('zt.onepagecheckout.display();');
+            $view = new VirtueMartViewCart();
+            /**
+             * @todo What am i dong here ? !!!
+             */
+            ob_start();
+            $view->setLayout('cart_sumary');
+            $html = $view->display();
+            $html = ob_get_contents();
+            ob_end_clean();
+
+            $ajax->addHtml($html, '#zt-opc-shoppingcart .inner-wrap');
             $ajax->response();
         }
 

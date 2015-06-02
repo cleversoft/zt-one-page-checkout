@@ -191,6 +191,9 @@
             /* Update shipment */
             $('#zt-opc-shipment').on('click', 'input[type="radio"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
+                    beforeSend:function(){
+                        $('#zt-opc-shoppingcart .inner-wrap').html('<div class="zt-opc-ajax-overlay"></div>');
+                    },
                     data: {
                         zt_task: "updateCart"
                     }
@@ -199,6 +202,9 @@
             /* Upadte payment */
             $('#zt-opc-payment-wrap').on('click', 'input[type="radio"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
+                    beforeSend:function(){
+                        $('#zt-opc-shoppingcart .inner-wrap').html('<div class="zt-opc-ajax-overlay"></div>');
+                    },
                     data: {
                         zt_task: "updateCart"
                     }
@@ -207,6 +213,9 @@
             /* Apply coupon */
             $('#zt-opc-coupon-wrap').on('click', 'button[type="button"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
+                    beforeSend:function(){
+                        $('#zt-opc-shoppingcart .inner-wrap').html('<div class="zt-opc-ajax-overlay"></div>');
+                    },
                     data: {
                         zt_task: "updateCart"
                     }

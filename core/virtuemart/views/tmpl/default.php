@@ -75,6 +75,8 @@ $class = 'zt-opc';
                 <div id="zt-opc-shipto">
                     <?php echo $this->loadTemplate("shipto"); ?>
                 </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
                 <div id="zt-opc-shipment">
                     <?php echo $this->loadTemplate("shipment"); ?>
                 </div>
