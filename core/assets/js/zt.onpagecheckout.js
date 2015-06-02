@@ -53,6 +53,7 @@
              * Form hook
              * @param {type} selector
              * @param {type} data
+             * @param {type} ajaxOverlay
              * @returns {Boolean}
              */
             formHook: function (selector, data, ajaxOverlay) {
@@ -71,6 +72,7 @@
             /**
              * Ajax request
              * @param {type} data
+             * @param {type} ajaxOverlay
              * @returns {undefined}
              */
             request: function (data, ajaxOverlay) {
@@ -87,6 +89,7 @@
              * Local form request
              * @param {type} selector
              * @param {type} data
+             * @param {type} ajaxOverlay
              * @returns {Boolean}
              */
             formRequest: function (selector, data, ajaxOverlay) {
@@ -108,6 +111,9 @@
         login: function () {
             z.ajax.unHook('#zt-opc-login');
             this.ajax.formHook('#zt-opc-login', {
+                beforeSend:function(){
+                    $('#zt-opc-plugin').html('<div class="zt-opc-ajax-overlay"></div>');
+                },
                 data: {
                     zt_task: "userLogin"
                 }
