@@ -35,7 +35,7 @@
          * @returns {undefined}
          */
         showLoginForm: function(){
-            $('#zt-opc-login-container').slideDown();
+            $('form#zt-opc-login').slideDown();
         },
         /* Local ajax */
         ajax: {
