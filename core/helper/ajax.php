@@ -105,7 +105,19 @@ if (!class_exists('ZtonepageHelperAjax'))
             $input->set('quantity', $quantity);
             $model = ZtonepageModelVirtuemart::getInstance();
             $model->updateCart();
-            self::_updateCartSumary();
+            $ajax = ZtAjax::getInstance();
+            $view = new VirtueMartViewCart();
+            /**
+             * @todo What am i dong here ? !!!
+             */
+            ob_start();
+            $view->setLayout('cart_summary');
+            $html = $view->display();
+            $html = ob_get_contents();
+            ob_end_clean();
+
+            $ajax->addHtml($html, '#zt-opc-shoppingcart .inner-wrap');
+            $ajax->response();
         }
 
         public static function updateShipment()
@@ -247,17 +259,13 @@ if (!class_exists('ZtonepageHelperAjax'))
                 if ($msg)
                     vmInfo($msg);
             }
-            self::_updateCartSumary();
-        }
-        
-        private static function _updateCartSumary(){
             $ajax = ZtAjax::getInstance();
             $view = new VirtueMartViewCart();
             /**
              * @todo What am i dong here ? !!!
              */
             ob_start();
-            $view->setLayout('cart_sumary');
+            $view->setLayout('cart_summary');
             $html = $view->display();
             $html = ob_get_contents();
             ob_end_clean();
@@ -265,7 +273,7 @@ if (!class_exists('ZtonepageHelperAjax'))
             $ajax->addHtml($html, '#zt-opc-shoppingcart .inner-wrap');
             $ajax->response();
         }
-
+        
         public static function updateCheckout()
         {
             $ajax = ZtAjax::getInstance();
