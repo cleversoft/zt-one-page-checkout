@@ -34,7 +34,7 @@
          * Showing login form
          * @returns {undefined}
          */
-        showLoginForm: function(){
+        showLoginForm: function () {
             $('form#zt-opc-login').slideDown();
         },
         /* Local ajax */
@@ -111,7 +111,7 @@
         login: function () {
             z.ajax.unHook('#zt-opc-login');
             this.ajax.formHook('#zt-opc-login', {
-                beforeSend:function(){
+                beforeSend: function () {
                     $('#zt-opc-plugin').html('<div class="zt-opc-ajax-overlay"></div>');
                 },
                 data: {
@@ -191,7 +191,7 @@
             /* Update shipment */
             $('#zt-opc-shipment').on('click', 'input[type="radio"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
-                    beforeSend:function(){
+                    beforeSend: function () {
                         $('#zt-opc-shoppingcart .inner-wrap').html('<div class="zt-opc-ajax-overlay"></div>');
                     },
                     data: {
@@ -202,7 +202,7 @@
             /* Upadte payment */
             $('#zt-opc-payment-wrap').on('click', 'input[type="radio"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
-                    beforeSend:function(){
+                    beforeSend: function () {
                         $('#zt-opc-shoppingcart .inner-wrap').html('<div class="zt-opc-ajax-overlay"></div>');
                     },
                     data: {
@@ -213,7 +213,7 @@
             /* Apply coupon */
             $('#zt-opc-coupon-wrap').on('click', 'button[type="button"]', function () {
                 self.ajax.formRequest('#zt-opc-cart-form', {
-                    beforeSend:function(){
+                    beforeSend: function () {
                         $('#zt-opc-shoppingcart .inner-wrap').html('<div class="zt-opc-ajax-overlay"></div>');
                     },
                     data: {
@@ -239,6 +239,9 @@
         updateCartQuantity: function (pKey) {
             var value = $('tr.product-hover').find('#zt-opc-shoppingcart-pid-' + pKey).val();
             this.ajax.request({
+                beforeSend: function () {
+                    $('#zt-opc-shoppingcart .inner-wrap').html('<div class="zt-opc-ajax-overlay"></div>');
+                },
                 data: {
                     zt_task: "updateCartQuantity",
                     pKey: pKey,

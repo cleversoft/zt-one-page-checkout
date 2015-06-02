@@ -105,9 +105,7 @@ if (!class_exists('ZtonepageHelperAjax'))
             $input->set('quantity', $quantity);
             $model = ZtonepageModelVirtuemart::getInstance();
             $model->updateCart();
-            $ajax = ZtAjax::getInstance();
-            $ajax->addExecute('zt.onepagecheckout.display();');
-            $ajax->response();
+            self::_updateCartSumary();
         }
 
         public static function updateShipment()
@@ -249,6 +247,10 @@ if (!class_exists('ZtonepageHelperAjax'))
                 if ($msg)
                     vmInfo($msg);
             }
+            self::_updateCartSumary();
+        }
+        
+        private static function _updateCartSumary(){
             $ajax = ZtAjax::getInstance();
             $view = new VirtueMartViewCart();
             /**
