@@ -18,4 +18,4 @@ defined('_JEXEC') or die('');
 * other free or open source software licenses.
 */
 
-echo $this->loadTemplate("cartsumary");
+echo $this->loadTemplate("cartsummary");

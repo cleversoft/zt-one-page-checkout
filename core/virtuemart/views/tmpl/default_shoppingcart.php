@@ -14,7 +14,7 @@ $class = 'zt-opc-cart';
 
     <!-- BT address -->
     <div class="inner-wrap">
-        <?php echo $this->loadTemplate("cartsumary"); ?>
+        <?php echo $this->loadTemplate("cartsummary"); ?>
     </div>
 </div>
 
