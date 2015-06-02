@@ -55,7 +55,7 @@
              * @param {type} data
              * @returns {Boolean}
              */
-            formHook: function (selector, data) {
+            formHook: function (selector, data, ajaxOverlay) {
                 if ($(selector).length <= 0) {
                     return false;
                 }
@@ -66,14 +66,14 @@
                 $.extend(true, buffer, data);
                 z.ajax.formHook(selector, buffer, true, function () {
                     self._parent._rebind();
-                });
+                }, ajaxOverlay);
             },
             /**
              * Ajax request
              * @param {type} data
              * @returns {undefined}
              */
-            request: function (data) {
+            request: function (data, ajaxOverlay) {
                 var self = this;
                 var data = (typeof (data) === 'undefined') ? {} : data;
                 var buffer = {};
@@ -81,7 +81,7 @@
                 $.extend(true, buffer, data);
                 z.ajax.request(buffer).done(function () {
                     self._parent._rebind();
-                });
+                }, ajaxOverlay);
             },
             /**
              * Local form request
@@ -89,7 +89,7 @@
              * @param {type} data
              * @returns {Boolean}
              */
-            formRequest: function (selector, data) {
+            formRequest: function (selector, data, ajaxOverlay) {
                 if ($(selector).length <= 0) {
                     return false;
                 }
@@ -98,7 +98,7 @@
                 var buffer = {};
                 $.extend(true, buffer, self._settings);
                 $.extend(true, buffer, data);
-                z.ajax.formRequest(selector, buffer);
+                z.ajax.formRequest(selector, buffer, true, ajaxOverlay);
             }
         },
         /**
@@ -111,7 +111,7 @@
                 data: {
                     zt_task: "userLogin"
                 }
-            });
+            }, true);
         },
         guestCheckout: function () {
             z.ajax.unHook('#zt-opc-user');
