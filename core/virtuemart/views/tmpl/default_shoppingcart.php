@@ -16,5 +16,6 @@ $class = 'zt-opc-cart';
     <div class="inner-wrap">
         <?php echo $this->loadTemplate("cartsummary"); ?>
     </div>
+    <?php echo $this->loadTemplate("coupon"); ?>
 </div>
 

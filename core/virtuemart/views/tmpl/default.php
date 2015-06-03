@@ -75,20 +75,17 @@ $class = 'zt-opc';
                 </div>
             </div>
             <div class="col-sm-8 col-md-8">
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-6 col-md-6">
                     <div id="zt-opc-shipment">
                         <?php echo $this->loadTemplate("shipment"); ?>
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-6 col-md-6">
                     <div id="zt-opc-payment">
                         <?php echo $this->loadTemplate("payment"); ?>
                     </div>
-                    <div id="zt-opc-coupon">
-                        <?php echo $this->loadTemplate("coupon"); ?>
-                    </div>
                 </div>
-                <div class="col-sm-8 col-md-8">
+                <div class="col-sm-12 col-md-12">
                     <div id="zt-opc-shoppingcart">
                         <?php echo $this->loadTemplate("shoppingcart"); ?>
                     </div>
