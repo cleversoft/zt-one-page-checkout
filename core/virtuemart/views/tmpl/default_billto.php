@@ -6,7 +6,7 @@ $modelVM = ZtonepageModelVirtuemart::getInstance();
 $billModel = $modelVM->getBillTo();
 $billTo = $billModel['fields'];
 $class = 'zt-opc-billto';
-foreach(array('username', 'password', 'password2', 'delimiter_userinfo') as $item){
+foreach(array('username', 'password', 'password2', 'delimiter_userinfo', 'agreed') as $item){
     unset($billTo[$item]);
 }
 ?>
