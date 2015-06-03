@@ -70,35 +70,37 @@ $class = 'zt-opc';
                 <div id="zt-opc-billto">
                     <?php echo $this->loadTemplate("billto"); ?>
                 </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
                 <div id="zt-opc-shipto">
                     <?php echo $this->loadTemplate("shipto"); ?>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-4">
-                <div id="zt-opc-shipment">
-                    <?php echo $this->loadTemplate("shipment"); ?>
+            <div class="col-sm-8 col-md-8">
+                <div class="col-sm-4 col-md-4">
+                    <div id="zt-opc-shipment">
+                        <?php echo $this->loadTemplate("shipment"); ?>
+                    </div>
                 </div>
-                <div id="zt-opc-payment">
-                    <?php echo $this->loadTemplate("payment"); ?>
+                <div class="col-sm-4 col-md-4">
+                    <div id="zt-opc-payment">
+                        <?php echo $this->loadTemplate("payment"); ?>
+                    </div>
+                    <div id="zt-opc-coupon">
+                        <?php echo $this->loadTemplate("coupon"); ?>
+                    </div>
                 </div>
-                <div id="zt-opc-coupon">
-                    <?php echo $this->loadTemplate("coupon"); ?>
+                <div class="col-sm-8 col-md-8">
+                    <div id="zt-opc-shoppingcart">
+                        <?php echo $this->loadTemplate("shoppingcart"); ?>
+                    </div>
+                    <div id="zt-opc-confirmpurchase">
+                        <?php echo $this->loadTemplate("confirmpurchase"); ?>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-sm-4 col-md-4 span12">
 
-                <div id="zt-opc-shoppingcart">
-                    <?php echo $this->loadTemplate("shoppingcart"); ?>
-                </div>
-                <div id="zt-opc-confirmpurchase">
-                    <?php echo $this->loadTemplate("confirmpurchase"); ?>
-                </div>
 
-            </div>
-
-            <fieldset>
+            <fieldset style="display:none;">
                 <input type="hidden" name="task" value="updatecart">
                 <input type="hidden" name="option" value="com_virtuemart">
                 <input type="hidden" name="view" value="cart">
