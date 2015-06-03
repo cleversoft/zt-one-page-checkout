@@ -7,7 +7,7 @@ $ship['name'] = (isset($ship['name']) ? $ship['name'] : '');
 ?>
 <span class="dotted-line"></span>
 <div class="row" id="<?php echo $class; ?>-wrap" id="<?php echo $ship['name']; ?>-group">
-    <div class="col-sm-3 col-md-3">
+    <div class="col-sm-3 col-md-3" style="text-align: right;">
         <?php echo ZtonepageHelperText::_('COUPON'); ?>:
     </div>
     <div class="col-sm-6 col-md-6">
