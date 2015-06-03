@@ -12,7 +12,7 @@ $class = 'zt-opc-purchase';
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
     
         <h3 class="<?php echo $class; ?>-title zt-opc-title">
-            <div class="zt-opc-step <?php echo $class; ?>-step">7</div><?php echo ZtonepageHelperText::_('CONFIRM_PURCHASE'); ?>
+            <div class="zt-opc-step <?php echo $class; ?>-step">6</div><?php echo ZtonepageHelperText::_('CONFIRM_PURCHASE'); ?>
         </h3>
         <div class="inner-wrap">
             <div class="customer-comment-group">
