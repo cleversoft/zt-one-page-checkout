@@ -40,7 +40,7 @@ $class = 'zt-opc-billto';
         <?php if (JFactory::getUser()->guest) : ?>
         <label class="<?php echo $class; ?>-extend" id="<?php echo $class; ?>-extend-toogle" for="<?php echo $class; ?>-extend-input">
             <input type="checkbox" id="<?php echo $class; ?>-extend-input" name="<?php echo $class; ?>-extend-input" onClick="jQuery('#zt-opc-billto-checkout-later').toggle();">
-            Register for checkout later
+            Create an account for later use
         </label>
         <div class="edit-address billto" id="<?php echo $class; ?>-checkout-later" style="display:none;">
             <?php foreach ($billTo as $bill) : ?>
