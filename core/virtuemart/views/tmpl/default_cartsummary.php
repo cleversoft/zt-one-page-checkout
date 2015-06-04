@@ -28,6 +28,35 @@ $class = 'zt-opc-cart';
                     <input type="hidden" name="cartpos[]" value="<?php echo $pKey ?>">
                     <!-- Name -->
                     <td class="col-name" colspan="2">
+                        <div class="<?php echo $class; ?>-product-image col-sm-6 col-md-6">
+                        <?php if ($media) : ?>
+                            
+                                <div class="p-info-inner">
+                                    <img class="img-reponsive" alt="image1xxl83"
+                                         src="<?php echo $media->imageUrl; ?>">
+                                </div>
+                            
+                        <?php endif; ?>
+                            <div class="add-padding">
+                                <?php
+                                if ($prow->step_order_level)
+                                    $step = $prow->step_order_level;
+                                else
+                                    $step = 1;
+                                if ($step == 0)
+                                    $step = 1;
+                                ?>
+                                <input type="text"
+                                       title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
+                                       class="quantity-input js-recalculate"
+                                       id="zt-opc-shoppingcart-pid-<?php echo $pKey; ?>"
+                                       size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]"
+                                       value="<?php echo $prow->quantity ?>"/>
+
+                                <button type="button" class="vm2-add_quantity_cart" title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>" onClick="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);"><i class="fa fa-refresh"></i></button>
+                                <button type="button" class="vm2-remove_from_cart" title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>" onClick="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);"><i class="fa fa-close"></i></button>
+                            </div>
+                        </div>
                         <?php
                         echo JHtml::link($prow->url, $prow->product_name);
                         echo $this->customfieldsModel->CustomsFieldCartDisplay($prow);
@@ -74,52 +103,6 @@ $class = 'zt-opc-cart';
                         }
                         echo $this->currencyDisplay->createPriceDiv('salesPrice', '', $prow->prices, FALSE, FALSE, $prow->quantity)
                         ?></td>
-                    </tr>
-                    <tr class="product-hover soft-hide">
-                        <td colspan="5">
-                            <div class="<?php echo $class; ?>-arrow">
-                                <div class="<?php echo $class; ?>-arrow-box">
-                                    <div class="<?php echo $class; ?>-p-info-table">
-                                        <div class="row">
-                                            <?php if ($media) : ?>
-                                                <div class="<?php echo $class; ?>-product-image col-sm-6 col-md-6">
-                                                    <div class="p-info-inner">
-                                                        <img class="img-reponsive" alt="image1xxl83"
-                                                             src="<?php echo $media->imageUrl; ?>">
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
-                                            <div class="<?php echo $class; ?>-p-info col-sm-6 col-md-6">
-                                                <div class="p-info-inner">
-                                                    <div class="<?php echo $class; ?>-product-name">
-                                                        <?php echo JHtml::link($prow->url, $prow->product_name); ?>
-                                                    </div>
-                                                </div>
-                                                <div class="add-padding">
-                                                    <?php
-                                                    if ($prow->step_order_level)
-                                                        $step = $prow->step_order_level;
-                                                    else
-                                                        $step = 1;
-                                                    if ($step == 0)
-                                                        $step = 1;
-                                                    ?>
-                                                    <input type="text"
-                                                           title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>"
-                                                           class="quantity-input js-recalculate"
-                                                           id="zt-opc-shoppingcart-pid-<?php echo $pKey; ?>"
-                                                           size="3" maxlength="4" name="quantity[<?php echo $pKey; ?>]"
-                                                           value="<?php echo $prow->quantity ?>"/>
-
-                                                    <button type="button" class="vm2-add_quantity_cart" title="<?php echo vmText::_('COM_VIRTUEMART_CART_UPDATE') ?>" onClick="zt.onepagecheckout.updateCartQuantity(<?php echo $pKey; ?>);"><i class="fa fa-refresh"></i></button>
-                                                    <button type="button" class="vm2-remove_from_cart" title="<?php echo vmText::_('COM_VIRTUEMART_CART_DELETE') ?>" onClick="zt.onepagecheckout.removeCartItem(<?php echo $pKey; ?>);"><i class="fa fa-close"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>                       
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
                     </tr>
                     </tbody>
 

@@ -237,7 +237,7 @@
          * @returns {undefined}
          */
         updateCartQuantity: function (pKey) {
-            var value = $('tr.product-hover').find('#zt-opc-shoppingcart-pid-' + pKey).val();
+            var value = $('div#zt-opc-shoppingcart').find('#zt-opc-shoppingcart-pid-' + pKey).val();
             this.ajax.request({
                 beforeSend: function () {
                     $('#zt-opc-shoppingcart .inner-wrap').html('<div class="zt-opc-ajax-overlay"></div>');
