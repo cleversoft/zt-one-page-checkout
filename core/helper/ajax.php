@@ -341,8 +341,9 @@ if (!class_exists('ZtonepageHelperAjax'))
 
             if (!isset($force))
                 $force = VmConfig::get('oncheckout_opc', true);
-            $cart->setShipmentMethod($force, !$html);
-            $cart->setPaymentMethod($force, !$html);
+
+            $cart->setShipmentMethod(true, false);
+            $cart->setPaymentMethod(true, false);
 
             $cart->prepareCartData();
 
@@ -369,8 +370,6 @@ if (!class_exists('ZtonepageHelperAjax'))
                 $cart->_inConfirm = false;
                 $cart->checkoutData($redirect);
             }
-
-
 
             if (!$cart->_fromCart)
             {
