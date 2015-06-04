@@ -98,9 +98,13 @@ if (!class_exists('ZtonepageHelperAjax'))
             $model->updateCoupon(JFactory::getApplication()->input->get('coupon_code'));
         }
 
+        /**
+         * 
+         */
         public static function updateCartQuantity()
         {
             $input = JFactory::getApplication()->input;
+            // Simulator VM request
             $quantity[$input->getInt('pKey')] = $input->get('quantity');
             $input->set('quantity', $quantity);
             $model = ZtonepageModelVirtuemart::getInstance();
@@ -186,7 +190,7 @@ if (!class_exists('ZtonepageHelperAjax'))
             $cart = VirtueMartCart::getCart();
             $cart->_fromCart = true;
             $cart->_redirected = false;
-            
+
             if (vRequest::get('cancel', 0))
             {
                 $cart->_inConfirm = false;
@@ -195,7 +199,7 @@ if (!class_exists('ZtonepageHelperAjax'))
             {
                 vRequest::setVar('checkout', true);
             }
-            
+
             $cart->saveCartFieldsInCart();
 
             if ($cart->updateProductCart())
@@ -204,14 +208,14 @@ if (!class_exists('ZtonepageHelperAjax'))
             }
 
             $STsameAsBT = vRequest::getInt('STsameAsBT', vRequest::getInt('STsameAsBTjs', false));
-            
+
             if ($STsameAsBT)
             {
                 $cart->STsameAsBT = $STsameAsBT;
             }
 
             $currentUser = JFactory::getUser();
-            
+
             if (!$currentUser->guest)
             {
                 $cart->selected_shipto = vRequest::getVar('shipto', $cart->selected_shipto);
@@ -273,7 +277,7 @@ if (!class_exists('ZtonepageHelperAjax'))
             $ajax->addHtml($html, '#zt-opc-shoppingcart .inner-wrap');
             $ajax->response();
         }
-        
+
         public static function updateCheckout()
         {
             $ajax = ZtAjax::getInstance();
