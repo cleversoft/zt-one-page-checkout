@@ -6,9 +6,6 @@ $modelVM = ZtonepageModelVirtuemart::getInstance();
 $billModel = $modelVM->getBillTo();
 $billTo = $billModel['fields'];
 $class = 'zt-opc-billto';
-foreach(array('username', 'password', 'password2', 'delimiter_userinfo', 'agreed') as $item){
-    unset($billTo[$item]);
-}
 ?>
 
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
@@ -26,17 +23,38 @@ foreach(array('username', 'password', 'password2', 'delimiter_userinfo', 'agreed
         <div class="edit-address billto" >
 
             <?php foreach ($billTo as $bill) : ?>
+                <?php if(!in_array($bill['name'], array('username', 'password', 'password2', 'delimiter_userinfo', 'agreed'))): ?>
                         <div id="<?php echo $bill['name']; ?>-group" class="form-group">
                             <div class="inner">
                                 <label for="<?php echo $bill['name']; ?>_field" class="<?php echo $bill['name']; ?>"><?php echo $bill['title']; ?> <?php echo ($bill['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>
                                 <?php echo $bill['formcode']; ?>
                             </div>
                         </div>
+                <?php endif; ?>
             <?php endforeach; ?>
             <fieldset>
                 <input type="hidden" name="address_type" value="BT">
             </fieldset>
-
+            
         </div>
+        <?php if (JFactory::getUser()->guest) : ?>
+        <label class="<?php echo $class; ?>-extend" id="<?php echo $class; ?>-extend-toogle" for="<?php echo $class; ?>-extend-input">
+            <input type="checkbox" id="<?php echo $class; ?>-extend-input" name="<?php echo $class; ?>-extend-input" onClick="jQuery('#zt-opc-billto-checkout-later').toggle();">
+            Register for checkout later
+        </label>
+        <div class="edit-address billto" id="<?php echo $class; ?>-checkout-later" style="display:none;">
+            <?php foreach ($billTo as $bill) : ?>
+                <?php if(in_array($bill['name'], array('username', 'password', 'password2'))): ?>
+            
+                        <div id="<?php echo $bill['name']; ?>-group" class="form-group">
+                            <div class="inner">
+                                <label for="<?php echo $bill['name']; ?>_field" class="<?php echo $bill['name']; ?>"><?php echo $bill['title']; ?> <?php echo ($bill['required'] == 1) ? '<span class="required">*</span>' : ''; ?></label>
+                                <?php echo $bill['formcode']; ?>
+                            </div>
+                        </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
     </div>
 </div>
