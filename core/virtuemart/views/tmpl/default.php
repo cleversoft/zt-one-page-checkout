@@ -52,8 +52,8 @@ $class = 'zt-opc';
                                     <div class="form-group">
                                         <div class="<?php echo $class; ?>-input">
                                             <ul class="<?php echo $class; ?>-ul">
-                                                <li><a href="#"><?php echo ZtonepageHelperText::_('FORGOT_YOUR_USERNAME'); ?></a></li>
-                                                <li><a href="#"><?php echo ZtonepageHelperText::_('FORGOT_YOUR_PASSWORD'); ?></a></li>
+                                                <li><a href="<?php echo JRoute::_('index.php?option=com_users&view=remind'); ?>"><?php echo ZtonepageHelperText::_('FORGOT_YOUR_USERNAME'); ?></a></li>
+                                                <li><a href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>"><?php echo ZtonepageHelperText::_('FORGOT_YOUR_PASSWORD'); ?></a></li>
                                             </ul>
                                         </div>
                                     </div>
