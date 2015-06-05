@@ -9,6 +9,10 @@ defined('_JEXEC') or die('Restricted access');
 $class = 'zt-opc';
 ?>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<p>
+    <span class="zt-opc-page-title"><?php echo ZtonepageHelperText::_('SHOPPING_CART'); ?></span>
+    <a href="<?php echo JRoute::_ (JUri::root() . 'index.php?option=com_virtuemart&view=category' . $categoryStr.$ItemidStr, FALSE); ?>" class="floatright"><?php echo ZtonepageHelperText::_ ('CONTINUE_SHOPPING'); ?></a>
+</p>
 <div id="zt-opc-plugin">    
     <div class="row">
         <?php if (JFactory::getUser()->guest) : ?>

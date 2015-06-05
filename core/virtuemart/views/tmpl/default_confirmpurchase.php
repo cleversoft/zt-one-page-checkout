@@ -27,7 +27,7 @@ $class = 'zt-opc-purchase';
                                     <a href="<?php echo JRoute::_ ('index.php?option=com_virtuemart&view=vendor&layout=tos&virtuemart_vendor_id=1', FALSE) ?>" class="terms-of-service" id="terms-of-service" rel="facebox"
                                        target="_blank">
                                             <span class="vmicon vm2-termsofservice-icon"></span>
-                                            <?php echo vmText::_ ('COM_VIRTUEMART_CART_TOS_READ_AND_ACCEPTED') ?>
+                                            <?php echo ZtonepageHelperText::_('CLICK_HERE_TO_READ_TOS') ?>
                                     </a>
                             </label>
 

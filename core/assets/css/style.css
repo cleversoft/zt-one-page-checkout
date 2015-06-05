@@ -186,3 +186,9 @@ span.vm-price-desc{
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
+
+.zt-opc-page-title{
+    font-size: 16pt;
+    font-weight: bold;
+    margin: 0;
+}
