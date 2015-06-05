@@ -15,7 +15,7 @@
     width: 100%;
 }
 .zt-opc-element fieldset{
-    padding: 0;
+    padding: 0 0px;
     border: none;
 }
 .cart-summary .PricesalesPrice > span{
@@ -33,7 +33,7 @@
     padding: 10px;
 }
 .zt-opc-title{
-    background-color: #fafafa;
+    background-color: #e5e5e5;
     font-size: 16px;
     font-weight: 400;
     padding: 10px 15px;
@@ -41,21 +41,18 @@
 }
 .zt-opc-step{
     background-color: #000;
-    border-radius: 50%;
     color: #fff;
     display: inline-block;
     font-size: 12px;
     font-weight: bold;
-    height: 18px;
-    line-height: 18px;
-    margin-right: 7px;
+    height: 34px;
+    line-height: 34px;
+    margin-right: 10px;
     text-align: center;
     vertical-align: 4px;
-    width: 18px;
+    width: 34px;
 }
-.zt-opc-element .form-group{
-    margin-bottom: 5px;
-}
+
 .zt-opc-element .form-group label{
     display: block;
 }
@@ -192,3 +189,49 @@ span.vm-price-desc{
     font-weight: bold;
     margin: 0;
 }
+.chzn-container{
+    width: 100%!important;
+}
+.inner-wrap h1{
+    margin: 0;
+}
+#zt-opc-coupon-wrap lable{
+    line-height: 32px;
+}
+.zt-opc-cart-product-image{
+    display: inline-block;width: 100px; float: left;
+}
+
+
+.add-padding input, .add-padding button{
+    margin-right: 5px!important;
+}
+#zt-opc-purchase-wrap .zt-opc-purchase-row #zt-opc-purchase-order-submit{
+    background-color: #eeeeee;
+    border-color: #eeeeee;
+    text-transform: capitalize;
+    color: #000;
+    opacity: 1;
+    padding: 10px 20px;
+}
+#zt-opc-purchase-wrap .zt-opc-purchase-row #zt-opc-purchase-order-submit:hover{background-color: #e5e5e5;transition: all 0s ease-in-out 0s;}
+
+#zt-opc-login-toggle{font-weight: 600;}
+.inner-wrap .cart-summary button{
+    height: 30px;width: 30px; margin-top: 0;
+}
+#zt-opc-cart-form .cart-summary tr td{padding-left: 5px;padding-right: 5px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

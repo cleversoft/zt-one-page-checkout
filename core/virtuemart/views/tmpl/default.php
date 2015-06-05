@@ -21,7 +21,7 @@ $class = 'zt-opc';
                     <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
                         <h3 class="<?php echo $class; ?>-title zt-opc-title">Login And Checkout</h3>
                         <div class="inner-wrap">
-                            <h3>Welcome to the checkout. Fill in the fields below to complete your purchase!</h3>
+                            <p>Welcome to the checkout. Fill in the fields below to complete your purchase!</p>
                             <a href="javascript: zt.onepagecheckout.showLoginForm();" id="<?php echo($class); ?>-login-toggle">Already registered? Click here to login</a>
                             <form autocomplete="off" id="<?php echo $class; ?>-login" name="<?php echo $class; ?>-login" class="<?php echo $class; ?>-hidden">
                                 <div class="form-group">
@@ -80,24 +80,26 @@ $class = 'zt-opc';
                 </div>
             </div>
             <div class="col-sm-8 col-md-8">
-                <div class="col-sm-6 col-md-6">
-                    <div id="zt-opc-shipment">
-                        <?php echo $this->loadTemplate("shipment"); ?>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div id="zt-opc-shipment">
+                            <?php echo $this->loadTemplate("shipment"); ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-6">
-                    <div id="zt-opc-payment">
-                        <?php echo $this->loadTemplate("payment"); ?>
+                    <div class="col-sm-12 col-md-6">
+                        <div id="zt-opc-payment">
+                            <?php echo $this->loadTemplate("payment"); ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-12">
-                    <div id="zt-opc-shoppingcart">
-                        <?php echo $this->loadTemplate("shoppingcart"); ?>
-                    </div>
-                    <div id="zt-opc-confirmpurchase">
-                        <?php echo $this->loadTemplate("confirmpurchase"); ?>
-                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <div id="zt-opc-shoppingcart">
+                            <?php echo $this->loadTemplate("shoppingcart"); ?>
+                        </div>
+                        <div id="zt-opc-confirmpurchase">
+                            <?php echo $this->loadTemplate("confirmpurchase"); ?>
+                        </div>
 
+                    </div>
                 </div>
             </div>
 

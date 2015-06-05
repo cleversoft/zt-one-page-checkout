@@ -10,7 +10,7 @@ $this->cart = $cart;
         <!-- Begin Heading -->
         <thead style="background-color: #F7F6F6;">
             <tr>
-                <th align="left" class="col-name" style="padding-left: 10px !important;  border-right: 1px solid #EBEBEB;"><?php echo vmText::_('COM_VIRTUEMART_CART_NAME') ?></th>
+                <th align="left" class="col-name" style="padding-left: 5px !important;  border-right: 1px solid #EBEBEB;"><?php echo vmText::_('COM_VIRTUEMART_CART_NAME') ?></th>
                 <th align="left" class="col-name" style="padding-left: 10px !important;  border-right: 1px solid #EBEBEB;"><?php echo vmText::_('COM_VIRTUEMART_CART_PRICE') ?></th>
                 <th align="left" class="col-qty" style="padding-left: 10px !important; border-right: 1px solid #EBEBEB;"><?php echo vmText::_('COM_VIRTUEMART_CART_QUANTITY') ?></th>                
                 <th align="left" class="col-qty" style="padding-left: 10px !important; border-right: 1px solid #EBEBEB;"><?php echo vmText::_('Tax') ?></th>                
@@ -36,7 +36,7 @@ $this->cart = $cart;
             <!-- Name -->
             <td class="col-name" style="  border-right: 1px solid #EBEBEB;
                 border-bottom: 1px solid #EBEBEB;">
-                <div class="<?php echo $class; ?>-product-image col-sm-6 col-md-6">
+                <div class="<?php echo $class; ?>-product-image">
                     <?php if ($media) : ?>
 
                         <div class="p-info-inner">
@@ -136,14 +136,14 @@ $this->cart = $cart;
     border-bottom: 1px solid #F8F8F8;
 ">
             <tr class="sectiontableentry1 price-nomal">
-                <td><?php echo vmText::_('COM_VIRTUEMART_ORDER_PRINT_PRODUCT_PRICES_TOTAL'); ?></td>               
+                <td ><?php echo vmText::_('COM_VIRTUEMART_ORDER_PRINT_PRODUCT_PRICES_TOTAL'); ?></td>               
                 <!-- Discount -->
                 <td colspan="4" style="text-align:right">
                     <?php echo $this->cart->cartPrices['discountAmount']; ?>
                 </td>
                 <!-- Total -->
         
-                <td >
+                <td  style="text-align:right">
                     <?php echo $this->currencyDisplay->formatNumber($this->cart->cartPrices['salesPrice'])  . ' ' . $this->currencyDisplay->getSymbol(); ?>
                 </td>                
             </tr>
