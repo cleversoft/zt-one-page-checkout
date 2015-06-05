@@ -142,8 +142,9 @@ $this->cart = $cart;
                     <?php echo $this->cart->cartPrices['discountAmount']; ?>
                 </td>
                 <!-- Total -->
+        
                 <td >
-                    <?php echo $this->currencyDisplay->formatNumber($this->cart->cartPrices['billTotal'])  . ' ' . $this->currencyDisplay->getSymbol(); ?>
+                    <?php echo $this->currencyDisplay->formatNumber($this->cart->cartPrices['salesPrice'])  . ' ' . $this->currencyDisplay->getSymbol(); ?>
                 </td>                
             </tr>
         </tbody>
