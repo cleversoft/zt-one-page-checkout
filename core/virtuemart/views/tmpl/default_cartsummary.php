@@ -103,14 +103,16 @@ $this->cart = $cart;
             </td>
             <!-- Tax -->
             <td class="col-total nowrap" align="right" style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;color: #92959F;">                
-                <?php echo($prow->prices['taxAmount']); ?>                
+                <?php echo($prow->prices['subtotal_tax_amount']); ?>                
             </td>
             <!-- Discount -->
             <td class="col-total nowrap" align="right" style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;color: #92959F;">                
-                <?php echo($prow->prices['discountAmount']); ?>                
+                <?php echo($prow->prices['subtotal_discount']); ?>                
             </td>
+            <!-- total -->
+            
             <td style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;">
-                <?php echo($prow->prices['salesPrice']); ?>
+                <?php echo($prow->prices['subtotal_with_tax']) . ' ' . $this->currencyDisplay->getSymbol(); ?>
             </td>
             </tr>
             </tbody>
@@ -141,7 +143,7 @@ $this->cart = $cart;
                 </td>
                 <!-- Total -->
                 <td >
-                    <?php echo $this->cart->cartPrices['billTotal']; ?>
+                    <?php echo $this->currencyDisplay->formatNumber($this->cart->cartPrices['billTotal'])  . ' ' . $this->currencyDisplay->getSymbol(); ?>
                 </td>                
             </tr>
         </tbody>
