@@ -13,7 +13,7 @@ $class = 'zt-opc';
     <p>
         <span class="zt-opc-page-title"><?php echo ZtonepageHelperText::_('SHOPPING_CART'); ?></span>
         <a href="javascript:window.history.back();" class="continue-shoping"><?php echo ZtonepageHelperText::_ ('CONTINUE_SHOPPING'); ?></a>
-    </p>
+    </p>    
     <div class="row">
         <?php if (JFactory::getUser()->guest) : ?>
             <div class="col-md-12">

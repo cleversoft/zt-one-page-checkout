@@ -270,6 +270,12 @@
             self.formValidation();
             self.updateCheckout();
             self.updateCart();
+            if(typeof($.fn.fancybox) !== 'undefined'){
+                $('.terms-of-service a[rel="facebox"]').fancybox({content: $('.terms-of-service #full-tos').html()});
+            }else if(typeof($.fn.facebox) !== 'undefined'){
+                $('.terms-of-service a[rel="facebox"]').facebox();
+            }
+            
         }
     };
 

@@ -22,7 +22,7 @@ $class = 'zt-opc-purchase';
             <div class="cart-tos-group">
                 <label class="checkbox <?php echo $class; ?>-tos-label <?php echo $class; ?>-row" for="tos">
                     <input type="checkbox" value="1" name="tos" class="terms-of-service"><?php echo ZtonepageHelperText::_('AGREE'); ?>
-                    <div class="terms-of-service">
+                    <div class="terms-of-service">                        
                             <label for="tos">
                                     <a href="<?php echo JRoute::_ ('index.php?option=com_virtuemart&view=vendor&layout=tos&virtuemart_vendor_id=1', FALSE) ?>" class="terms-of-service" id="terms-of-service" rel="facebox"
                                        target="_blank">
