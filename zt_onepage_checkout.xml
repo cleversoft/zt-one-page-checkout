@@ -2,7 +2,7 @@
 <extension version="3.0" type="plugin" group="system" method="upgrade">
     <name>PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT</name>
     <author>CleverSoft</author>
-    <creationDate>Jan 2015</creationDate>
+    <creationDate>Jun 08, 2015</creationDate>
     <copyright>Copyright (c) 2008 - 2015 CleverSoft</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GPLv2 or later</license>
     <authorEmail>hello@cleversoft.co</authorEmail>
@@ -10,9 +10,9 @@
     <version>1.0.0</version>
     <description>PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_XML_DESCRIPTION</description>
     <!-- Languages -->
-    <languages>
-        <language tag="en-GB">language/en-GB/en-GB.plg_system_zt_onepage_checkout.ini</language>
-        <language tag="en-GB">language/en-GB/en-GB.plg_system_zt_onepage_checkout.sys.ini</language>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_zt_onepage_checkout.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_zt_onepage_checkout.sys.ini</language>
     </languages>
     <!-- Files & folder -->
     <files>         
@@ -31,8 +31,4 @@
             </fieldset>
         </fields>
     </config>               
-    <!-- Update -->
-    <updateservers>		
-        <server type="extension" name="Zo2 Framework's Updates">http://update.zo2framework.org/zo2/extension.xml</server>
-    </updateservers>
 </extension>
