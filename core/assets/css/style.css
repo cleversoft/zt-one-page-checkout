@@ -230,7 +230,9 @@ th{
 #zt-opc-cart-form .cart-summary tr td.col-left{text-align: left;}
 #zt-opc-cart-form .cart-summary tr td.col-qty{text-align: center;}
 #zt-opc-cart-form .cart-summary tr td.col-qty .add-padding{display: inline-block;}
-
+.continue-shoping{
+    float: right;
+}
 
 
 
