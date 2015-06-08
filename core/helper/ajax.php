@@ -149,11 +149,10 @@ if (!class_exists('ZtonepageHelperAjax'))
                 $html = $view->display();
                 $html = ob_get_contents();
                 ob_end_clean();
-
-                $ajax->addHtml($html, '#zt-opc-plugin');
-                $ajax->addExecute('zt.onepagecheckout._rebind();');
                 $session = JFactory::getSession();
                 $session->restart();
+                $ajax->addHtml($html, '#zt-opc-plugin');
+                $ajax->addExecute('zt.onepagecheckout._rebind();');
             } else
             {
                 $ajax->addMessage(ZtonepageHelperText::_('INVALID_DATA'));
