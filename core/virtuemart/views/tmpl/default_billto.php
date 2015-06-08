@@ -4,7 +4,13 @@
  */
 $modelVM = ZtonepageModelVirtuemart::getInstance();
 $billModel = $modelVM->getBillTo();
-$billTo = $billModel['fields'];
+if (is_object($billModel)) {
+    $billTo = $billModel->fields;
+    $billTo = json_decode(json_encode($billTo),true);    
+}else {
+    $billTo = $billModel['fields'];
+}
+
 $class = 'zt-opc-billto';
 ?>
 

@@ -5,7 +5,12 @@
 $modelVM = ZtonepageModelVirtuemart::getInstance();
 $shipModel = $modelVM->getShipto();
 
-$shipTo = $shipModel['fields'];
+if (is_object($shipModel)) {
+    $shipTo = $shipModel->fields;
+    $shipTo = json_decode(json_encode($shipTo),true);    
+}else {
+    $shipTo = $shipModel['fields'];
+}
 
 $class = 'zt-opc-shipto';
 ?>
