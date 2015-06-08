@@ -9,7 +9,7 @@ defined('_JEXEC') or die('Restricted access');
 $class = 'zt-opc';
 ?>
 <div id="zt-opc-plugin">    
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    
     <p>
         <span class="zt-opc-page-title"><?php echo ZtonepageHelperText::_('SHOPPING_CART'); ?></span>
         <a href="javascript:window.history.back();" class="continue-shoping"><?php echo ZtonepageHelperText::_ ('CONTINUE_SHOPPING'); ?></a>
