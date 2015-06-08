@@ -68,7 +68,7 @@ class VirtueMartViewCart extends VmView
 
         $format = vRequest::getCmd('format');
 
-        $this->cart = VirtueMartCart::getCart(true);
+        $this->cart = VirtueMartCart::getCart();
         $this->cart->prepareVendor();
 
         //Why is this here, when we have view.raw.php
