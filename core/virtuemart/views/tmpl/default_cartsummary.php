@@ -111,7 +111,7 @@ $this->cart = $cart;
             <!-- total -->
             
             <td colspan="2">
-                <?php echo($prow->prices['subtotal_with_tax']) . ' ' . $this->currencyDisplay->getSymbol(); ?>
+                <?php echo $this->currencyDisplay->getSymbol() . ' ' . ($prow->prices['subtotal_with_tax']) ; ?>
             </td>
             </tr>
             </tbody>
@@ -141,7 +141,7 @@ $this->cart = $cart;
                 <!-- Total -->
         
                 <td colspan="2">
-                    <?php echo $this->currencyDisplay->formatNumber($this->cart->cartPrices['salesPrice'])  . ' ' . $this->currencyDisplay->getSymbol(); ?>
+                    <?php echo $this->currencyDisplay->getSymbol() . ' ' . $this->currencyDisplay->formatNumber($this->cart->cartPrices['salesPrice']); ?>
                 </td>                
             </tr>
         </tbody>
