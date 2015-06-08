@@ -111,7 +111,7 @@ $this->cart = $cart;
             </td>
             <!-- total -->
             
-            <td style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;">
+            <td style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;" colspan="2">
                 <?php echo($prow->prices['subtotal_with_tax']) . ' ' . $this->currencyDisplay->getSymbol(); ?>
             </td>
             </tr>
