@@ -256,13 +256,7 @@ $this->cart = $cart;
                         <td colspan="4" class="col-left">
                             
                             <?php echo $this->cart->cartData['shipmentName']; ?>
-                            <?php
-                            if (VmConfig::get('show_tax'))
-                            {
-                                ?>
-                                <?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('shipmentTax', '', $this->cart->cartPrices['shipmentTax'], FALSE) . "</span>"; ?>
-                            <?php } ?>                            
-                            <?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?>
+                            
                         </td>
                         <?php
                         if (VmConfig::get('show_tax'))
