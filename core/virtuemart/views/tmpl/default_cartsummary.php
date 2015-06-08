@@ -10,12 +10,12 @@ $this->cart = $cart;
         <!-- Begin Heading -->
         <thead style="background-color: #F7F6F6;">
             <tr>
-                <th align="left" class="col-name" style="padding-left: 5px !important;  border-right: 1px solid #EBEBEB;"><?php echo vmText::_('COM_VIRTUEMART_CART_NAME') ?></th>
-                <th align="left" class="col-name" style="padding-left: 10px !important;  border-right: 1px solid #EBEBEB;"><?php echo vmText::_('COM_VIRTUEMART_CART_PRICE') ?></th>
-                <th align="left" class="col-qty" style="padding-left: 10px !important; border-right: 1px solid #EBEBEB;"><?php echo vmText::_('COM_VIRTUEMART_CART_QUANTITY') ?></th>                
-                <th align="left" class="col-qty" style="padding-left: 10px !important; border-right: 1px solid #EBEBEB;"><?php echo vmText::_('Tax') ?></th>                
-                <th align="left" class="col-qty" style="padding-left: 10px !important; border-right: 1px solid #EBEBEB;"><?php echo vmText::_('Discount') ?></th>                
-                <th align="left" class="col-total" style="padding-left: 10px !important;" colspan="2"><?php echo vmText::_('COM_VIRTUEMART_CART_TOTAL') ?></th>
+                <th align="left" class="col-name"><?php echo vmText::_('COM_VIRTUEMART_CART_NAME') ?></th>
+                <th align="left" class="col-name"><?php echo vmText::_('COM_VIRTUEMART_CART_PRICE') ?></th>
+                <th align="left" class="col-qty"><?php echo vmText::_('COM_VIRTUEMART_CART_QUANTITY') ?></th>                
+                <th align="left" class="col-qty"><?php echo vmText::_('Tax') ?></th>                
+                <th align="left" class="col-qty"><?php echo vmText::_('Discount') ?></th>                
+                <th align="left" class="col-total" colspan="2"><?php echo vmText::_('COM_VIRTUEMART_CART_TOTAL') ?></th>
 
             </tr>
         </thead>
@@ -34,8 +34,7 @@ $this->cart = $cart;
                 <tr valign="top" class="sectiontableentry<?php echo $i ?>">
             <input type="hidden" name="cartpos[]" value="<?php echo $pKey ?>">
             <!-- Name -->
-            <td class="col-name" style="  border-right: 1px solid #EBEBEB;
-                border-bottom: 1px solid #EBEBEB;">
+            <td class="col-name">
                 <div class="<?php echo $class; ?>-product-image">
                     <?php if ($media) : ?>
 
@@ -56,7 +55,7 @@ $this->cart = $cart;
 
             </td>
             <!-- price -->
-            <td style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;">
+            <td>
                 <?php
                 if (VmConfig::get('checkout_show_origprice', 1) && $prow->prices['discountedPriceWithoutTax'] != $prow->prices['priceWithoutTax'])
                 {
@@ -73,7 +72,7 @@ $this->cart = $cart;
                 ?>
             </td>
             <!-- Quantity -->
-            <td align="center" class="col-qty" style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;"><?php
+            <td class="col-qty"><?php
                 if ($prow->step_order_level)
                     $step = $prow->step_order_level;
                 else
@@ -102,16 +101,16 @@ $this->cart = $cart;
                 </div>                
             </td>
             <!-- Tax -->
-            <td class="col-total nowrap" align="right" style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;color: #92959F;">                
+            <td class="col-total nowrap">                
                 <?php echo($prow->prices['subtotal_tax_amount']); ?>                
             </td>
             <!-- Discount -->
-            <td class="col-total nowrap" align="right" style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;color: #92959F;">                
+            <td class="col-total nowrap">                
                 <?php echo($prow->prices['subtotal_discount']); ?>                
             </td>
             <!-- total -->
             
-            <td style="border-right:1px solid #EBEBEB;  border-bottom: 1px solid #EBEBEB;" colspan="2">
+            <td colspan="2">
                 <?php echo($prow->prices['subtotal_with_tax']) . ' ' . $this->currencyDisplay->getSymbol(); ?>
             </td>
             </tr>
@@ -132,18 +131,16 @@ $this->cart = $cart;
             $colspan = 2;
         }
         ?>
-        <tbody style="
-    border-bottom: 1px solid #F8F8F8;
-">
+        <tbody class="opc-price">
             <tr class="sectiontableentry1 price-nomal">
-                <td ><?php echo vmText::_('COM_VIRTUEMART_ORDER_PRINT_PRODUCT_PRICES_TOTAL'); ?></td>               
+                <td class="col-left"><?php echo vmText::_('COM_VIRTUEMART_ORDER_PRINT_PRODUCT_PRICES_TOTAL'); ?></td>               
                 <!-- Discount -->
-                <td colspan="4" style="text-align:right">
+                <td colspan="4">
                     <?php echo $this->cart->cartPrices['discountAmount']; ?>
                 </td>
                 <!-- Total -->
         
-                <td  style="text-align:right">
+                <td colspan="2">
                     <?php echo $this->currencyDisplay->formatNumber($this->cart->cartPrices['salesPrice'])  . ' ' . $this->currencyDisplay->getSymbol(); ?>
                 </td>                
             </tr>
@@ -251,12 +248,12 @@ $this->cart = $cart;
                             echo '<span class="pull-left">' . $this->cart->cartData['shipmentName'] . '</span>';
                             ?>
 
-                        <td align="right"><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
+                        <td><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
                         <?php
                     } else
                     {
                         ?>
-                        <td colspan="5">
+                        <td colspan="5" class="col-left">
                             
                             <?php echo $this->cart->cartData['shipmentName']; ?>
                             <?php
@@ -271,9 +268,9 @@ $this->cart = $cart;
                         if (VmConfig::get('show_tax'))
                         {
                             ?>
-                            <td align="right"><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('shipmentTax', '', $this->cart->cartPrices['shipmentTax'], FALSE) . "</span>"; ?> </td>
+                            <td><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('shipmentTax', '', $this->cart->cartPrices['shipmentTax'], FALSE) . "</span>"; ?> </td>
                         <?php } ?>                        
-                        <td align="right"><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
+                        <td><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
                     <?php } ?>
 
 
@@ -293,13 +290,13 @@ $this->cart = $cart;
                     if (!$this->cart->automaticSelectedPayment)
                     {
                         ?>
-                        <td colspan="5">
+                        <td colspan="5" class="col-left">
                             <?php
                             echo $this->cart->cartData['paymentName'] . '<br/>';
                             ?>
 
 
-                        <td align="right" ><?php echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?> </td>
+                        <td><?php echo $this->currencyDisplay->createPriceDiv('salesPricePayment', '', $this->cart->cartPrices['salesPricePayment'], FALSE); ?> </td>
                         </td>
 
 
@@ -307,7 +304,7 @@ $this->cart = $cart;
                     } else
                     {
                         ?>
-                        <td colspan="5">
+                        <td colspan="7" class="col-left">
                             
                             <?php echo $this->cart->cartData['paymentName']; ?>
                             <?php
@@ -327,7 +324,7 @@ $this->cart = $cart;
         <tbody>
             <tr class="sectiontableentry2">
                 <td colspan="5"><?php echo vmText::_('COM_VIRTUEMART_CART_TOTAL') ?>:</td>
-                <td>
+                <td colspan="2">
                     <strong style="text-align: right" class="PricesalesPrice"><span class="PricesalesPrice"><?php echo $this->currencyDisplay->createPriceDiv('billTotal', '', $this->cart->cartPrices['billTotal'], FALSE); ?></span></strong>
                 </td>
             </tr>
