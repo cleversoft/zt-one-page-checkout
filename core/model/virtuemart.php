@@ -22,7 +22,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
                 require(VMPATH_SITE . '/helpers/cart.php');
 
             VmConfig::loadConfig();
-            $this->cart = VirtueMartCart::getCart();
+            $this->cart = VirtueMartCart::getCart(true);
         }
 
         /**
@@ -102,25 +102,25 @@ if (!class_exists('ZtonepageModelVirtuemart'))
         public function updateAddress()
         {
 
-            $cart = VirtueMartCart::getCart();
+            $cart = VirtueMartCart::getCart(true);
             $this->_updateAddress($cart);
         }
 
         public function updateCoupon($coupon_code)
         {
-            $cart = VirtueMartCart::getCart();
+            $cart = VirtueMartCart::getCart(true);
             $cart->setCouponCode($coupon_code);
         }
 
         public function updateCart()
         {
-            $cart = VirtueMartCart::getCart();
+            $cart = VirtueMartCart::getCart(true);
             return $cart->updateProductCart();
         }
 
         public function updateShipment()
         {
-            $cart = VirtueMartCart::getCart();
+            $cart = VirtueMartCart::getCart(true);
             return $cart->setShipmentMethod(true);
         }
 
@@ -151,7 +151,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
                 if ($cartObj->_fromCart or $cartObj->getInCheckOut())
                 {
 
-                    $cart = VirtueMartCart::getCart();
+                    $cart = VirtueMartCart::getCart(true);
                     $prefix = '';
                     if ($data['address_type'] == 'STaddress' || $data['address_type'] == 'ST')
                     {
@@ -236,7 +236,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
 
                     if (!class_exists('VirtueMartCart'))
                         require(VMPATH_SITE . DS . 'helpers' . DS . 'cart.php');
-                    $cart = VirtueMartCart::getCart();
+                    $cart = VirtueMartCart::getCart(true);
                     if (!empty($cart->vendorId) and $cart->vendorId != 1)
                     {
                         $data['vendorId'] = $cart->vendorId;
@@ -300,7 +300,7 @@ if (!class_exists('ZtonepageModelVirtuemart'))
         public function confirm()
         {
 
-            $cart = VirtueMartCart::getCart();
+            $cart = VirtueMartCart::getCart(true);
             return $cart->confirmDone();
         }
 

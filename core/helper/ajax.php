@@ -149,7 +149,11 @@ if (!class_exists('ZtonepageHelperAjax'))
                 $html = $view->display();
                 $html = ob_get_contents();
                 ob_end_clean();
-
+                $session = JFactory::getSession();
+                $session->restart();
+                // Stronger forcing
+                VirtueMartCart::getCart(true)->emptyCart();
+                VirtueMartCart::getCart(true)->deleteCart();
                 $ajax->addHtml($html, '#zt-opc-plugin');
                 $ajax->addExecute('zt.onepagecheckout._rebind();');
             } else
@@ -187,7 +191,7 @@ if (!class_exists('ZtonepageHelperAjax'))
         public static function updateCart()
         {
             $ajax = ZtAjax::getInstance();
-            $cart = VirtueMartCart::getCart();
+            $cart = VirtueMartCart::getCart(true);
             $cart->_fromCart = true;
             $cart->_redirected = false;
 
@@ -281,7 +285,7 @@ if (!class_exists('ZtonepageHelperAjax'))
         public static function updateCheckout()
         {
             $ajax = ZtAjax::getInstance();
-            $cart = VirtueMartCart::getCart();
+            $cart = VirtueMartCart::getCart(true);
             $cart->_fromCart = true;
             $cart->_redirected = false;
             if (vRequest::get('cancel', 0))
