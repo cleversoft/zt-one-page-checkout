@@ -34,7 +34,7 @@ class PlgSystemOnePageCheckoutInstallerScript
             ->set("`enabled`='1'")
             ->where("`type`='plugin'")
             ->where("`folder`='system'")
-            ->where("`element`='zooframework'");
+            ->where("`element`='zt_onepage_checkout'");
         $db->setQuery($query);
         $db->execute();
         
