@@ -253,7 +253,7 @@ $this->cart = $cart;
                     } else
                     {
                         ?>
-                        <td colspan="5" class="col-left">
+                        <td colspan="4" class="col-left">
                             
                             <?php echo $this->cart->cartData['shipmentName']; ?>
                             <?php
@@ -268,9 +268,9 @@ $this->cart = $cart;
                         if (VmConfig::get('show_tax'))
                         {
                             ?>
-                            <td colspan="2"><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('shipmentTax', '', $this->cart->cartPrices['shipmentTax'], FALSE) . "</span>"; ?> </td>
+                            <td><?php echo "<span  class='priceColor2'>" . $this->currencyDisplay->createPriceDiv('shipmentTax', '', $this->cart->cartPrices['shipmentTax'], FALSE) . "</span>"; ?> </td>
                         <?php } ?>                        
-                        <td><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
+                        <td colspan="2"><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment', '', $this->cart->cartPrices['salesPriceShipment'], FALSE); ?> </td>
                     <?php } ?>
 
 
