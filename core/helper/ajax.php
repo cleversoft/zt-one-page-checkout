@@ -151,6 +151,9 @@ if (!class_exists('ZtonepageHelperAjax'))
                 ob_end_clean();
                 $session = JFactory::getSession();
                 $session->restart();
+                // Stronger forcing
+                VirtueMartCart::getCart()->emptyCart();
+                VirtueMartCart::getCart()->deleteCart();
                 $ajax->addHtml($html, '#zt-opc-plugin');
                 $ajax->addExecute('zt.onepagecheckout._rebind();');
             } else
