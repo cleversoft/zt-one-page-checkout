@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * ZT Onepage Checkout
+ * 
+ * @version     1.0.0
+ * @link        http://www.zootemplate.com
+ * @link        https://github.com/cleversoft/
+ * @author      ZooTemplate <http://zootemplate.com>
+ * @copyright   Copyright (c) 2015 CleverSoft (http://cleversoft.co/)
+ * @license     GPL v2
+ */
+
+defined('_JEXEC') or die();
 $class = 'zt-opc';
 ?>
 <div id="<?php echo $class; ?>-wrap" class="zt-opc-element">
