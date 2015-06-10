@@ -1,17 +1,16 @@
 <?php
 
 /**
- * ZT Onepage Checkout
- * 
+ * One Page Checkout For VirtueMart
+ *
  * @version     1.0.0
  * @link        http://www.zootemplate.com
- * @link        https://github.com/cleversoft/
- * @author      ZooTemplate <http://zootemplate.com>
+ * @author      ZooTemplate
  * @copyright   Copyright (c) 2015 CleverSoft (http://cleversoft.co/)
  * @license     GPL v2
  */
 
-defined('_JEXEC') or die();
+defined('_JEXEC') or die('Restricted access');
 
 if (!class_exists('ZtonepageHelperVirtuemart'))
 {
