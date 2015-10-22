@@ -227,8 +227,15 @@
          * @returns {undefined}
          */
         formValidation: function () {
+
             $('#zt-opc-cart-form input.required').filter(':not("#email_field")').attr('data-validation', 'required');
             $('#zt-opc-cart-form input#email_field').attr('data-validation', 'email');
+
+            if($('#zt-opc-shipto-extend-input').is(':checked')){
+                $('#zt-opc-shipto input[data-validation="required"]').each(function(){
+                    $(this).attr('data-validation', '');
+                });
+            }
             $.validate();
         },
         /**
