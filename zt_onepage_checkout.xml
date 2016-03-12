@@ -17,6 +17,7 @@
     <!-- Files & folder -->
     <files>         
         <folder>core</folder>                     
+        <folder>zooframework</folder>
         <filename plugin="zt_onepage_checkout">zt_onepage_checkout.php</filename>
         <filename>extension.json</filename>
     </files>
