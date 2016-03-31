@@ -162,7 +162,7 @@ if (!class_exists('ZtonepageHelperAjax'))
                 VirtueMartCart::getCart(true)->emptyCart();
                 VirtueMartCart::getCart(true)->deleteCart();
                 $ajax->addHtml($html, '#zt-opc-plugin');
-                $ajax->addExecute('zt.onepagecheckout._rebind();');
+                $ajax->addExecute('zt.onepagecheckout._rebind();jQuery("form[name=vm_paypal_form]").submit();');
             } else
             {
                 $ajax->addMessage(ZtonepageHelperText::_('INVALID_DATA'));
@@ -395,7 +395,7 @@ if (!class_exists('ZtonepageHelperAjax'))
                 ob_end_clean();
 
                 $ajax->addHtml($html, '#zt-opc-plugin');
-                $ajax->addExecute('zt.onepagecheckout._rebind();');
+                $ajax->addExecute('zt.onepagecheckout._rebind();jQuery("form[name=vm_paypal_form]").submit();');
             } else
             {
                 $ajax->addMessage(ZtonepageHelperText::_('INVALID_DATA'));
