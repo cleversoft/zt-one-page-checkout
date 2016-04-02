@@ -2,12 +2,12 @@
 <extension version="3.0" type="plugin" group="system" method="upgrade">
     <name>PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT</name>
     <author>ZooTemplate.Com</author>
-    <creationDate>Jun 08, 2015</creationDate>
-    <copyright>Copyright (c) 2008 - 2015 ZooTemplate</copyright>
+    <creationDate>Apr 02, 2015</creationDate>
+    <copyright>Copyright (c) 2008 - 2016 ZooTemplate</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GPLv2 or later</license>
     <authorEmail>joomla.cleversoft@gmail.com</authorEmail>
     <authorUrl>http://www.zootemplate.com</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <description>PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_XML_DESCRIPTION</description>
     <!-- Languages -->
     <languages folder="language">
