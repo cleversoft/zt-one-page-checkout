@@ -19,6 +19,7 @@ if (!class_exists('ZtExtension')) {
 
     // Force hard code require for base object class
     require_once __DIR__ . '/object/extension.php';
+    require_once __DIR__ . '/assets.php';
 
     /**
      * Extension object

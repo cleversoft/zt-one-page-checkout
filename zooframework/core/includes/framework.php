@@ -39,7 +39,7 @@ if (!class_exists('ZtFramework'))
             if (!isset($extensions[$namespace]) || $flush)
             {
                 // Force file include for ZtExtension
-                require_once realpath('../extension.php');
+                require_once realpath(__DIR__ . '/../') . '/extension.php';
                 $className = $namespace . 'Extension';
                 $extensions[$namespace] = new $className(ZtExtensions::getInstance()->get($namespace));
             }
