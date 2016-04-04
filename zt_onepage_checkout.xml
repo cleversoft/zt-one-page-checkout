@@ -7,7 +7,7 @@
     <license>http://www.gnu.org/licenses/gpl-2.0.html GPLv2 or later</license>
     <authorEmail>joomla.cleversoft@gmail.com</authorEmail>
     <authorUrl>http://www.zootemplate.com</authorUrl>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>PLG_SYSTEM_ZT_ONEPAGE_CHECKOUT_XML_DESCRIPTION</description>
     <!-- Languages -->
     <languages folder="language">
