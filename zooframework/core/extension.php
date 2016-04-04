@@ -17,13 +17,18 @@ defined('_JEXEC') or die('Restricted access');
  */
 if (!class_exists('ZtExtension')) {
 
+    // Force hard code require for base object class
+    require_once __DIR__ . '/object/extension.php';
+
     /**
      * Extension object
      * Extension information that will be used by Framework
      */
-    class ZtExtension extends ZtObjectExtension {
+    class ZtExtension extends ZtObjectExtension
+    {
 
-        public function init() {
+        public function init()
+        {
             static $inited = false;
             if ($inited == false) {
                 /* Import Zt Assets */
@@ -34,7 +39,7 @@ if (!class_exists('ZtExtension')) {
                     'Zt://assets/js/zt.ajax.js',
                     'Zt://assets/js/zt.joomla.js',
                     'Zt://assets/vendor/form-validator/theme-default.css',
-                    'Zt://assets/vendor/form-validator/jquery.form-validator.js'                    
+                    'Zt://assets/vendor/form-validator/jquery.form-validator.js'
                 ));
                 parent::init();
                 $inited = true;
