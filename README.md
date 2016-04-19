@@ -32,4 +32,6 @@
 
 ## Version 2.0.0 Release Apr 19, 2016
 
-* zooframework goes into joomla libraries .
+* Zooframework goes into joomla libraries .
+* Fixed OPC cant checkout.
+* Fixed installing error.
