@@ -27,3 +27,9 @@
 * Fully Bot Protected Ajax System
 * Override layout files using your Joomla Template
 * Override CSS and JavaScript files using your Joomla Template
+
+## Change Logs
+
+## Version 2.0.0 Release Apr 19, 2016
+
+* zooframework goes into joomla libraries .

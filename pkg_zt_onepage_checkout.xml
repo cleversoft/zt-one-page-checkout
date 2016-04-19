@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" version="3.0" method="upgrade">
+    <name>Zt Onepage Checkout Package</name>
+    <packagename>Onepage Checkout</packagename>
+    <creationDate>Apr 19, 2016</creationDate>
+    <author>Zootemplate.com</author>
+    <authorEmail>support@zootemplate.com</authorEmail>
+    <authorUrl>http://www.zootemplate.com/</authorUrl>
+    <copyright>Copyright (c) 2008 - 2016 ZooTemplate.com</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GPLv2 or later</license>
+    <version>2.0.0</version>
+    <description>Description of Zt One Page Check Out Package</description>
+    <scriptfile>install.php</scriptfile>
+    <files folder="packages">
+        <folder type="plugin" id="zt_onepage_checkout" group="system">plg_zt_onepage_checkout.zip</folder>
+        <folder type="library" id="zooframework">zooframework.zip</folder>
+    </files>
+</extension>
