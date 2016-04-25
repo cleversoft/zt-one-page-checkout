@@ -30,8 +30,7 @@
 
 ## Change Logs
 
-## Version 2.0.0 Release Apr 19, 2016
+## Version 2.0.0 Release Apr 25, 2016
 
-* Zooframework goes into joomla libraries .
-* Fixed OPC cant checkout.
-* Fixed installing error.
+* Remove Zooframework.
+* Change plugin struture and clear unused files.

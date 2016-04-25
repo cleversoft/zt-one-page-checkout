@@ -8,7 +8,7 @@
  */
 defined('_JEXEC') or die();
 
-class pkg_OnepageCheckoutInstallerScript {
+class plg_system_zt_onepage_checkoutInstallerScript {
     public function postflight($route, JAdapterInstance $adapter)
     {
         $db    = JFactory::getDBO();

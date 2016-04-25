@@ -1,9 +1,0 @@
-{
-    "name": "Zoo Framework",
-    "extension": {
-        "type": "libraries",
-        "name": "zooframework"
-    },
-    "namespace": "Zt",
-    "admin": 0
-}
