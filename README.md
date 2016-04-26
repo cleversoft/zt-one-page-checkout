@@ -30,7 +30,22 @@
 
 ## Change Logs
 
-## Version 2.0.0 Release Apr 25, 2016
+### Version 2.0.0 Release Apr 25, 2016
 
-* Remove Zooframework.
-* Change plugin struture and clear unused files.
+* Remove Zooframework
+* Change plugin struture and clear unused files
+* Fixed OPC cant checkout
+* Fixed installing error
+
+### Version 1.0.2 release Mar 31, 2016
+
+* Move ZooFramework into inside OPC
+* Fix issue that didn't redirect to Paypal when checkout
+
+### Version 1.0.1 release Nov 02, 2015 
+
+* Fixes the error that checkout form didn't submit
+
+### Version 1.0.0 release Jun 08, 2015 
+
+* Initial release
