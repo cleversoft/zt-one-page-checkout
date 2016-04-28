@@ -32,7 +32,7 @@
 
 ## Version 2.0.1 Release Apr 28, 2016
 
-* Fixed issue if user enters wrong credential.
+* Fixed ajax loading issue if user enters wrong credential.
 
 ## Version 2.0.0 Release Apr 25, 2016
 
