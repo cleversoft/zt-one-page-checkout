@@ -132,11 +132,24 @@
          * @returns {undefined}
          */
         display: function () {
-            this.ajax.request({
-                data: {
-                    zt_task: 'display'
-                }
-            });
+            var _data = {};
+            if(this._settings.message) {
+                _data.message = this._settings.message;
+            }
+            if (this._settings.error) _data.error = this._settings.error;
+            if ($(_data).length > 0) {
+                _data.zt_task =  'display';
+                this.ajax.request({
+                    data: _data
+                });
+            } else {
+                this.ajax.request({
+                    data: {
+                        zt_task: 'display'
+                    }
+                });
+            }
+
         },
         /**
          * Request Joomla user register

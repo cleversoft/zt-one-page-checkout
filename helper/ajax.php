@@ -38,10 +38,11 @@ if (!class_exists('ZtonepageHelperAjax'))
             {
                 // Login success than we need reload this html
                 $ajax->addExecute('zt.joomla.updateToken("' . JSession::getFormToken() . '")');
-                $ajax->addExecute('zt.onepagecheckout.display();');
+                $ajax->addExecute('zt.onepagecheckout._settings.message="Login successful !";zt.onepagecheckout._settings.error=false;zt.onepagecheckout.display();');
             } else
             {
                 $ajax->addMessage('Wrong username / password');
+                $ajax->addExecute('zt.onepagecheckout._settings.message="Wrong username / password !!";zt.onepagecheckout._settings.error=true;zt.onepagecheckout.display();');
             }
             $ajax->response();
         }
@@ -529,7 +530,12 @@ if (!class_exists('ZtonepageHelperAjax'))
             exit();
         }
 
-
+        /*
+         * return response withou json
+         */
+        public function responseMessage(){
+            return $this->_responses;
+        }
     }
 
 }

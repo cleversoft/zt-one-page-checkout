@@ -22,6 +22,26 @@ $class = 'zt-opc';
         <span class="zt-opc-page-title"><?php echo ZtonepageHelperText::_('SHOPPING_CART'); ?></span>
         <a href="javascript:window.history.back();" class="continue-shoping"><?php echo ZtonepageHelperText::_ ('CONTINUE_SHOPPING'); ?></a>
     </p>
+    <?php
+    if (JFactory::getApplication()->input->getString('message','') != '') {
+        ?>
+        <?php
+            $ajax = ZtonepageHelperAjax::getInstance();
+            $ajax->addMessage(JFactory::getApplication()->input->getString('message'));
+            $message = $ajax->responseMessage();
+            echo $message[0]->data->message;
+        ?>
+        <?php
+    }
+    if (JFactory::getApplication()->input->getString('error','false') == 'true') {
+        ?>
+        <script>
+            jQuery('form#zt-opc-login').slideDown();
+        </script>
+        <?php
+    }
+    ?>
+
     <div class="row">
         <?php if (JFactory::getUser()->guest) : ?>
             <div class="col-md-12">

@@ -134,6 +134,7 @@ if (!class_exists('plgSystemZt_onepage_checkout'))
             require_once __DIR__ . '/assets/assets.php';
             require_once __DIR__ . '/includes/extensions.php';
             require_once __DIR__ . '/includes/framework.php';
+            require_once __DIR__ . '/includes/html.php';
 
             if (JFactory::getApplication()->input->get('zt_debug') == 1) {
                 ZtonepageFramework::restart();
