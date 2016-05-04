@@ -62,7 +62,7 @@
                                 eval(item.data.toString());
                                 break;
                             case 'message':
-                                z.ui.raiseMessage(item.data.message);
+                                // z.ui.raiseMessage(item.data.message);
                                 break;
                             default:
                                 break;

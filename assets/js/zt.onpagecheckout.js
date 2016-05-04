@@ -142,6 +142,7 @@
                 this.ajax.request({
                     data: _data
                 });
+                this._settings = {};
             } else {
                 this.ajax.request({
                     data: {

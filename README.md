@@ -30,6 +30,10 @@
 
 ## Change Logs
 
+## Version 2.0.2 Release May 04, 2016
+
+* Remove overlay messages
+
 ## Version 2.0.1 Release Apr 28, 2016
 
 * Fixed ajax loading issue if user enters wrong credential.
