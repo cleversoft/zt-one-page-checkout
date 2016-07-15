@@ -30,6 +30,10 @@
 
 ## Change Logs
 
+## Version 2.0.3 Release July 15, 2016
+
+* Remove overlay messages
+
 ## Version 2.0.2 Release May 04, 2016
 
 * Remove overlay messages

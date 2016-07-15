@@ -45,7 +45,7 @@ $class = 'zt-opc-purchase';
 
                             <div id="full-tos">
                                     <h2><?php echo vmText::_ ('COM_VIRTUEMART_CART_TOS') ?></h2>
-                                    <?php echo $cart->vendor->vendor_terms_of_service ?>
+                                    <?php echo $this->cart->vendor->vendor_terms_of_service ?>
                                     </div>
                     </div>
                 </label>
